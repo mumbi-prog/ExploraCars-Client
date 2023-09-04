@@ -10,10 +10,11 @@ import {AiFillCar} from "react-icons/ai"
 import Link from "next/link"
 
 
-const loginApi = "/login";
+const loginApi = "http://127.0.0.1:3000/login";
 
 export default function useLogin() {
   const [showPassword, setShowPassword] = useState(false);
+  const [errors, setErrors] = useState(null);
   const [loginData, setLoginData] = useState({
     email: '',
     password: '',
@@ -34,29 +35,26 @@ export default function useLogin() {
       const response = await axiosInstance.post(loginApi, loginData);
       const data = response.data;
       if (data.errors) {
-        Swal.fire({
-          icon: 'error',
-          title: 'Login Failed!',
-          text: data.errors,
-          showCloseButton: true,
-          showCancelButton: true,
-        });
+        setErrors(data.errors)
       } else {
+        if (typeof window !== 'undefined') {
+          sessionStorage.setItem('user', JSON.stringify(data));
+        }
         navigate.replace('/');
         Swal.fire({
           icon: 'success',
-          text: data.message,
+          text: "Logged in successfully",
           showCloseButton: true,
           confirmButtonColor: "#0F73BD",
+          timer: 3000
         });
       }
     } catch (error) {
-      console.error('Error during login:', error);
-      Swal.fire({
-        icon: 'error',
-        text: error.response.data.errors,
-        showCloseButton: true,
-      });
+      if (error.response && error.response.data && error.response.data.errors) {
+        setErrors(error.response.data.errors)
+      } else {
+        setErrors("Too many attempts, try again later")
+      }
     }
   }
   return (
@@ -113,10 +111,12 @@ export default function useLogin() {
             <SlLogin /> Login
           </button>
         </form>
+        <div className={errors?"bg-red-400 mt-3 p-2 rounded-sm":"hidden"}>
+          {errors? errors: ""}</div>
         <br></br>
         <div className="shadow-lg border-t-2 p-2 border-t-slate-500">
           <p className="text-center text-xl font-bold">Or</p>
-          <Link href="/register" className="login__link">
+          <Link href="/signup" className="login__link">
             <p className="mx-auto text-center">Register Here</p>
           </Link>
         </div>
