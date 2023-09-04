@@ -1,9 +1,9 @@
-// import React from 'react'
+import React from 'react'
 
 
 export default function page() {
   return (
-    <div className="text-2xl font-bold" >This is the login page</div>
+    <div className="text-3xl font-bold text-center" >This is the login page</div>
   )
 }
 
