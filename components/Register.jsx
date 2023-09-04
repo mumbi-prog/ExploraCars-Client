@@ -63,7 +63,6 @@ export default function Register() {
               name="age"
               value={formData.age}
               onChange={handleChange}
-              pattern="^(?!.*@).*"
               placeholder="Enter your age"
               className="input-field  focus:bg-blue-600"
               title="Age must be between 18 and 65 years."
@@ -79,10 +78,10 @@ export default function Register() {
               name="mobile_number"
               value={formData.mobile_number}
               onChange={handleChange}
-              pattern="^(?!.*@).*"
+              pattern="^254\d{10}$"
               placeholder="Enter your phone number"
               className="input-field  focus:bg-blue-600"
-              title="valid mobile numbers must begin with 254"
+              title="valid mobile numbers must begin with 254 and have 12 digits"
               required
             />
              <FaPhone id="email-icon" />

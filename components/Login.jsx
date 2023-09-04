@@ -113,7 +113,7 @@ export default function useLogin() {
         <br></br>
         <div className="shadow-lg border-t-2 p-2 border-t-slate-500">
           <p className="text-center text-xl font-bold">Or</p>
-          <Link href="/register" className="login__link">
+          <Link href="/signup" className="login__link">
             <p className="mx-auto text-center">Register Here</p>
           </Link>
         </div>
