@@ -1,17 +1,21 @@
 'use client'
 import Link from "next/link";
 import { useState } from "react";
-import { FaLock, FaUserAlt, FaEdit } from "react-icons/fa";
+import { FaLock, FaUserAlt, FaEdit, FaPhone } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { useRouter } from "next/navigation";
 import { registerUser } from "@/lib";
+import {AiFillCar} from "react-icons/ai"
 
-export default function useRegister() {
+
+export default function Register() {
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
-    username: "",
+    full_name: "",
     email: "",
     password: "",
+    age:0,
+    mobile_number: 0,
   });
   const navigate = useRouter();
   const handleChange = (event) => {
@@ -29,31 +33,59 @@ export default function useRegister() {
   return (
     <div className="">
       <div className="">
-        <h1 className="text-2xl m-5 text-center md:text-left md:text-3xl font-bold lg:text-4xl cursor-pointer">
-          Tech Tales{" "}
-          <span className="text-red-600 text-2xl md:text-5xl">.</span>
+      <h1 className="text-2xl m-5 text-center md:text-left md:text-3xl font-bold lg:text-4xl cursor-pointer flex items-center">
+        <AiFillCar/>Explora
         </h1>
       </div>
       <div className="login-page">
-        <h1 className="text-xl md:text-2xl font-bold text-center">
-          Welcome on Board
-        </h1>
         <form className="p4 m3" onSubmit={handleSubmit}>
           <div className="relative">
-            <label htmlFor="username">Username: </label>
+            <label htmlFor="fullname">FullNames: </label>
             <br></br>
             <input
               type="text"
-              name="username"
-              value={formData.username}
+              name="full_name"
+              value={formData.full_name}
               onChange={handleChange}
               pattern="^(?!.*@).*"
-              placeholder="Enter your username"
+              placeholder="Enter your full names"
               className="input-field  focus:bg-blue-600"
-              title="Email addresses are not allowed as usernames."
+              title="Email addresses are not allowed as names."
               required
             />
             <FaUserAlt id="email-icon" />
+          </div>
+          <div className="relative">
+            <label htmlFor="age">Age: </label>
+            <br></br>
+            <input
+              type="number"
+              name="age"
+              value={formData.age}
+              onChange={handleChange}
+              pattern="^(?!.*@).*"
+              placeholder="Enter your age"
+              className="input-field  focus:bg-blue-600"
+              title="Age must be between 18 and 65 years."
+              required
+            />
+             <FaUserAlt id="email-icon" />
+          </div>
+          <div className="relative">
+            <label htmlFor="mobile_number">Mobile Number: </label>
+            <br></br>
+            <input
+              type="number"
+              name="mobile_number"
+              value={formData.mobile_number}
+              onChange={handleChange}
+              pattern="^(?!.*@).*"
+              placeholder="Enter your phone number"
+              className="input-field  focus:bg-blue-600"
+              title="valid mobile numbers must begin with 254"
+              required
+            />
+             <FaPhone id="email-icon" />
           </div>
           <div className="relative">
             <label htmlFor="email">Email: </label>
@@ -63,7 +95,7 @@ export default function useRegister() {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              placeholder="Enter your email"
+              placeholder="Enter your email address"
               className="input-field  focus:bg-blue-600"
               required
             />
