@@ -14,6 +14,7 @@ const loginApi = "http://127.0.0.1:3000/login";
 
 export default function useLogin() {
   const [showPassword, setShowPassword] = useState(false);
+  const [errors, setErrors] = useState(null);
   const [loginData, setLoginData] = useState({
     email: '',
     password: '',
@@ -34,13 +35,7 @@ export default function useLogin() {
       const response = await axiosInstance.post(loginApi, loginData);
       const data = response.data;
       if (data.errors) {
-        Swal.fire({
-          icon: 'error',
-          title: 'Login Failed!',
-          text: data.errors,
-          showCloseButton: true,
-          showCancelButton: true,
-        });
+        setErrors(data.errors)
       } else {
         navigate.replace('/');
         Swal.fire({
@@ -48,29 +43,14 @@ export default function useLogin() {
           text: data.message,
           showCloseButton: true,
           confirmButtonColor: "#0F73BD",
+          timer: 3000
         });
       }
     } catch (error) {
-      // console.error('Error during login:', error);
-      //   Swal.fire({
-      //     icon: 'error',
-      //     text: error?.response.data? error.response.data.errors: "Too many attempts, try again later",
-      //     showCloseButton: true,
-      //   });
       if (error.response && error.response.data && error.response.data.errors) {
-        // Use the error response data if available
-        Swal.fire({
-          icon: 'error',
-          text: error.response.data.errors,
-          showCloseButton: true,
-        });
+        setErrors(error.response.data.errors)
       } else {
-        // If the expected structure is not found, display a generic message
-        Swal.fire({
-          icon: 'error',
-          text: 'Too many attempts, try again later',
-          showCloseButton: true,
-        });
+        setErrors("Too many attempts, try again later")
       }
     }
   }
@@ -128,6 +108,8 @@ export default function useLogin() {
             <SlLogin /> Login
           </button>
         </form>
+        <div className={errors?"bg-red-400 mt-3 p-2 rounded-sm":"hidden"}>
+          {errors? errors: ""}</div>
         <br></br>
         <div className="shadow-lg border-t-2 p-2 border-t-slate-500">
           <p className="text-center text-xl font-bold">Or</p>
