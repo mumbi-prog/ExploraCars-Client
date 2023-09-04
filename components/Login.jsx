@@ -10,7 +10,7 @@ import {AiFillCar} from "react-icons/ai"
 import Link from "next/link"
 
 
-const loginApi = "/login";
+const loginApi = "http://127.0.0.1:3000/login";
 
 export default function useLogin() {
   const [showPassword, setShowPassword] = useState(false);
@@ -51,12 +51,27 @@ export default function useLogin() {
         });
       }
     } catch (error) {
-      console.error('Error during login:', error);
-      Swal.fire({
-        icon: 'error',
-        text: error.response.data.errors,
-        showCloseButton: true,
-      });
+      // console.error('Error during login:', error);
+      //   Swal.fire({
+      //     icon: 'error',
+      //     text: error?.response.data? error.response.data.errors: "Too many attempts, try again later",
+      //     showCloseButton: true,
+      //   });
+      if (error.response && error.response.data && error.response.data.errors) {
+        // Use the error response data if available
+        Swal.fire({
+          icon: 'error',
+          text: error.response.data.errors,
+          showCloseButton: true,
+        });
+      } else {
+        // If the expected structure is not found, display a generic message
+        Swal.fire({
+          icon: 'error',
+          text: 'Too many attempts, try again later',
+          showCloseButton: true,
+        });
+      }
     }
   }
   return (
