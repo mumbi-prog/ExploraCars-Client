@@ -34,7 +34,6 @@ export default function useLogin() {
       const response = await axiosInstance.post(loginApi, loginData);
       const data = response.data;
       if (data.errors) {
-        // If the response contains an error message, edit this to display the actual error message
         Swal.fire({
           icon: 'error',
           title: 'Login Failed!',
@@ -43,17 +42,10 @@ export default function useLogin() {
           showCancelButton: true,
         });
       } else {
-        // If the response contains user data (login successful)
-        const foundUser = data;
-        console.log(foundUser);
-        if (typeof window !== 'undefined') {
-          localStorage.setItem('loggedInUser', JSON.stringify(foundUser));
-        }
         navigate.replace('/');
         Swal.fire({
           icon: 'success',
-          title: 'Login Successful!',
-          text: 'You will be redirected to the homepage in a few seconds.',
+          text: data.message,
           showCloseButton: true,
           confirmButtonColor: "#0F73BD",
         });
