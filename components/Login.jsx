@@ -62,8 +62,7 @@ export default function useLogin() {
       console.error('Error during login:', error);
       Swal.fire({
         icon: 'error',
-        title: 'Login Failed!',
-        text: 'Invalid email or password. Kindly recheck and try again',
+        text: error.response.data.errors,
         showCloseButton: true,
       });
     }
