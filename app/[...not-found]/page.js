@@ -9,7 +9,7 @@ export default function notFound() {
     <main className="h-screen m-5">
       <Link href="/home">
         <h1 className="text-xl text-center md:text-3xl font-bold lg:text-4xl m-auto cursor-pointer flex items-center">
-       <AiFillCar/>Explora
+       <AiFillCar className="stroke-red-600"/>Explora
         </h1>
       </Link>
       <div className="m-5 flex items-center justify-center bg-black-600 text-white">

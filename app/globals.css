@@ -25,3 +25,28 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+.login-page {
+  @apply w-full md:w-3/4 lg:w-1/2 max-w-lg lg:m-auto min-w-min mx-auto border border-blue-500 dark:border-white rounded-lg md:p-16 p-10 text-xl shadow-md;
+}
+
+.input-field {
+  @apply mb-3 bg-transparent p-2 w-full border-b-2 border-blue-500 text-white outline-none pl-8
+}
+
+label {
+  @apply font-bold;
+}
+
+.login__link {
+ @apply underline text-blue-500 cursor-pointer hover:text-green-800 font-bold
+}
+.login-button{
+  @apply  rounded-full w-full py-2 mt-2 font-bold px-8 shadow-md border border-blue-500 hover:bg-blue-500 flex items-center justify-center gap-1
+}
+#email-icon,
+#password-icon{
+    @apply absolute bottom-6 left-0 mt-5
+}
+#reset-icon{
+  @apply absolute bottom-10 left-0 mb-4
+}
