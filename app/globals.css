@@ -55,7 +55,7 @@ label {
 .car-list{
   justify-content: center; 
   align-items: center;
-  background-color: #e7eef3;
+  background-color: #ffffff;
 }
 
 .car-list h1{
@@ -65,42 +65,68 @@ label {
   text-align: center;
 }
 
-.card-grid-container {
+.card-grid-container{
   display: grid;
-  grid-template-columns: repeat(4, 1fr); 
-  gap: 20px; 
-  padding: 20px 30px 25px 60px;
+  grid-template-columns: repeat(4, 280px); 
+  gap: 30px; 
+  padding-top: 20px;
+  align-items: center;
+  justify-content: center;
 }
 
 .car-card{
-  border-radius: 5px;
+  border-radius: 21px;
   background: #f8f8fa;
-  box-shadow:  10px 10px 20px #f8f8fa,
-             -10px -10px 20px #f8f8fa;
   display: flex;
-  flex-direction: column; 
-  align-items: center;
-  justify-content: center;            
+  flex-direction: column;
+  padding: 20px;
 }
 
-.car-card img{
-  width: 230px;
-  height: 150px;
+.car-card img {
+  width: 260px;
+  height: 180px;
 }
-
 
 .make-and-bd-type h2{
   font-weight: bolder;
+  text-align: left;
 }
 
-.car-details {
+.price-holder{
+  text-align: left;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.superscript{
+  vertical-align: super;
+  color: #7a7b81;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.price{
+  color: black;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.subscript{
+  vertical-align: sub;
+  color: #7a7b81;
+  font-size: 12px;
+}
+
+
+.car-details{
   display: grid;
   grid-template-columns: repeat(3, 1fr); 
   gap: 25px;
   padding-top: 13px;
+  color: gray;
 }
 
-.icon-and-detail {
+.icon-and-detail{
   display: flex;
   flex-direction: column; 
   align-items: center; 
@@ -108,14 +134,14 @@ label {
 }
 
 .icon-and-detail p{
-  font-size: 13px;
-  font-style: italic;
+  font-size: 10px;
+  font-weight: 500;
   padding-top: 5px;
-  color: #020321;
+  color: #7a7b81;
 }
 
 .icon {
   font-size: 18px; 
-  color: #020321;
+  color: #7a7b81;
 }
 /* CAR GRID CONTAINER STYLING ENDS */

@@ -34,9 +34,9 @@ const CarList = ({ cars }) => {
             <div className='make-and-bd-type'>
               <h2>{car.make}</h2>
             </div>
-            <p className='price'>
+            <p className='price-holder'>
               <span className='superscript'>Ksh.</span>
-              {car.price_per_day}
+              <span className='price'>{car.price_per_day}</span>
               <span className='subscript'>/day</span>
             </p>
             <img src={car.image_url} alt={car.make} />
@@ -48,7 +48,7 @@ const CarList = ({ cars }) => {
             </div>
             <div className="icon-and-detail">
               <MdAirlineSeatReclineNormal className="icon" />
-              <p>{car.no_of_seats}</p>
+              <p>{car.no_of_seats} seats</p>
             </div>
             <div className="icon-and-detail">
               <BsFuelPumpFill className="icon" />
