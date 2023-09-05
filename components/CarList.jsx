@@ -1,4 +1,7 @@
 import React from 'react';
+import { GiSteeringWheel } from 'react-icons/gi';
+import { MdAirlineSeatReclineNormal } from 'react-icons/md';
+import { BsFuelPumpFill } from 'react-icons/bs';
 
 const CarList = ({ cars }) => {
   return (
@@ -8,12 +11,24 @@ const CarList = ({ cars }) => {
         {cars.map((car) => (
           <div key={car.id} className="car-card">
             <div className='make-and-bd-type'>
-              <h2>{car.make} |</h2>
-              <p> {car.body_type}</p>
+              <h2>{car.make}</h2>
             </div>
+            <p className='price'>Ksh.{car.price_per_day}/day</p>
             <img src={car.image_url} alt={car.make} />
-            <p className='make-year'>Year: {car.year}</p>
-            <p className='price'>Price per Day: Ksh.{car.price_per_day}</p>
+            <div className="car-details">
+              <div className="icon-and-detail">
+                <GiSteeringWheel className="icon" />
+                <p>{car.transmission}</p>
+              </div>
+              <div className="icon-and-detail">
+                <MdAirlineSeatReclineNormal className="icon" />
+                <p>{car.no_of_seats}</p>
+              </div>
+              <div className="icon-and-detail">
+                <BsFuelPumpFill className="icon" />
+                <p>{car.fuel_type}</p>
+              </div>
+            </div>
           </div>
         ))}
       </div>

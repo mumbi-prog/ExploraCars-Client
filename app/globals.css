@@ -73,20 +73,33 @@ label {
 }
 
 .car-card{
-
+  border-radius: 5px;
+  background: #ebebeb;
+  box-shadow:  12px 12px 24px #d6d6d6,
+             -12px -12px 24px #ffffff;
   display: flex;
-  flex-direction: column; /* Stack content vertically */
-  align-items: center; /* Center content horizontally */
-  justify-content: center; /* Center content vertically */            
+  flex-direction: column; 
+  align-items: center;
+  justify-content: center;            
 }
 
 .car-card img{
-  width: fit-content;
+  width: 230px;
   height: 150px;
 }
 
 .make-and-bd-type {
   display: flex;
   align-items: center;
+}
+
+.make-and-bd-type h2{
+  font-weight: bolder;
+}
+
+.make-and-bd-type p{
+  font-weight: lighter;
+  font-style: italic;
+  margin-left: auto;
 }
 /* CAR GRID CONTAINER STYLING ENDS */
