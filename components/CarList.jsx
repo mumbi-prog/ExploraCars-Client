@@ -1,8 +1,9 @@
-"use client"
-import React from 'react'
+import React from 'react';
 
-export default function carlist() {
+const CarList = ({ cars }) => {
   return (
-    <div>car list</div>
-  )
+    
+  );
 }
+
+export default CarList;
