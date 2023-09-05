@@ -56,7 +56,6 @@ label {
   justify-content: center; 
   align-items: center;
   background-color: #e7eef3;
-  padding: 20px 30px 25px 60px;
 }
 
 .car-list h1{
@@ -70,13 +69,14 @@ label {
   display: grid;
   grid-template-columns: repeat(4, 1fr); 
   gap: 20px; 
+  padding: 20px 30px 25px 60px;
 }
 
 .car-card{
   border-radius: 5px;
-  background: #ebebeb;
-  box-shadow:  12px 12px 24px #d6d6d6,
-             -12px -12px 24px #ffffff;
+  background: #f8f8fa;
+  box-shadow:  10px 10px 20px #f8f8fa,
+             -10px -10px 20px #f8f8fa;
   display: flex;
   flex-direction: column; 
   align-items: center;
