@@ -50,3 +50,15 @@ label {
 #reset-icon{
   @apply absolute bottom-10 left-0 mb-4
 }
+.menu-item{
+  @apply px-3 py-2 font-bold hover:text-blue-600
+}
+/* .navigation{
+  @apply md:text-xl font-bold cursor-pointer hover:bg-slate-300 hover:rounded-lg p-2 px-4 md:gap-5
+} */
+.btn-primary{
+  @apply  p-2 px-4 shadow-md m-3 
+}
+.menu{
+ @apply flex flex-col h-screen w-2/3 space-y-6 md:mt-5 dark:bg-gray-700 shadow-lg xsm:w-full bg-slate-100 py-4 rounded-lg md:w-60 z-50 absolute left-0 top-1
+}
