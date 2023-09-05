@@ -50,3 +50,7 @@ label {
 #reset-icon{
   @apply absolute bottom-10 left-0 mb-4
 }
+.highlight{
+  font-weight: 1000;
+  background-color: red;
+}
