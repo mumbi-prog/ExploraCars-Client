@@ -5,6 +5,19 @@ import 'react-calendar/dist/Calendar.css'
 function booking() {
     const [tgl,setTgl] = useState(new Date())
     const [dates,setDates] = useState([])
+    const [formData,setFormData]=useState({
+        startDate:'',
+        endDate:''
+    })
+    function handleChange(e){
+        setFormData(()=>({...formData,
+          [e.target.name]:e.target.value  
+        }))
+    }
+    function handleDatesSubmit(e){
+        e.preventDefault()
+        console.log(formData)
+    }
     useEffect(() => {
             
             fetch('http://localhost:3000/bookings')
@@ -34,7 +47,18 @@ function booking() {
             return isHighlighted ? 'highlight' : ''; // Apply 'highlight' class if the date is in a range
           }}
         />
-
+        <form className='mt-5 p-5 rounded-xl border-solid' onSubmit={handleDatesSubmit}>
+  <h2 className="mb-4">Choose the Dates you wish to hire</h2>
+  <div className="mb-4">
+    <label htmlFor='start-date' className="block">Start date</label>
+    <input className='block w-full' name='startDate' type='date' onChange={handleChange} value={formData.startDate}></input>
+  </div>
+  <div className="mb-4">
+    <label htmlFor="end_date" className="block">End date</label>
+    <input className='block w-full' name='endDate' type='date' onChange={handleChange} value={formData.endDate}></input>
+    <button type='submit' className='p-2 mt-2 bg-red-800 rounded'>submit</button>
+  </div>
+</form>
       </div>
       
   )
