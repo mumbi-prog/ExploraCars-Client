@@ -52,15 +52,37 @@ label {
 }
 
 /* CAR GRID CONTAINER STYLING BEGINS */
+.car-list{
+  justify-content: center; 
+  align-items: center;
+  background-color: #e7eef3;
+  padding: 20px 30px 25px 60px;
+}
+
+.car-list h1{
+  font-size: 40px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: bolder;
+  text-align: center;
+}
+
 .card-grid-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr); 
   gap: 20px; 
 }
 
+.car-card{
+
+  display: flex;
+  flex-direction: column; /* Stack content vertically */
+  align-items: center; /* Center content horizontally */
+  justify-content: center; /* Center content vertically */            
+}
+
 .car-card img{
-  width: 100px;
-  height: auto;
+  width: fit-content;
+  height: 150px;
 }
 
 .make-and-bd-type {
