@@ -1,5 +1,6 @@
 "use client"
 import React, { useEffect, useState } from 'react';
+import { CarList } from '@/components';
 
 function Page() {
   const [cars, setCars] = useState([]);
@@ -12,7 +13,9 @@ function Page() {
   }, []);
 
   return (
-  
+    <>
+      <CarList cars={cars} />
+    </>
   );
 }
 
