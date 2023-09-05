@@ -1,7 +1,69 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+/* ====== landing page google fonts ====== */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;1,100&family=Source+Sans+3:wght@200;300;400;500;800;900&display=swap');
+/* ====== landing page base style ====== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Source Sans 3', sans-serif;
+}
+/* ====== other base style ====== */
+h1, h2, h3, h4, h5, h6 {
+  color: #000d6b;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+h3, h4 {
+  font-size: 1.8rem;
+}
+h5, h6 {
+  font-size: 1.2rem;
+}
+a {
+  text-decoration: none;
+  color: unset;
+}
+a:hover {
+  color: unset;
+}
+ul{
+  margin: 0;
+  list-style: none;
+}
+.section-title {
+  color: #000d6b;
+  font-weight: 600;
+  font-size: 2rem;
+}
+.section-subtitle {
+  color: #f9a826;
+  font-weight: 600;
+  font-style: 1.2rem;
+}
+.section-description {
+  color: #7c8a97;
+  font-style: 0.9rem;
+  line-height: 30px;
+}
+section {
+  padding: 50px 0px;
+}
+.btn {
+  padding: 7px 15px;
+  background: #000d6b;
+  color: #fff;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  transition: .3s;
+}
+.btn:hover {
+  color: #fff;
+  background: #000c6bd0;
+}
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -15,7 +77,17 @@
     --background-end-rgb: 0, 0, 0;
   }
 }
-
+@media only screen and (max-width: 768px) {
+  section {
+    padding: 30px 0px;
+  } 
+  .section-title {
+    font-size: 1.6rem;
+  }
+  .section-subtitle {
+    font-size: 1.1rem;
+  }
+}
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
@@ -49,4 +121,72 @@ label {
 }
 #reset-icon{
   @apply absolute bottom-10 left-0 mb-4
+}
+
+/* ============ Car Slider css =================*/
+.slider__item {
+  max-width: 100%;
+  height: 650px;
+}
+.slider__item-01 {
+  background: linear-gradient(rgb(0,13,107,0.5), rgb(0,13,107,0.5)), url('./assets/images/car_img1.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.slider__item-02 {
+  background: linear-gradient(rgb(0,13,107,0.5), rgb(0,13,107,0.5)), url('./assets/images/car_img2.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.slider__item-03 {
+  background: linear-gradient(rgb(0,13,107,0.5), rgb(0,13,107,0.5)), url('./assets/images/car_img3.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.slider__item-04 {
+  background: linear-gradient(rgb(0,13,107,0.5), rgb(0,13,107,0.5)), url('./assets/images/car_img4.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.slider__item-05 {
+  background: linear-gradient(rgb(0,13,107,0.5), rgb(0,13,107,0.5)), url('./assets/images/car_img5.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.slider__item-06 {
+  background: linear-gradient(rgb(0,13,107,0.5), rgb(0,13,107,0.5)), url('./assets/images/car_img6.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.slider__item-07 {
+  background: linear-gradient(rgb(0,13,107,0.5), rgb(0,13,107,0.5)), url('./assets/images/car_img67.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.hero__slider {
+  overflow: hidden;
+}
+.slider__content {
+  padding-top: 150px;
+}
+.slider__content h1 {
+  font-style: 3.2rem;
+  font-weight: 600;
+}
+.reserve__btn {
+  background: #fff !important;
+  color: #000d6b;
+  border: none;
+  outline: none;
+}
+.reserve__btn a {
+  text-decoration: none;
+  font-weight: 600;
 }
