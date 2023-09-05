@@ -88,18 +88,10 @@ label {
   height: 150px;
 }
 
-.make-and-bd-type {
-  display: flex;
-  align-items: center;
-}
 
 .make-and-bd-type h2{
   font-weight: bolder;
 }
 
-.make-and-bd-type p{
-  font-weight: lighter;
-  font-style: italic;
-  margin-left: auto;
-}
+
 /* CAR GRID CONTAINER STYLING ENDS */
