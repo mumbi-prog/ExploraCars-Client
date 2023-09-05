@@ -16,15 +16,22 @@ function booking() {
     }
     function handleDatesSubmit(e){
         e.preventDefault()
-        console.log(formData)
+        let startDate = new Date(formData.startDate).toISOString().split('T')[0];
+        let endDate = new Date(formData.endDate).toISOString().split('T')[0];
+        const newDates= {
+            "start_date":startDate,
+            "end_date":endDate
+        }
+        if (newDates["start_date"])
+        console.log(newDates)
     }
     useEffect(() => {
             
-            fetch('http://localhost:3000/bookings')
+            fetch('http://localhost:3000/car_bookings/1')
               .then((response) => response.json())
               .then((data) => {
                 console.log(data)
-                setDates(()=>data)
+                setDates(()=>data.bookings)
               })
               .catch((error) => {
                 console.error('Error fetching dates:', error);
@@ -32,6 +39,7 @@ function booking() {
           }, []);
        return (
         <div className='w-full h-full p-10'>
+            <h1 className='font-bold mb-2'>The highlighted Dates are dates not available for this car</h1>
         <Calendar
           className='w-96 h-full rounded-xl bg-violet-300'
           onChange={setTgl}
