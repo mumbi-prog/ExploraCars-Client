@@ -93,5 +93,29 @@ label {
   font-weight: bolder;
 }
 
+.car-details {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 25px;
+  padding-top: 13px;
+}
 
+.icon-and-detail {
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  text-align: center; 
+}
+
+.icon-and-detail p{
+  font-size: 13px;
+  font-style: italic;
+  padding-top: 5px;
+  color: #020321;
+}
+
+.icon {
+  font-size: 18px; 
+  color: #020321;
+}
 /* CAR GRID CONTAINER STYLING ENDS */
