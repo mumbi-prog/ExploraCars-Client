@@ -6,10 +6,10 @@ import {AiFillCar} from "react-icons/ai"
 export default function notFound() {
 
   return (
-    <main className="h-screen m-5">
+    <main className="h-full m-5">
       <Link href="/home">
-        <h1 className="text-xl text-center md:text-3xl font-bold lg:text-4xl m-auto cursor-pointer flex items-center">
-       <AiFillCar className="stroke-red-600"/>Explora
+        <h1 className="text-xl text-center md:text-3xl font-bold lg:text-4xl m-auto cursor-pointer flex items-center underline decoration-amber-400 decoration-4">
+       <AiFillCar />Explora
         </h1>
       </Link>
       <div className="m-5 flex items-center justify-center bg-black-600 text-white">
@@ -18,17 +18,17 @@ export default function notFound() {
             <h1 className="text-red-600 text-xl md:text-4xl font-bold">
               Whoops!
             </h1>
-            <h1 className="my-1 font-bold md:text-2xl">
+            <h1 className="my-1 font-bold md:text-2xl text-black dark:text-white">
               This page got lost in the conversation
             </h1>
-            <p className="my-2 md:text-xl">
+            <p className="my-2 md:text-xl text-black dark:text-white">
               You must have picked the wrong door because i have not been able to
               lay an eye on the page you are searching for.
             </p>
 
-            <Link href="/home">
+            <Link href="/">
               {" "}
-              <button className="rounded-sm p-2 px-4 shadow-md my-2 border border-sky-500 hover:bg-sky-500 font-bold">
+              <button className="rounded-sm p-2 px-4 shadow-md my-2 border cursor-pointer border-sky-500 hover:bg-sky-500 font-bold text-black dark:text-white">
                 Take me back!
               </button>
             </Link>

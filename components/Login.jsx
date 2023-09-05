@@ -63,9 +63,9 @@ export default function useLogin() {
   }
 
   return (
-    <div className="">
+    <div className="h-screen">
       <div className="">
-        <h1 className="text-2xl m-5 text-center md:text-left md:text-3xl font-bold lg:text-4xl cursor-pointer flex items-center">
+        <h1 className="text-2xl m-5 text-center md:text-left md:text-3xl font-bold lg:text-4xl cursor-pointer flex items-center underline decoration-amber-400 decoration-4">
           <AiFillCar />
           Explora
         </h1>
