@@ -1,6 +1,7 @@
 'use client'
 import React, { useEffect, useState } from 'react';
 import Calendar from 'react-calendar';
+import BookingList from './BookingList';
 import 'react-calendar/dist/Calendar.css'
 function booking() {
     const [tgl,setTgl] = useState(new Date())
@@ -67,7 +68,8 @@ function booking() {
     <button type='submit' className='p-2 mt-2 bg-red-800 rounded'>submit</button>
   </div>
 </form>
-      </div>
+<BookingList/>
+ </div>
       
   )
 }
