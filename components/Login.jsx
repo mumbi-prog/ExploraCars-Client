@@ -5,7 +5,6 @@ import { FaLock } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { SlLogin } from "react-icons/sl";
 import { useRouter } from "next/navigation";
-import axiosInstance from "../axiosConfig";
 import { AiFillCar } from "react-icons/ai";
 import Link from "next/link";
 
@@ -14,6 +13,7 @@ const loginApi = "https://explora-cars-production.up.railway.app/login";
 export default function useLogin() {
   const [showPassword, setShowPassword] = useState(false);
   const [errors, setErrors] = useState(null);
+  const [loginAttempt, setLoginAttempt] = useState(0)
   const [loginData, setLoginData] = useState({
     email: "",
     password: "",
@@ -28,34 +28,6 @@ export default function useLogin() {
     }));
   };
 
-  // async function handleLogin(e) {
-  //   e.preventDefault();
-  //   try {
-  //     const response = await axiosInstance.post(loginApi, loginData);
-  //     const data = response.data;
-  //     if (data.errors) {
-  //       setErrors(data.errors)
-  //     } else {
-  //       if (typeof window !== 'undefined') {
-  //         sessionStorage.setItem('user', JSON.stringify(data));
-  //       }
-  //       navigate.replace('/');
-  //       Swal.fire({
-  //         icon: 'success',
-  //         text: "Logged in successfully",
-  //         showCloseButton: true,
-  //         confirmButtonColor: "#0F73BD",
-  //         timer: 3000
-  //       });
-  //     }
-  //   } catch (error) {
-  //     if (error.response && error.response.data && error.response.data.errors) {
-  //       setErrors(error.response.data.errors)
-  //     } else {
-  //       setErrors("Too many attempts, try again later")
-  //     }
-  //   }
-  // }
   async function handleLogin(e) {
     e.preventDefault();
     try {
@@ -66,7 +38,6 @@ export default function useLogin() {
         },
         body: JSON.stringify(loginData),
       });
-      console.log(response.status);
       if (response.status === 302) {
         const data = await response.json();
         if (typeof window !== "undefined") {
@@ -82,9 +53,9 @@ export default function useLogin() {
         });
       } else if(response.status === 401){
         const error = await response.json();
-        setErrors(errors);
-        console.log(error.errors)
-      } else setErrors("Too many attempts, try again later");
+        setLoginAttempt(loginAttempt+1)
+        setErrors(error.errors);
+      } else {setErrors("Too many attempts, try again later");}
     } catch (error) {
       console.error(error); 
       setErrors("An error occurred while processing your request");
@@ -146,7 +117,7 @@ export default function useLogin() {
               Click here
             </Link>
           </p>
-          <button type="submit" className="login-button">
+          <button type="submit" className="login-button" disabled={loginAttempt>=3}>
             <SlLogin /> Login
           </button>
         </form>
