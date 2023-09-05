@@ -50,3 +50,21 @@ label {
 #reset-icon{
   @apply absolute bottom-10 left-0 mb-4
 }
+
+/* CAR GRID CONTAINER STYLING BEGINS */
+.card-grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 20px; 
+}
+
+.car-card img{
+  width: 100px;
+  height: auto;
+}
+
+.make-and-bd-type {
+  display: flex;
+  align-items: center;
+}
+/* CAR GRID CONTAINER STYLING ENDS */
