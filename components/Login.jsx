@@ -1,23 +1,22 @@
-'use client'
-import { useState} from "react";
+"use client";
+import { useState } from "react";
 import Swal from "sweetalert2";
 import { FaLock } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { SlLogin } from "react-icons/sl";
 import { useRouter } from "next/navigation";
-import axiosInstance from '../axiosConfig';
-import {AiFillCar} from "react-icons/ai"
-import Link from "next/link"
+import axiosInstance from "../axiosConfig";
+import { AiFillCar } from "react-icons/ai";
+import Link from "next/link";
 
-
-const loginApi = "http://127.0.0.1:3000/login";
+const loginApi = "https://explora-cars-production.up.railway.app/login";
 
 export default function useLogin() {
   const [showPassword, setShowPassword] = useState(false);
   const [errors, setErrors] = useState(null);
   const [loginData, setLoginData] = useState({
-    email: '',
-    password: '',
+    email: "",
+    password: "",
   });
   const navigate = useRouter();
 
@@ -29,39 +28,75 @@ export default function useLogin() {
     }));
   };
 
+  // async function handleLogin(e) {
+  //   e.preventDefault();
+  //   try {
+  //     const response = await axiosInstance.post(loginApi, loginData);
+  //     const data = response.data;
+  //     if (data.errors) {
+  //       setErrors(data.errors)
+  //     } else {
+  //       if (typeof window !== 'undefined') {
+  //         sessionStorage.setItem('user', JSON.stringify(data));
+  //       }
+  //       navigate.replace('/');
+  //       Swal.fire({
+  //         icon: 'success',
+  //         text: "Logged in successfully",
+  //         showCloseButton: true,
+  //         confirmButtonColor: "#0F73BD",
+  //         timer: 3000
+  //       });
+  //     }
+  //   } catch (error) {
+  //     if (error.response && error.response.data && error.response.data.errors) {
+  //       setErrors(error.response.data.errors)
+  //     } else {
+  //       setErrors("Too many attempts, try again later")
+  //     }
+  //   }
+  // }
   async function handleLogin(e) {
     e.preventDefault();
     try {
-      const response = await axiosInstance.post(loginApi, loginData);
-      const data = response.data;
-      if (data.errors) {
-        setErrors(data.errors)
-      } else {
-        if (typeof window !== 'undefined') {
-          sessionStorage.setItem('user', JSON.stringify(data));
+      const response = await fetch(loginApi, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(loginData),
+      });
+      console.log(response.status);
+      if (response.status === 302) {
+        const data = await response.json();
+        if (typeof window !== "undefined") {
+          sessionStorage.setItem("user", JSON.stringify(data));
         }
-        navigate.replace('/');
+        navigate.replace("/");
         Swal.fire({
-          icon: 'success',
+          icon: "success",
           text: "Logged in successfully",
           showCloseButton: true,
           confirmButtonColor: "#0F73BD",
-          timer: 3000
+          timer: 3000,
         });
-      }
+      } else if(response.status === 401){
+        const error = await response.json();
+        setErrors(errors);
+        console.log(error.errors)
+      } else setErrors("Too many attempts, try again later");
     } catch (error) {
-      if (error.response && error.response.data && error.response.data.errors) {
-        setErrors(error.response.data.errors)
-      } else {
-        setErrors("Too many attempts, try again later")
-      }
+      console.error(error); 
+      setErrors("An error occurred while processing your request");
     }
   }
+
   return (
     <div className="">
       <div className="">
         <h1 className="text-2xl m-5 text-center md:text-left md:text-3xl font-bold lg:text-4xl cursor-pointer flex items-center">
-        <AiFillCar/>Explora
+          <AiFillCar />
+          Explora
         </h1>
       </div>
       <div className="login-page">
@@ -105,14 +140,19 @@ export default function useLogin() {
           />
           <span> {!showPassword ? "Show" : "Hide"} Password</span>
           <p className="pt-3">
-            Forgot Password? <Link href="/reset" className="login__link"> Click here</Link>
+            Forgot Password?{" "}
+            <Link href="/reset" className="login__link">
+              {" "}
+              Click here
+            </Link>
           </p>
           <button type="submit" className="login-button">
             <SlLogin /> Login
           </button>
         </form>
-        <div className={errors?"bg-red-400 mt-3 p-2 rounded-sm":"hidden"}>
-          {errors? errors: ""}</div>
+        <div className={errors ? "bg-red-400 mt-3 p-2 rounded-sm" : "hidden"}>
+          {errors ? errors : ""}
+        </div>
         <br></br>
         <div className="shadow-lg border-t-2 p-2 border-t-slate-500">
           <p className="text-center text-xl font-bold">Or</p>
