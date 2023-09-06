@@ -13,7 +13,7 @@ export default function Navbar() {
  
   return (
     <>
-      <div className="p-2 flex w-full items-center justify-between sticky top-0 ">
+      <div className="p-2 flex w-full items-center justify-between">
         <div className="w-10">
           {!menuOpen ? (
             <FaBars
@@ -37,7 +37,7 @@ export default function Navbar() {
             </button>
     
       </div>
-      <hr className="h-2 bg-amber-400"></hr>
+      <hr className="h-2 blue-color border-none"></hr>
     </>
   );
 }

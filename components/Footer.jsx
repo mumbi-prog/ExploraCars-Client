@@ -24,7 +24,7 @@ function Footer() {
             </div>
         ))}  
     </div>
-    <hr className='font-bold border-amber-200 border-2'></hr>
+    <hr className='font-bold border-blue-600 border-2'></hr>
     <h3 className='font-bold m-5 text-center'>&copy;2023 Explora-All Rights Reserved</h3>
     </footer>
   )
