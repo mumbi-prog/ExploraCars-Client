@@ -67,7 +67,7 @@ export default function Booking() {
                   setErrors(data.error)
                 }else{
                 console.log(data)
-                setDates(()=>data.bookings)}
+                setDates(()=>data)}
               })
               .catch((error) => {
                 // console.error('Error fetching dates:', error);
@@ -106,7 +106,6 @@ export default function Booking() {
     <button type='submit' className='p-2 mt-2 bg-red-800 rounded'>submit</button>
   </div>
 </form>
-{/* <BookingList/> */}
  </div>
       
   )

@@ -29,7 +29,7 @@ export default function BookingList() {
             "start_date":startDate,
             "end_date":endDate
         }
-        fetch(`http://localhost:3000/bookings/${id}`,{
+        fetch(`http://localhost:3000/bookings`,{
           method:"PATCH",
           headers:{
             "Content-type":"application/json"
