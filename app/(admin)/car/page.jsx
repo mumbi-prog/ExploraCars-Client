@@ -19,7 +19,7 @@ function Page() {
   return (
     <>
       <Search onSearchChange={setSearchQuery} />
-      <CarList cars={cars} searchQuery={searchQuery} />
+      <CarList cars={cars} searchQuery={searchQuery} onSearchChange={setSearchQuery} />
     </>
   );
 }
