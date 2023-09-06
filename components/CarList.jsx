@@ -3,7 +3,11 @@ import { GiSteeringWheel } from 'react-icons/gi';
 import { MdAirlineSeatReclineNormal } from 'react-icons/md';
 import { BsFuelPumpFill } from 'react-icons/bs';
 
-const CarList = ({ cars }) => {
+const CarList = ({ cars, searchQuery }) => {
+  const filteredCars = cars.filter((car) =>
+    car.make.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+
   return (
     <div className="car-list">
      <svg
@@ -29,7 +33,7 @@ const CarList = ({ cars }) => {
       </svg>
 
       <div className="card-grid-container">
-        {cars.map((car) => (
+        {filteredCars.map((car) => (
           <div key={car.id} className="car-card">
             <div className='make-and-bd-type'>
               <h2>{car.make}</h2>
@@ -64,3 +68,4 @@ const CarList = ({ cars }) => {
 }
 
 export default CarList;
+
