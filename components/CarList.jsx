@@ -42,20 +42,19 @@ const CarList = ({ cars }) => {
             <img src={car.image_url} alt={car.make} />
             
             <div className="car-details">
-            <div className="icon-and-detail">
-              <GiSteeringWheel className="icon" />
-              <p>{car.transmission}</p>
+              <div className="icon-and-detail">
+                <GiSteeringWheel className="icon" />
+                <p>{car.transmission}</p>
+              </div>
+              <div className="icon-and-detail">
+                <MdAirlineSeatReclineNormal className="icon" />
+                <p>{car.no_of_seats} seats</p>
+              </div>
+              <div className="icon-and-detail">
+                <BsFuelPumpFill className="icon" />
+                <p>{car.fuel_consumption}L/km</p>
+              </div>
             </div>
-            <div className="icon-and-detail">
-              <MdAirlineSeatReclineNormal className="icon" />
-              <p>{car.no_of_seats} seats</p>
-            </div>
-            <div className="icon-and-detail">
-              <BsFuelPumpFill className="icon" />
-              <p>{car.fuel_consumption}L/km</p>
-            </div>
-          </div>
-
 
           </div>
         ))}
