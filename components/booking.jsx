@@ -1,7 +1,7 @@
 'use client'
 import React, { useEffect, useState } from 'react';
 import Calendar from 'react-calendar';
-import BookingList from './BookingList';
+import BookingList from './BookingList.jsx';
 import 'react-calendar/dist/Calendar.css'
 function booking() {
     const [tgl,setTgl] = useState(new Date())
