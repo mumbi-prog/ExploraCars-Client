@@ -6,6 +6,7 @@ import 'react-calendar/dist/Calendar.css'
 function booking() {
     const [tgl,setTgl] = useState(new Date())
     const [dates,setDates] = useState([])
+    const [errors,setErrors]=useState(null)
     const [formData,setFormData]=useState({
         startDate:'',
         endDate:''
@@ -20,22 +21,57 @@ function booking() {
         let startDate = new Date(formData.startDate).toISOString().split('T')[0];
         let endDate = new Date(formData.endDate).toISOString().split('T')[0];
         const newDates= {
+            "car_id":2,
+            "customer_id":2,
             "start_date":startDate,
             "end_date":endDate
         }
-        if (newDates["start_date"])
-        console.log(newDates)
+        fetch('http://localhost:3000/bookings',{
+          method:"POST",
+          headers:{
+            "Content-type":"application/json"
+          },
+          body:JSON.stringify(newDates)
+        })
+        .then((res)=>{
+          if(res.status===422){
+            return res.json().then((data)=>{
+              setErrors(()=>data.errors)
+            })
+          }else {
+            // throw new Error('Failed to create booking');
+            res.json()
+          }
+        })
+        .then(data=>{
+          if(data.errors){
+            setErrors(()=>data.errors)
+          }else{
+          console.log(data)}})
+        .catch((error)=>{
+          if (error.response && error.response.data && error.response.data.errors) {
+            setErrors(error.response.data.errors)
+          }
+        })
+        setFormData(()=>({
+          startDate:'',
+          endDate:''
+        }))
     }
     useEffect(() => {
             
-            fetch('http://localhost:3000/car_bookings/1')
+            fetch('http://localhost:3000/car_bookings/2')
               .then((response) => response.json())
               .then((data) => {
+                if (data.error||data.errors){
+                  setErrors(data.error)
+                }else{
                 console.log(data)
-                setDates(()=>data.bookings)
+                setDates(()=>data.bookings)}
               })
               .catch((error) => {
-                console.error('Error fetching dates:', error);
+                // console.error('Error fetching dates:', error);
+                setErrors(error)
               });
           }, []);
        return (
@@ -56,19 +92,21 @@ function booking() {
             return isHighlighted ? 'highlight' : ''; // Apply 'highlight' class if the date is in a range
           }}
         />
-        <form className='mt-5 p-5 rounded-xl border-solid' onSubmit={handleDatesSubmit}>
+        <form className='mt-5 w-1/2 md:w-3/4 lg:w-1/2 p-5 rounded-xl border-solid' onSubmit={handleDatesSubmit}>
+        <div className={errors?"bg-red-400 mt-3 p-2 rounded-sm":"hidden"}>
+          {errors? errors: ""}</div>
   <h2 className="mb-4">Choose the Dates you wish to hire</h2>
   <div className="mb-4">
     <label htmlFor='start-date' className="block">Start date</label>
-    <input className='block w-full' name='startDate' type='date' onChange={handleChange} value={formData.startDate}></input>
+    <input className='block w-full' name='startDate' required type='date' onChange={handleChange} value={formData.startDate}></input>
   </div>
   <div className="mb-4">
     <label htmlFor="end_date" className="block">End date</label>
-    <input className='block w-full' name='endDate' type='date' onChange={handleChange} value={formData.endDate}></input>
+    <input className='block w-full' name='endDate' required type='date' onChange={handleChange} value={formData.endDate}></input>
     <button type='submit' className='p-2 mt-2 bg-red-800 rounded'>submit</button>
   </div>
 </form>
-<BookingList/>
+{/* <BookingList/> */}
  </div>
       
   )
