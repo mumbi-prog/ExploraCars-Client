@@ -1,11 +1,7 @@
 "use client";
 import Link from "next/link";
 import React from "react";
-import { FaEdit, FaBookOpen } from "react-icons/fa";
-import { BsBookmarks } from "react-icons/bs";
-import { GoSignOut } from "react-icons/go";
 import { TfiClose } from "react-icons/tfi";
-import { AiFillCar } from "react-icons/ai";
 import { clearCurrentUser } from "@/lib";
 
 export const Menu = ({ handleClick, menuOpen }) => {
