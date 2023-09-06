@@ -51,6 +51,26 @@ label {
   @apply absolute bottom-10 left-0 mb-4
 }
 
+/* SEARCH INPUT STYLING BEFINS */
+.search{
+  display: flex;
+  align-items: center;
+  padding-left: 40%;
+}
+
+.search-input{
+  width: 300px;
+  height: 30px;
+  border: 1px solid rgb(35, 33, 33);
+  font-style: italic;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: small;
+  padding-left: 10px;
+  outline: none;
+  border-radius: 5px;
+}
+/* SEARCH INPUT STYLING ENDS */
+
 /* CAR GRID CONTAINER STYLING BEGINS */
 .car-list{
   justify-content: center; 

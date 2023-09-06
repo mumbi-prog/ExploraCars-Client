@@ -3,19 +3,19 @@ import { GiSteeringWheel } from 'react-icons/gi';
 import { MdAirlineSeatReclineNormal } from 'react-icons/md';
 import { BsFuelPumpFill } from 'react-icons/bs';
 
-const CarList = ({ cars }) => {
-  const [searchQuery, setSearchQuery] = useState('');
+  const CarList = ({ cars }) => {
+    const [searchQuery, setSearchQuery] = useState('');
 
-  const filteredCars = cars.filter((car) =>
-    car.make.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    searchQuery.trim() === ''
-  );
+    const filteredCars = cars.filter((car) =>
+      car.make.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      searchQuery.trim() === ''
+    );
 
   return (
     <div className="car-list">
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 1440 220"
+        viewBox="0 0 1440 215"
         style={{ fontSize: '50px', marginBottom: '10px', paddingBottom: '5px' }}
       >
         <path
@@ -35,13 +35,16 @@ const CarList = ({ cars }) => {
         </text>
       </svg>
 
-      <input
-        type="text"
-        placeholder="Search by make"
-        value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
-        className="search-input"
-      />
+      <div className="search">
+        <input
+          type="text"
+          placeholder="Search by make"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          className="search-input"
+        />
+      </div>
+
 
       <div className="card-grid-container">
         {filteredCars.map((car) => (
