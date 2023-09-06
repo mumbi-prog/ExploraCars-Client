@@ -50,7 +50,7 @@ label {
 #reset-icon{
   @apply absolute bottom-10 left-0 mb-4
 }
-.highlight{
-  font-weight: 1000;
-  background-color: red;
+
+.footer-link {
+  @apply flex-1 flex-col gap-6 text-base min-w-[170px];
 }

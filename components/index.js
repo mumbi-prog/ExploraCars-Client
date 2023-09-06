@@ -1,6 +1,6 @@
 import Login from "./Login";
-import Register from "./Register";
-import Booking from "./booking";
-import BookingList from "./BookingList";
+import Register from "./Register"; 
 
-export {Login, Register, Booking,BookingList} 
+import Navbar from "./Navbar";
+import Footer from "./Footer";
+export {Login, Register, Navbar, Footer} 
