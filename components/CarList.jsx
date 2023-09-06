@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { GiSteeringWheel } from 'react-icons/gi';
 import { MdAirlineSeatReclineNormal } from 'react-icons/md';
 import { BsFuelPumpFill } from 'react-icons/bs';
+// import { FiArrowLeftCircle } from 'react-icons/fi';
+// import { FiArrowRightCircle } from 'react-icons/fi';
 
 const CarList = ({ cars }) => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -52,8 +54,8 @@ const CarList = ({ cars }) => {
           textAnchor="middle" 
           dy="0.3em" style={{ fontWeight: 'bold' }}
           >
-          <tspan fill="#3563e9" style={{ textDecoration: 'underline' }}>
-            Automotive Inventory
+          <tspan fill="#ccc" style={{ textDecoration: 'underline' }}>
+            CAR FLEET
           </tspan>
         </text>
       </svg>
@@ -101,8 +103,8 @@ const CarList = ({ cars }) => {
       </div>
 
       <div className="pagination">
-        <button onClick={goToPreviousPage} disabled={currentPage === 1}>
-          Previous
+        <button onClick={goToPreviousPage} disabled={currentPage === 1} className="page-button">
+            Previous
         </button>
         {Array.from(
           { length: Math.ceil(filteredCars.length / itemsPerPage) },
@@ -110,17 +112,14 @@ const CarList = ({ cars }) => {
             <button
               key={index}
               onClick={() => goToPage(index + 1)}
-              className={currentPage === index + 1 ? 'active' : ''}
+              className={`current-page-button ${currentPage === index + 1 ? 'active' : ''}`}
             >
               {index + 1}
             </button>
           )
         )}
-        <button
-          onClick={goToNextPage}
-          disabled={currentPage === Math.ceil(filteredCars.length / itemsPerPage)}
-        >
-          Next
+        <button onClick={goToNextPage} disabled={currentPage === Math.ceil(filteredCars.length / itemsPerPage)} className="page-button">
+            Next
         </button>
       </div>
 
