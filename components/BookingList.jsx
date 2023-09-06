@@ -4,12 +4,19 @@ import BookingCard from './BookingCard'
 export default function BookingList() {
     const[bookings,setBookings]=useState([])
     const[isEditing,setIsEditing]=useState(false)
+    const [errors,setErrors]=useState(null)
     const[dates,setDates]=useState({
         newStartDate:'',
         newEndDate:''
     })
     function updateBooking(id){
         setIsEditing(()=>true)
+        const targetElement = document.getElementById("update-dates");
+
+        if (targetElement) {
+          // Scroll to the target element
+          targetElement.scrollIntoView({ behavior: "smooth" }); // Use "smooth" for smooth scrolling
+        }
         sessionStorage.setItem("bookingId",id)
     }
     function handleDateChange(e){
@@ -28,12 +35,18 @@ export default function BookingList() {
             "Content-type":"application/json"
           },
           body:JSON.stringify(formattedDates)
-        })
-        .then(response => response.json())
+        }).then((res) =>{
+          if(res.status===422){
+            return res.json().then(data=>setErrors(()=>data.errors))
+          }else{
+          response.json()}})
         .then(data =>{
             console.log(data)
         })
-        setDates(()=>{})
+        setDates(()=>({
+          newStartDate:'',
+          newEndDate:''
+        }))
     }
     function onDateChange(e){
         setDates(()=>({
@@ -76,6 +89,8 @@ export default function BookingList() {
   return (
     <div>
       <h1 className="text-2xl font-semibold mb-4">Your Bookings</h1>
+      <div className={errors?"bg-red-400 mt-3 p-2 rounded-sm":"hidden"}>
+          {errors? errors: ""}</div>
       {bookings.length > 0 ? (
         bookings.map((booking) => (
           <BookingCard
@@ -89,7 +104,7 @@ export default function BookingList() {
         <p>No bookings found.</p>
       )}
       {isEditing && (
-    <form className='mt-5 rounded' onSubmit={handleDateChange}>
+    <form className='mx-auto rounded-xl p-4 mt-4 border border-gray-300 max-w-md'id='update-dates' onSubmit={handleDateChange}>
       {/* Input fields for updating dates */}
       <label htmlFor="newStartDate">New Start Date:</label>
       <input
