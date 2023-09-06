@@ -1,6 +1,7 @@
-'use client'
+"use client"
 import React, { useEffect, useState } from 'react';
-import { CarList, Search } from '@/components';
+import { CarList } from '@/components';
+import Search from '@/components/Search';
 
 function Page() {
   const [cars, setCars] = useState([]);
