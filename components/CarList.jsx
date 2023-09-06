@@ -54,7 +54,7 @@ const CarList = ({ cars }) => {
           textAnchor="middle" 
           dy="0.3em" style={{ fontWeight: 'bold' }}
           >
-          <tspan fill="#ccc" style={{ textDecoration: 'underline' }}>
+          <tspan fill="#333" style={{ textDecoration: 'underline' }}>
             CAR FLEET
           </tspan>
         </text>
