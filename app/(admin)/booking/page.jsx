@@ -1,8 +1,11 @@
 import React from 'react'
+import { Booking } from '@/components'
 
 function page() {
   return (
-    <div>page</div>
+    <>
+    <Booking/>
+    </>
   )
 }
 
