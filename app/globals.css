@@ -67,7 +67,3 @@ label {
 .footer-link {
   @apply flex-1 flex-col gap-6 text-base min-w-[170px];
 }
-.highlight{
-  font-weight: 1000;
-  background-color: red;
-}
