@@ -3,37 +3,61 @@ import { GiSteeringWheel } from 'react-icons/gi';
 import { MdAirlineSeatReclineNormal } from 'react-icons/md';
 import { BsFuelPumpFill } from 'react-icons/bs';
 
-  const CarList = ({ cars }) => {
-    const [searchQuery, setSearchQuery] = useState('');
+const CarList = ({ cars }) => {
+  const [searchQuery, setSearchQuery] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 12; 
 
-    const filteredCars = cars.filter((car) =>
+  const filteredCars = cars.filter(
+    (car) =>
       car.make.toLowerCase().includes(searchQuery.toLowerCase()) ||
       searchQuery.trim() === ''
-    );
+  );
+
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+
+
+  const paginatedCars = filteredCars.slice(startIndex, endIndex);
+
+  const goToPreviousPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const goToNextPage = () => {
+    const totalPages = Math.ceil(filteredCars.length / itemsPerPage);
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const goToPage = (page) => {
+    setCurrentPage(page);
+  };
 
   return (
     <div className="car-list">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 1440 215"
+      <svg xmlns="http://www.w3.org/2000/svg" 
+        viewBox="0 0 1440 180" 
         style={{ fontSize: '50px', marginBottom: '10px', paddingBottom: '5px' }}
-      >
-        <path
-          fill="#3563e9"
-          fill-opacity="0.7"
-          d="M0,64L48,58.7C96,53,192,43,288,69.3C384,96,480,160,576,186.7C672,213,768,203,864,197.3C960,192,1056,192,1152,186.7C1248,181,1344,171,1392,165.3L1440,160L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"
-        ></path>
-        <text
-          x="50%"
-          y="45%"
-          fill="#fff"
-          textAnchor="middle"
-          dy="0.3em"
-          style={{ textDecoration: 'underline', fontWeight: 'bold' }}
         >
-          Automotive Inventory
+        <path fill="#3563e9" 
+          fillOpacity="0.7" 
+          d="M0,0L60,10.7C120,21,240,43,360,42.7C480,43,600,21,720,16C840,11,960,21,1080,53.3C1200,85,1320,139,1380,165.3L1440,192L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"></path>
+        <text x="50%" 
+          y="50%" 
+          fill="#333" 
+          textAnchor="middle" 
+          dy="0.3em" style={{ fontWeight: 'bold' }}
+          >
+          <tspan fill="#3563e9" style={{ textDecoration: 'underline' }}>
+            Automotive Inventory
+          </tspan>
         </text>
       </svg>
+
 
       <div className="search">
         <input
@@ -45,9 +69,8 @@ import { BsFuelPumpFill } from 'react-icons/bs';
         />
       </div>
 
-
       <div className="card-grid-container">
-        {filteredCars.map((car) => (
+        {paginatedCars.map((car) => (
           <div key={car.id} className="car-card">
             <div className='make-and-bd-type'>
               <h2>{car.make}</h2>
@@ -76,8 +99,33 @@ import { BsFuelPumpFill } from 'react-icons/bs';
           </div>
         ))}
       </div>
+
+      <div className="pagination">
+        <button onClick={goToPreviousPage} disabled={currentPage === 1}>
+          Previous
+        </button>
+        {Array.from(
+          { length: Math.ceil(filteredCars.length / itemsPerPage) },
+          (_, index) => (
+            <button
+              key={index}
+              onClick={() => goToPage(index + 1)}
+              className={currentPage === index + 1 ? 'active' : ''}
+            >
+              {index + 1}
+            </button>
+          )
+        )}
+        <button
+          onClick={goToNextPage}
+          disabled={currentPage === Math.ceil(filteredCars.length / itemsPerPage)}
+        >
+          Next
+        </button>
+      </div>
+
     </div>
   );
-}
+};
 
 export default CarList;
