@@ -28,7 +28,7 @@ export default function Booking() {
         let endDate = new Date(formData.endDate).toISOString().split('T')[0];
         const newDates= {
             "car_id":2,
-            "customer_id":2,
+            "customer_id":user.id,
             "start_date":startDate,
             "end_date":endDate
         }
