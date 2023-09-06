@@ -1,6 +1,7 @@
 'use client'
 import React, { useEffect, useState } from 'react';
 import Calendar from 'react-calendar';
+import { useRouter } from "next/navigation";
 import { getCurrentUser } from '@/lib';
 import 'react-calendar/dist/Calendar.css'
 export default function Booking() {
@@ -8,6 +9,10 @@ export default function Booking() {
     const [dates,setDates] = useState([])
     const [errors,setErrors]=useState(null)
     const user = getCurrentUser()
+    const navigate = useRouter()
+    if(user === null){
+      navigate.replace('/login')
+    }
     const [formData,setFormData]=useState({
         startDate:'',
         endDate:''
