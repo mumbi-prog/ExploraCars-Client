@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Calendar from 'react-calendar';
 import BookingList from './BookingList.jsx';
 import 'react-calendar/dist/Calendar.css'
-function booking() {
+export default function Booking() {
     const [tgl,setTgl] = useState(new Date())
     const [dates,setDates] = useState([])
     const [errors,setErrors]=useState(null)
@@ -112,4 +112,3 @@ function booking() {
   )
 }
 
-export default booking

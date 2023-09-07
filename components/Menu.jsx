@@ -3,11 +3,12 @@ import Link from "next/link";
 import React from "react";
 import { TfiClose } from "react-icons/tfi";
 import { clearCurrentUser } from "@/lib";
-
+import { getCurrentUser } from "@/lib";
 export const Menu = ({ handleClick, menuOpen }) => {
   function handleSignout() {
     clearCurrentUser();
   }
+  const user= getCurrentUser();
 
   return (
     <div className="menu">
@@ -44,7 +45,7 @@ export const Menu = ({ handleClick, menuOpen }) => {
       <p>
         {" "}
         <Link onClick={handleSignout} href="/login" className="menu-item">
-          Sign Out
+         {user? "Sign Out": "Login"}
         </Link>
       </p>
     </div>
