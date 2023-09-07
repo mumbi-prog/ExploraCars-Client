@@ -9,23 +9,23 @@ export default function CarDetailsPage({ params: { id } }) {
   const car =  carData;
   return (
     <div className="p-4 space-y-4">
-      <Image src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Toyota_Probox_Van_DX.jpg" alt={car.make} width={2901} height={1425} />
+      <Image src={car?.image_url} alt={car?.make} width={2901} height={1425} />
       <h1 className="text-2xl font-semibold">{car.make}</h1>
 
       <div className="grid grid-cols-2 gap-4">
         <div>
-          <p className="text-white">Year: {car.year}</p>
-          <p className="text-white">Price per Day: ${car.price_per_day}</p>
-          <p className="text-white">Transmission: {car.transmission}</p>
-          <p className="text-white">Body Type: {car.body_type}</p>
+          <p>Year: {car?.year}</p>
+          <p>Price per Day: ${car?.price_per_day}</p>
+          <p>Transmission: {car?.transmission}</p>
+          <p>Body Type: {car?.body_type}</p>
         </div>
         <div>
-          <p className="text-white">Category: {car.category}</p>
-          <p className="text-white">
-            Fuel Consumption: {car.fuel_consumption} mpg
+          <p>Category: {car?.category}</p>
+          <p>
+            Fuel Consumption: {car?.fuel_consumption} mpg
           </p>
-          <p className="text-white">Number of Seats: {car.no_of_seats}</p>
-          <p className="text-white">Fuel Type: {car.fuel_type}</p>
+          <p>Number of Seats: {car?.no_of_seats}</p>
+          <p>Fuel Type: {car?.fuel_type}</p>
         </div>
       </div>
 

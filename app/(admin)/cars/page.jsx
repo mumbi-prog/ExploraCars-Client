@@ -21,10 +21,6 @@ function Page() {
     <>
       <Search onSearchChange={setSearchQuery} />
       <CarList cars={cars} searchQuery={searchQuery} onSearchChange={setSearchQuery} />
-      <Link href="/1">Car 1</Link>
-      <Link href="/2">Car 2</Link>
-      <Link href="/3">Car 3</Link>
-      <Link href="/4">Car 4</Link>
     </>
   );
 }
