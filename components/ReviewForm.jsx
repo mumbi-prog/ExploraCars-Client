@@ -97,7 +97,7 @@ const ReviewForm = ({ carId, onReviewSubmit }) => {
 
   return (
     <div>
-      <h2>Write a Review</h2>
+      <h1>Write a Review</h1>
       <form onSubmit={handleSubmit} style={formStyle}>
         <div>
           <label style={labelStyle}>Title:</label>
@@ -127,7 +127,7 @@ const ReviewForm = ({ carId, onReviewSubmit }) => {
             style={inputStyle}
           />
         </div>
-        <button type="submit" style={{ padding: "8px 16px" }}>
+        <button type="submit" className="btn-primary" style={{ color: "white" }}>
           Submit Review
         </button>
       </form>
