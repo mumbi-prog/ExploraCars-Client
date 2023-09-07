@@ -8,7 +8,7 @@ function Footer() {
     <footer className='w-full shadow-lg drop-shadow-2xl dark:bg-gray-950'>
     <div className='footer-links pb-5 mb-5 py-4 px-8'>
         {footerLinks.map((item) => (
-            <div className='footer-link'>
+            <div className='footer-link' key={item.title}>
               <h1 className='text-xl font-bold py-1 my-2' key={item.title}>{item.title}</h1>
               <div className="flex flex-col gap-5">
               {item.links.map((link) => (

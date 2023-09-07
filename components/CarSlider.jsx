@@ -52,16 +52,12 @@ function CarSlider() {
   const newIndex = isLastSlide ? 0 : currentIndex + 1;
     setCurrentIndex(newIndex);
   };
-
+  const slideInterval = setInterval(autoSlide, 5000);
   useEffect(() => {
-    const slideInterval = setInterval(autoSlide, 5000);
-
     return () => {
       clearInterval(slideInterval);
     };
-  }, [currentIndex]);
-
-  
+  }, [currentIndex, slideInterval]);
 
   return (
     <div className='max-w-[1400px] h-[780px] w-full m-auto py-16 px-4 relative group'>
