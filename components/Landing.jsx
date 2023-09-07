@@ -9,8 +9,8 @@ function Landing() {
   return (
     <div>
       <CarSlider />
-      <About />
-      <Authors />
+      {/* <About />
+      <Authors /> */}
       <ReviewForm />  
       <ReviewList />
     </div>
