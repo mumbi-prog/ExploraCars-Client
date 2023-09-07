@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { getCurrentUser } from '@/lib';
 import 'react-calendar/dist/Calendar.css'
 
-export default function Booking({params}) {
+export default function Booking() {
   const [tgl,setTgl] = useState(new Date())
   const [dates,setDates] = useState([])
   const [errors,setErrors]=useState(null)
@@ -20,7 +20,6 @@ export default function Booking({params}) {
       endDate:''
   })
 
-  const id = params.id
 
   function handleChange(e){
       setFormData(()=>({...formData,

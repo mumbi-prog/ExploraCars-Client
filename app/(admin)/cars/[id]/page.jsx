@@ -6,10 +6,11 @@ import Image from "next/image";
 import Link from "next/link";
 import {ReviewForm, ReviewList} from "@/components"
 
-export default function CarDetailsPage({ params: { id } }) {
-  const [car, setCar]= useState(null)
+export default function CarDetailsPage({ params}) {
+  const id = params.id
+  const [car, setCar]= useState([])
  useEffect(() => {
-    fetch('http://127.0.0.1:3000/cars/${id}')
+    fetch(`http://127.0.0.1:3000/cars/${id}`)
       .then((response) => response.json())
       .then((data) => {
         setCar(data);
@@ -24,7 +25,7 @@ export default function CarDetailsPage({ params: { id } }) {
       <div className="grid grid-cols-2 gap-4">
         <div>
           <p>Year: {car?.year}</p>
-          <p>Price per Day: ${car?.price_per_day}</p>
+          <p>Price per Day: Ksh{car?.price_per_day}</p>
           <p>Transmission: {car?.transmission}</p>
           <p>Body Type: {car?.body_type}</p>
         </div>
