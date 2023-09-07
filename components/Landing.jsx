@@ -6,9 +6,9 @@ import CarSlider from './CarSlider'
 
 function Landing() {
   return (
-    <div>
+    <>
       <CarSlider />
-    </div>
+    </>
   )
 }
 
