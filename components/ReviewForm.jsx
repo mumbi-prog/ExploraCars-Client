@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useState } from "react";
@@ -10,16 +9,32 @@ const ReviewForm = ({ carId, onReviewSubmit }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Create a review object
+    
     const newReview = {
       title,
       body,
       rating: parseInt(rating),
-      car_id: carId, // Associate the review with a car
+      car_id: carId, 
     };
-    // Call the onReviewSubmit callback to send the review to the backend
-    onReviewSubmit(newReview);
-    // Clear the form fields
+
+    fetch("http://localhost:3000/reviews", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newReview),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        
+        console.log("Review submitted successfully:", data);
+        
+        onReviewSubmit(data);
+      })
+      .catch((error) => {
+           console.error("Error submitting review:", error);
+      });
+
     setTitle("");
     setBody("");
     setRating(0);
@@ -33,7 +48,6 @@ const ReviewForm = ({ carId, onReviewSubmit }) => {
   const labelStyle = {
     display: "block",
     marginBottom: "8px",
-    color:"black"
   };
 
   const inputStyle = {
@@ -43,11 +57,11 @@ const ReviewForm = ({ carId, onReviewSubmit }) => {
   };
 
   return (
-    <div>
+    <div className='w-full m-auto py-16 px-4 relative group'>
       <h2 className='font-bold text-3xl text-center my-2'>Write a Review</h2>
       <form onSubmit={handleSubmit} style={formStyle}>
         <div>
-          <label style={labelStyle} className="text-black">Title:</label>
+          <label style={labelStyle}>Title:</label>
           <input
             type="text"
             value={title}
