@@ -3,6 +3,7 @@ import React from "react";
 import { getCar } from "@/lib";
 import Image from "next/image";
 import Link from "next/link";
+import {ReviewForm, ReviewList} from "@/components"
 
 export default function CarDetailsPage({ params: { id } }) {
   const carData = getCar(id);
@@ -38,6 +39,8 @@ export default function CarDetailsPage({ params: { id } }) {
           Book Now
         </Link>
       </div>
+      <ReviewForm />  
+      <ReviewList />
     </div>
   );
 }

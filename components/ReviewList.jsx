@@ -6,7 +6,7 @@ const ReviewList = ({ carId }) => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    fetch(`/cars/${carId}/reviews`)
+    fetch("http://localhost:3000/reviews")
       .then((response) => response.json())
       .then((data) => setReviews(data));
   }, [carId]);
