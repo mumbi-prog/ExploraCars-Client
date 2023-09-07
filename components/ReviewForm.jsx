@@ -33,6 +33,7 @@ const ReviewForm = ({ carId, onReviewSubmit }) => {
   const labelStyle = {
     display: "block",
     marginBottom: "8px",
+    color:"black"
   };
 
   const inputStyle = {
@@ -46,7 +47,7 @@ const ReviewForm = ({ carId, onReviewSubmit }) => {
       <h2 className='font-bold text-3xl text-center my-2'>Write a Review</h2>
       <form onSubmit={handleSubmit} style={formStyle}>
         <div>
-          <label style={labelStyle}>Title:</label>
+          <label style={labelStyle} className="text-black">Title:</label>
           <input
             type="text"
             value={title}

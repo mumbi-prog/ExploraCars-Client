@@ -32,14 +32,14 @@ export default function CarDetailsPage({ params: { id } }) {
       </div>
 
       <div className="mt-4">
-        <Link
+        <button className="btn-primary"><Link
           href="/booking"
-          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-300 ease-in-out"
+          className="px-4 py-2 bg-blue-500rounded hover:bg-blue-600 transition duration-300 ease-in-out"
         >
           Book Now
-        </Link>
+        </Link></button>
       </div>
-      <ReviewForm />  
+      <ReviewForm carId={id} />  
       <ReviewList />
     </div>
   );
