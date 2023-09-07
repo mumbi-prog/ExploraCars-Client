@@ -1,5 +1,5 @@
 
-// import { Navbar, Footer } from '@/components'
+import { Navbar, Footer } from '@/components'
 import '../globals.css'
 import { Inter } from 'next/font/google'
 
@@ -14,10 +14,10 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
-      <body className="max-w-7xl mx-auto overflow-x-hidden m-5">
-        {/* <Navbar/> */}
+      <body>
+        <Navbar/>
         {children}
-        {/* <Footer/> */}
+        <Footer/>
         </body>
       
     </html>
