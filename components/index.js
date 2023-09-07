@@ -7,6 +7,7 @@ import BookingList from "./BookingList.jsx";
 import Landing from "./Landing";
 import CarList from "./CarList";
 import Hero from "./Hero";
+import CarDetails from "./CarDetails"
 
-export {Login, Register, Navbar, Footer, Booking, BookingList, Landing, CarList, Hero} 
+export {Login, Register, Navbar, Footer, Booking, BookingList, Landing, CarList, Hero, CarDetails } 
 
