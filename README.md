@@ -1,5 +1,5 @@
 ## Explora Cars
-
+![alt text](/explora.jpeg)
 ## Project Description
 
 Explora is a web application that allows travellers to hire cars of their choice for ease in transportation in the destination area. 
