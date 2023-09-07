@@ -13,6 +13,7 @@ export default function Booking() {
     if(user === null){
       navigate.replace('/login')
     }
+    const car_id = sessionStorage.getItem("car_id")
     const [formData,setFormData]=useState({
         startDate:'',
         endDate:''
@@ -21,6 +22,9 @@ export default function Booking() {
         setFormData(()=>({...formData,
           [e.target.name]:e.target.value  
         }))
+    }
+    function handleBookingClick(){
+      navigate.replace('/account')
     }
     function handleDatesSubmit(e){
         e.preventDefault()
@@ -66,7 +70,7 @@ export default function Booking() {
     }
     useEffect(() => {
             
-            fetch('http://localhost:3000/car_bookings/2')
+            fetch(`http://localhost:3000/car_bookings/${car_id}`)
               .then((response) => response.json())
               .then((data) => {
                 if (data.error||data.errors){
@@ -83,6 +87,9 @@ export default function Booking() {
        return (
         <div className='w-full h-full p-10'>
             <h1 className='font-bold mb-2'>The highlighted Dates are dates not available for this car</h1>
+            <div className="flex">
+            <button className="ml-auto mt-0 p-3 bg-red" onClick={handleBookingClick}>See bookings</button>
+          </div>
         <Calendar
           className='w-96 h-full rounded-xl bg-violet-300'
           onChange={setTgl}
