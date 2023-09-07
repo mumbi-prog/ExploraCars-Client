@@ -13,7 +13,7 @@ const ReviewList = ({ carId }) => {
 
   return (
     <div>
-      <h2>Reviews</h2>
+      <h2 className='font-bold text-3xl text-center my-2'>Reviews</h2>
       <ul>
         {reviews.map((review) => (
           <li key={review.id}>
