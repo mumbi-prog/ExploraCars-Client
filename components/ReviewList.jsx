@@ -6,7 +6,6 @@ const ReviewList = ({ carId }) => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    // Fetch reviews for a specific car when the component mounts
     fetch(`/cars/${carId}/reviews`)
       .then((response) => response.json())
       .then((data) => setReviews(data));
