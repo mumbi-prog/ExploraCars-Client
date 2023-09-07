@@ -7,10 +7,11 @@ import Link from "next/link";
 export default function CarDetailsPage({ params: { id } }) {
   const carData = getCar(id);
   const car =  carData;
+  console.log(car)
   return (
     <div className="p-4 space-y-4">
       <Image src={car?.image_url} alt={car?.make} width={2901} height={1425} />
-      <h1 className="text-2xl font-semibold">{car.make}</h1>
+      <h1 className="text-2xl font-semibold">{car?.make}</h1>
 
       <div className="grid grid-cols-2 gap-4">
         <div>
