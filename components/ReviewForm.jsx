@@ -97,7 +97,7 @@ const ReviewForm = ({ carId, onReviewSubmit }) => {
 
   return (
     <div>
-      <h1>Write a Review</h1>
+      <h2 className='font-bold text-3xl text-center my-2'>Write a Review</h2>
       <form onSubmit={handleSubmit} style={formStyle}>
         <div>
           <label style={labelStyle}>Title:</label>
