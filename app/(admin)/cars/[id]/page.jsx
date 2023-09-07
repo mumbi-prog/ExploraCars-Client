@@ -1,16 +1,15 @@
+'use client'
 import React from "react";
 import { getCar } from "@/lib";
 import Image from "next/image";
 import Link from "next/link";
 
-export default async function CarDetailsPage({ params: { id } }) {
+export default function CarDetailsPage({ params: { id } }) {
   const carData = getCar(id);
-  const car = await carData;
-  console.log(car);
-
+  const car =  carData;
   return (
     <div className="p-4 space-y-4">
-      <Image src={car.image_url} alt={car.make} width={500} height={300} />
+      <Image src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Toyota_Probox_Van_DX.jpg" alt={car.make} width={2901} height={1425} />
       <h1 className="text-2xl font-semibold">{car.make}</h1>
 
       <div className="grid grid-cols-2 gap-4">
