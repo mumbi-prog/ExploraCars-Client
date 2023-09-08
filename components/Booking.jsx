@@ -85,9 +85,9 @@ export default function Booking(params) {
         <div className='w-full h-full p-10'>
             <h1 className='font-bold mb-2'>The highlighted Dates are dates not available for this car</h1>
             <Calendar
-          className='w-96 h-full rounded-xl bg-violet-300'
-          onChange={setTgl}
-          value={tgl}
+    className='w-96 h-full rounded-xl bg-violet-300'
+    onChange={setTgl}
+    value={tgl}
   tileClassName={({ date }) => {
     const realDate = date.toISOString().split('T')[0]; 
     const isHighlighted = dates.length > 0 && dates.some((range) => {

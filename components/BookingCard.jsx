@@ -8,7 +8,6 @@ function BookingCard({ booking, onUpdate, onDelete }) {
     
       {/* Display car information */}
       <h4 className="mt-2 font-bold">Car Information:</h4>
-      <p className="font-semibold">Car ID: {booking.car.id}</p>
       <p className="font-semibold">Make: {booking.car.make}</p>
       <p className="font-semibold">Fuel Type: {booking.car.fuel_type}</p>
       <p className="font-semibold">Category: {booking.car.category}</p>

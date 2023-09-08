@@ -78,7 +78,7 @@ export default function BookingList() {
           };
     useEffect(() => {
             
-        fetch('http://localhost:3000/customer_bookings/1')
+        fetch(`http://localhost:3000/customer_bookings/${user.id}`)
           .then((response) => response.json())
           .then((data) => {
             console.log(data)
