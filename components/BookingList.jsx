@@ -1,6 +1,7 @@
 'use client'
 import { useEffect,useState } from 'react'
 import BookingCard from './BookingCard'
+import { getCurrentUser } from '@/lib'
 export default function BookingList() {
     const[bookings,setBookings]=useState([])
     const[isEditing,setIsEditing]=useState(false)
@@ -9,6 +10,7 @@ export default function BookingList() {
         newStartDate:'',
         newEndDate:''
     })
+    const user = getCurrentUser()
     function updateBooking(id){
         setIsEditing(()=>true)
         const targetElement = document.getElementById("update-dates");
@@ -55,7 +57,7 @@ export default function BookingList() {
         }))
     }
     function deleteBooking(id){
-        fetch(`http://localhost:3000/bookings/${id}`,{
+        fetch(`http://localhost:3000/bookings/${user.id}`,{
             method:"DELETE",
             headers: {
                 'Content-Type': 'application/json',
