@@ -1,4 +1,4 @@
-'use client'
+"use client"
 import React, { useEffect, useState } from 'react';
 import Calendar from 'react-calendar';
 import { useRouter } from "next/navigation";
@@ -8,24 +8,15 @@ export default function Booking(params) {
     const [tgl,setTgl] = useState(new Date())
     const [dates,setDates] = useState([])
     const [errors,setErrors]=useState(null)
-    const user = getCurrentUser()
-    const navigate = useRouter()
-    if(!user){
-      navigate.replace('/login')
-    }
-    const id = params.id
-    // const car_id = sessionStorage.getItem("car_id")
     const [formData,setFormData]=useState({
         startDate:'',
         endDate:''
     })
+    const id = params.id
     function handleChange(e){
         setFormData(()=>({...formData,
           [e.target.name]:e.target.value  
         }))
-    }
-    function handleBookingClick(){
-      navigate.replace('/account')
     }
     function handleDatesSubmit(e){
         e.preventDefault()
@@ -33,7 +24,7 @@ export default function Booking(params) {
         let endDate = new Date(formData.endDate).toISOString().split('T')[0];
         const newDates= {
             "car_id":2,
-            "customer_id":user.id,
+            "customer_id":2,
             "start_date":startDate,
             "end_date":endDate
         }
@@ -78,7 +69,7 @@ export default function Booking(params) {
                   setErrors(data.error)
                 }else{
                 console.log(data)
-                setDates(()=>data)}
+                setDates(()=>data.bookings)}
               })
               .catch((error) => {
                 // console.error('Error fetching dates:', error);
@@ -88,9 +79,6 @@ export default function Booking(params) {
        return (
         <div className='w-full h-full p-10'>
             <h1 className='font-bold mb-2'>The highlighted Dates are dates not available for this car</h1>
-            <div className="flex">
-            <button className="ml-auto mt-0 p-3 bg-red" onClick={handleBookingClick}>See bookings</button>
-          </div>
         <Calendar
           className='w-96 h-full rounded-xl bg-violet-300'
           onChange={setTgl}
@@ -120,8 +108,8 @@ export default function Booking(params) {
     <button type='submit' className='p-2 mt-2 bg-red-800 rounded'>submit</button>
   </div>
 </form>
+{/* <BookingList/> */}
  </div>
       
   )
 }
-

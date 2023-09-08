@@ -1,13 +1,13 @@
- 
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 }
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
@@ -15,6 +15,7 @@
     --background-end-rgb: 0, 0, 0;
   }
 }
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
@@ -27,12 +28,15 @@ body {
 .login-page {
   @apply w-full md:w-3/4 lg:w-1/2 max-w-lg lg:m-auto min-w-min mx-auto border border-blue-500 dark:border-white rounded-lg md:p-16 p-10 text-xl shadow-md;
 }
+
 .input-field {
   @apply mb-3 bg-transparent p-2 w-full border-b-2 border-blue-500 text-white outline-none pl-8
 }
+
 label {
   @apply font-bold;
 }
+
 .login__link {
  @apply underline text-blue-500 cursor-pointer hover:text-green-800 font-bold
 }
@@ -46,8 +50,55 @@ label {
 #reset-icon{
   @apply absolute bottom-10 left-0 mb-4
 }
+.menu-item{
+  @apply px-3 py-2 font-bold hover:text-blue-600
+}
 
-/* SEARCH INPUT STYLING BEFINS */
+.btn-primary{
+  @apply  p-2 m-3 rounded-lg mx-4 py-2 mt-2 font-bold px-8 shadow-md border border-blue-500 bg-blue-500 hover:bg-blue-700 
+}
+.hero-btn-primary{
+  @apply rounded-full mx-4 py-2 mt-2 font-bold px-8 shadow-md border border-blue-500 bg-blue-500 hover:bg-blue-700 flex items-center justify-center gap-1
+}
+.menu{
+ @apply flex flex-col h-screen w-2/3 space-y-6 md:mt-5 shadow-lg xsm:w-full drop-shadow-2xl xsm:bg-blue-600 py-4 md:w-60 z-50 absolute left-0 top-0 dark:bg-gray-950 bg-gray-200
+}
+.footer-links {
+  @apply flex w-full md:justify-between flex-wrap md:mt-10 xsm:flex-col;
+}
+
+.footer-link {
+  @apply flex-1 flex-col gap-6 text-base min-w-[170px];
+}
+.blue-color{
+  background-color: #4C73FF;
+}
+/* hero section styles */
+.hero {
+  @apply overflow-hidden  xsm:mt-0 flex xl:flex-row flex-col gap-5 relative z-0 max-w-[1440px] mx-auto;
+}
+
+.hero__title {
+  @apply mx-4 2xl:text-[72px] sm:text-[64px] text-[50px] font-extrabold;
+}
+
+.hero__subtitle {
+  @apply mx-4 text-[27px] font-light mt-5;
+}
+
+.hero__image-container {
+  @apply  xl:flex-[1.5] flex justify-end items-end w-full xl:h-screen;
+}
+
+.hero__image {
+  @apply relative xl:w-full w-[90%] xl:h-full h-[590px] z-0;
+}
+
+.hero__image-overlay {
+  @apply absolute xl:-top-24 xl:-right-1/2 -right-1/4 bg-hero-bg bg-repeat-round -z-10 w-full xl:h-screen h-[590px] overflow-hidden;
+}
+/* 
+/* sylvia components css */
 .search{
   display: flex;
   align-items: center;
@@ -73,12 +124,14 @@ label {
   align-items: center;
   background-color: #ffffff;
 }
+
 .car-list h1{
   font-size: 40px;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-weight: bolder;
   text-align: center;
 }
+
 .card-grid-container{
   display: grid;
   grid-template-columns: repeat(4, 250px); 
@@ -86,4 +139,111 @@ label {
   padding-top: 20px;
   align-items: center;
   justify-content: center;
+}
+
+.car-card{
+  border-radius: 21px;
+  background: #f8f8fa;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.car-card img {
+  width: 230px;
+  height: 150px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.make-and-bd-type h2{
+  font-weight: bolder;
+  text-align: left;
+}
+
+.price-holder{
+  text-align: left;
+  margin-top: 10px;
+}
+
+.superscript{
+  vertical-align: super;
+  color: #7a7b81;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.price{
+  color: black;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.subscript{
+  vertical-align: sub;
+  color: #7a7b81;
+  font-size: 12px;
+}
+
+
+.car-details{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 25px;
+  padding-top: 13px;
+  color: gray;
+}
+
+.icon-and-detail{
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  text-align: center; 
+}
+
+.icon-and-detail p{
+  font-size: 10px;
+  font-weight: 500;
+  padding-top: 5px;
+  color: #7a7b81;
+}
+
+.icon {
+  font-size: 18px; 
+  color: #7a7b81;
+}
+/* CAR GRID CONTAINER STYLING ENDS */
+
+/* PAGINATION STYLING BEGINS */
+.pagination{
+  display: flex;
+  text-align: center;
+  color: #7a7b81;
+  padding-left: 40%;
+}
+
+.page-button{
+  color: #090909;
+  padding: 5px;
+  width: fit-content;
+  margin: 25px;
+  font-size: 13px;
+  border-radius: 0.5em;
+  background: #e8e8e8;
+  border: 1px solid #e8e8e8;
+  transition: all .3s;
+}
+
+ .page-button:active {
+  color: #666;
+  box-shadow: inset 4px 4px 12px #8fc1f2,
+              inset -4px -4px 12px #ffffff;
+ }
+
+.current-page-button{
+  gap: 7px;
+  font-size: 13px;
+  color: #9c9c9f;
+  outline: none;
+  letter-spacing: 6px;
 }

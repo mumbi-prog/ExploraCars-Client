@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import { GiSteeringWheel } from 'react-icons/gi';
 import { MdAirlineSeatReclineNormal } from 'react-icons/md';
 import { BsFuelPumpFill } from 'react-icons/bs';
+import Link from 'next/link';
+import Image from 'next/image';
 
 
 const CarList = ({ cars }) => {
@@ -82,8 +84,7 @@ const CarList = ({ cars }) => {
               <span className='price'>{car.price_per_day}</span>
               <span className='subscript'>/day</span>
             </p>
-            <img src={car.image_url} alt={car.make} />
-
+            <Link href={`/cars/${car.id}`}> <Image src={car.image_url} alt={car.make} width={230} height={150}/></Link>
             <div className="car-details">
               <div className="icon-and-detail">
                 <GiSteeringWheel className="icon" />

@@ -13,7 +13,7 @@ export default function Navbar() {
  
   return (
     <>
-      <div className="p-2 flex w-full items-center justify-between sticky top-0 ">
+      <div className="p-2 flex w-full items-center justify-between">
         <div className="w-10">
           {!menuOpen ? (
             <FaBars
@@ -33,11 +33,11 @@ export default function Navbar() {
           <AiFillCar />
          <Link href="/"> Explora </Link>
         </div>
-            <button type="button" className="md:block btn-primary flex items-center cursor-pointer"><a href="/login"className="hover:text-blue-500 text-xl xsm:text-base"> Login</a>
+            <button type="button" className="md:block btn-primary flex items-center cursor-pointer"><a href="/login"className="hover:text-blue-500 text-xl xsm:text-base"> {!user?"Login": "Sign Out"}</a>
             </button>
     
       </div>
-      <hr className="h-2 bg-amber-400"></hr>
+      <hr className="h-2 blue-color border-none"></hr>
     </>
   );
 }
