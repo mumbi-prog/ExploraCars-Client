@@ -1,12 +1,15 @@
 "use client"
 import React, { useEffect, useState } from 'react';
-import { CarList } from '@/components';
-import Search from '@/components/Search';
-import Link from 'next/link';
+import { CarList, Search } from '@/components';
 
 function Page() {
   const [cars, setCars] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
+  const filteredCars = cars.filter(
+    (car) =>
+      car.make.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      searchQuery.trim() === ''
+  );
 
   useEffect(() => {
     fetch('http://127.0.0.1:3000/cars')
@@ -19,8 +22,9 @@ function Page() {
 
   return (
     <>
-      <Search onSearchChange={setSearchQuery} />
-      <CarList cars={cars} searchQuery={searchQuery} onSearchChange={setSearchQuery} />
+    <h1 className="font-bold text-3xl xsm:text-2xl text-center my-2">Showing All Vehicles</h1>
+      <Search setSearchQuery={setSearchQuery} searchQuery={searchQuery} />
+      <CarList cars={filteredCars}  />
     </>
   );
 }

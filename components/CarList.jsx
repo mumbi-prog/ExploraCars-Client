@@ -8,21 +8,14 @@ import Image from 'next/image';
 
 
 const CarList = ({ cars }) => {
-  const [searchQuery, setSearchQuery] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 12; 
-
-  const filteredCars = cars.filter(
-    (car) =>
-      car.make.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      searchQuery.trim() === ''
-  );
 
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
 
 
-  const paginatedCars = filteredCars.slice(startIndex, endIndex);
+  const paginatedCars = cars.slice(startIndex, endIndex);
 
   const goToPreviousPage = () => {
     if (currentPage > 1) {
@@ -31,7 +24,7 @@ const CarList = ({ cars }) => {
   };
 
   const goToNextPage = () => {
-    const totalPages = Math.ceil(filteredCars.length / itemsPerPage);
+    const totalPages = Math.ceil(cars.length / itemsPerPage);
     if (currentPage < totalPages) {
       setCurrentPage(currentPage + 1);
     }
@@ -83,7 +76,7 @@ const CarList = ({ cars }) => {
             Previous
         </button>
         {Array.from(
-          { length: Math.ceil(filteredCars.length / itemsPerPage) },
+          { length: Math.ceil(cars.length / itemsPerPage) },
           (_, index) => (
             <button
               key={index}
@@ -94,7 +87,7 @@ const CarList = ({ cars }) => {
             </button>
           )
         )}
-        <button onClick={goToNextPage} disabled={currentPage === Math.ceil(filteredCars.length / itemsPerPage)} className="page-button hover:bg-blue-600">
+        <button onClick={goToNextPage} disabled={currentPage === Math.ceil(cars.length / itemsPerPage)} className="page-button hover:bg-blue-600">
             Next
         </button>
       </div>

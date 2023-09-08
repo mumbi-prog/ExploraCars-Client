@@ -10,6 +10,7 @@ import Hero from "./Hero";
 import ReviewForm from './ReviewForm'
 import ReviewList from './ReviewList'
 import Qualifications from "./Qualifications";
+import Search from './Search'
 
-export {Login, Register, Navbar, Footer, Booking, BookingList, Landing, CarList, Hero, ReviewForm, ReviewList, Qualifications } 
+export {Login, Register, Navbar, Footer, Booking, BookingList, Landing, CarList, Hero, ReviewForm, ReviewList, Qualifications, Search } 
 

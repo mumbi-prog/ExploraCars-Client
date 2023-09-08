@@ -1,13 +1,16 @@
-import React, { useState, useEffect } from 'react';
 
-const Search = ({ onSearchChange }) => {
-  const [searchQuery, setSearchQuery] = useState('');
+import React from 'react'
 
-  useEffect(() => {
-    onSearchChange(searchQuery);
-  }, [searchQuery, onSearchChange]);
-
-  return null;
-};
-
-export default Search;
+export default function Search({searchQuery, setSearchQuery}) {
+  return (
+   <div className="search my-2">
+    <input
+      type="text"
+      placeholder="Search by make"
+      value={searchQuery}
+      onChange={(e) => setSearchQuery(e.target.value)}
+      className="search-input"
+    />
+  </div>
+  )
+}

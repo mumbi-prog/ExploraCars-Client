@@ -100,11 +100,11 @@ label {
 /* 
 /* sylvia components css */
 .search{
-  @apply flex items-center m-auto justify-center
+  @apply flex items-center m-auto justify-center text-black
 }
 
 .search-input{
-  @apply w-3/5 h-8 border italic text-sm rounded-md outline-none
+  @apply w-3/5 h-10 border text-xl rounded-md outline-none text-black
 }
 /* SEARCH INPUT STYLING ENDS */
 
