@@ -89,14 +89,14 @@ export default function Booking(params) {
           onChange={setTgl}
           value={tgl}
           tileClassName={({ date }) => {
-            const realDate = date.toISOString().split('T')[0]; // Convert date to 'yyyy-mm-dd' format
+            const realDate = date.toISOString().split('T')[0]; 
             const isHighlighted = dates.some((range) => {
               const startDate = new Date(range.start_date).toISOString().split('T')[0];
               const endDate = new Date(range.end_date).toISOString().split('T')[0];
               return realDate >= startDate && realDate <= endDate;
             });
       
-            return isHighlighted ? 'highlight' : ''; // Apply 'highlight' class if the date is in a range
+            return isHighlighted ? 'highlight' : ''; 
           }}
         />
         <form className='mt-5 w-1/2 md:w-3/4 lg:w-1/2 p-5 rounded-xl border-solid' onSubmit={handleDatesSubmit}>
@@ -113,7 +113,7 @@ export default function Booking(params) {
     <button type='submit' className='p-2 mt-2 bg-red-800 rounded'>submit</button>
   </div>
 </form>
-{/* <BookingList/> */}
+
  </div>
       
   )
