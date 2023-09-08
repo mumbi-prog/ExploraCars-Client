@@ -46,7 +46,7 @@ export default function Booking(params) {
               setErrors(()=>data.errors)
             })
           }else {
-            // throw new Error('Failed to create booking');
+            
             res.json()
           }
         })
@@ -84,21 +84,21 @@ export default function Booking(params) {
        return (
         <div className='w-full h-full p-10'>
             <h1 className='font-bold mb-2'>The highlighted Dates are dates not available for this car</h1>
-        <Calendar
+            <Calendar
           className='w-96 h-full rounded-xl bg-violet-300'
           onChange={setTgl}
           value={tgl}
-          tileClassName={({ date }) => {
-            const realDate = date.toISOString().split('T')[0]; 
-            const isHighlighted = dates.some((range) => {
-              const startDate = new Date(range.start_date).toISOString().split('T')[0];
-              const endDate = new Date(range.end_date).toISOString().split('T')[0];
-              return realDate >= startDate && realDate <= endDate;
-            });
-      
-            return isHighlighted ? 'highlight' : ''; 
-          }}
-        />
+  tileClassName={({ date }) => {
+    const realDate = date.toISOString().split('T')[0]; 
+    const isHighlighted = dates.length > 0 && dates.some((range) => {
+      const startDate = new Date(range.start_date).toISOString().split('T')[0];
+      const endDate = new Date(range.end_date).toISOString().split('T')[0];
+      return realDate >= startDate && realDate <= endDate;
+    });
+
+    return isHighlighted ? 'highlight' : ''; 
+  }}
+/>
         <form className='mt-5 w-1/2 md:w-3/4 lg:w-1/2 p-5 rounded-xl border-solid' onSubmit={handleDatesSubmit}>
         <div className={errors?"bg-red-400 mt-3 p-2 rounded-sm":"hidden"}>
           {errors? errors: ""}</div>
