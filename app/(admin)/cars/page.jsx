@@ -1,30 +1,35 @@
-"use client"
-import React, { useEffect, useState } from 'react';
-import { CarList, Search } from '@/components';
-
+"use client";
+import React, { useState, useEffect } from "react";
+import { CarList, Search } from "@/components";
+import { getCarData } from "@/lib";
 function Page() {
+  const [searchQuery, setSearchQuery] = useState("");
   const [cars, setCars] = useState([]);
-  const [searchQuery, setSearchQuery] = useState('');
-  const filteredCars = cars.filter(
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const carData = await getCarData();
+        setCars(carData);
+      } catch (error) {
+        console.error("Error fetching car data:", error);
+      }
+    }
+
+    fetchData();
+  }, []);
+  const filteredCars = cars?.filter(
     (car) =>
       car.make.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      searchQuery.trim() === ''
+      searchQuery.trim() === ""
   );
-
-  useEffect(() => {
-    fetch('http://127.0.0.1:3000/cars')
-      .then((response) => response.json())
-      .then((data) => {
-        setCars(data);
-      })
-      .catch((error) => console.error('Error fetching car data:', error));
-  }, []);
 
   return (
     <>
-    <h1 className="font-bold text-3xl xsm:text-2xl text-center my-2">Showing All Vehicles</h1>
+      <h1 className="font-bold text-3xl xsm:text-2xl text-center my-2">
+        Showing All Vehicles
+      </h1>
       <Search setSearchQuery={setSearchQuery} searchQuery={searchQuery} />
-      <CarList cars={filteredCars}  />
+      <CarList cars={filteredCars} itemsPerPage={12} Search={Search} />
     </>
   );
 }

@@ -7,9 +7,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 
-const CarList = ({ cars }) => {
+const CarList = ({ cars, itemsPerPage, Search }) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 12; 
 
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
@@ -71,7 +70,7 @@ const CarList = ({ cars }) => {
         ))}
       </div>
 
-      <div className="pagination">
+      <div className="flex items-center justify-center m-2 p-1 gap-1">
         <button onClick={goToPreviousPage} disabled={currentPage === 1} className="page-button hover:bg-blue-600">
             Previous
         </button>
