@@ -1,7 +1,6 @@
 'use client'
 import {useEffect, useState} from "react"
 import React from "react";
-import { getCar } from "@/lib";
 import Image from "next/image";
 import Link from "next/link";
 import {ReviewForm, ReviewList} from "@/components"
