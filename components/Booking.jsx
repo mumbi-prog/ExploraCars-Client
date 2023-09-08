@@ -73,7 +73,7 @@ export default function Booking() {
   }
   useEffect(() => {
           
-          fetch(`http://localhost:3000/car_bookings/${id}`)
+          fetch(`http://localhost:3000/car_bookings`)
             .then((response) => response.json())
             .then((data) => {
               if (data.error||data.errors){

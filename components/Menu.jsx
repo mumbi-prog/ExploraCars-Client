@@ -11,7 +11,7 @@ export const Menu = ({ handleClick, menuOpen }) => {
   const user= getCurrentUser();
 
   return (
-    <div className="menu">
+    <div className="menu divide-y divide-dashed">
       <TfiClose
         className="absolute top-0 right-0 text-2xl mr-2 hover:scale-125 ease-in-out cursor-pointer"
         onClick={() => handleClick(!menuOpen)}
