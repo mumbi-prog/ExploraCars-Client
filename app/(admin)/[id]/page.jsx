@@ -1,23 +1,43 @@
-import React from 'react'
+import React from "react";
+import { getCar } from "@/lib";
+import Image from "next/image";
+import Link from "next/link";
 
-// export const page = ({params}) => {
-//     //fetch all the cars
-//     //filter the cars based on the id you get from the onclick event
-//     //filter based on the params.id
-//   return (
-//     <div>page</div>
-//   )
-// }
-// import React from 'react'
+export default async function CarDetailsPage({ params: { id } }) {
+  const carData = getCar(id);
+  const car = await carData;
+  console.log(car);
 
-export default function page({params}) {
-    //fetch all the cars, store in a state
-    // const [cars, setCars]= useState([])
-    //filter the cars, to render only the car with a matching id
-    //route show (return a specific car)
-    // fetch using the params.id
-    console.log(params)
   return (
-    <div>{params.id}</div>
-  )
+    <div className="p-4 space-y-4">
+      <Image src={car.image_url} alt={car.make} width={500} height={300} />
+      <h1 className="text-2xl font-semibold">{car.make}</h1>
+
+      <div className="grid grid-cols-2 gap-4">
+        <div>
+          <p className="text-white">Year: {car.year}</p>
+          <p className="text-white">Price per Day: ${car.price_per_day}</p>
+          <p className="text-white">Transmission: {car.transmission}</p>
+          <p className="text-white">Body Type: {car.body_type}</p>
+        </div>
+        <div>
+          <p className="text-white">Category: {car.category}</p>
+          <p className="text-white">
+            Fuel Consumption: {car.fuel_consumption} mpg
+          </p>
+          <p className="text-white">Number of Seats: {car.no_of_seats}</p>
+          <p className="text-white">Fuel Type: {car.fuel_type}</p>
+        </div>
+      </div>
+
+      <div className="mt-4">
+        <Link
+          href="/booking"
+          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-300 ease-in-out"
+        >
+          Book Now
+        </Link>
+      </div>
+    </div>
+  );
 }
