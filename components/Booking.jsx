@@ -12,6 +12,11 @@ export default function Booking(params) {
         startDate:'',
         endDate:''
     })
+    const user = getCurrentUser()
+    const navigate = useRouter()
+    if (!user){
+      navigate.replace('/login')
+    }
     const id = params.id
     function handleChange(e){
         setFormData(()=>({...formData,
@@ -24,7 +29,7 @@ export default function Booking(params) {
         let endDate = new Date(formData.endDate).toISOString().split('T')[0];
         const newDates= {
             "car_id":2,
-            "customer_id":2,
+            "customer_id":user.id,
             "start_date":startDate,
             "end_date":endDate
         }
