@@ -7,7 +7,7 @@ export default function Qualifications() {
   return (
     <div className="mx-2 p-2 ">
       <h1 className="lg:text-4xl text-3xl font-bold text-center xsm:text-xl my-2">Rental Terms, Qualifications and Requirements</h1>
-      <Accordion variant="shadow" className="shadow-lg">
+      <Accordion variant="shadow">
         <AccordionItem
           key="1"
           aria-label="Driver requirements"
