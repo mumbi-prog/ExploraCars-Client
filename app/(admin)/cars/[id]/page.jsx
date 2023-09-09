@@ -1,21 +1,14 @@
-'use client'
-import {useEffect, useState} from "react"
+
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {ReviewForm, ReviewList} from "@/components"
+import {getCar} from "@/lib"
 
-export default function CarDetailsPage({ params}) {
-  const id = params.id
-  const [car, setCar]= useState([])
- useEffect(() => {
-    fetch(`http://127.0.0.1:3000/cars/${id}`)
-      .then((response) => response.json())
-      .then((data) => {
-        setCar(data);
-      })
-      .catch((error) => console.error('Error fetching car data:', error));
-  }, [id]);
+export default async function CarDetailsPage({ params}) {
+  const car = await getCar(params.id)
+  console.log(params.id)
+console.log(car)
   return (
     <div className="p-4 space-y-4">
       <Image src={car?.image_url} alt={car?.make} width={2901} height={1425} />
@@ -46,7 +39,7 @@ export default function CarDetailsPage({ params}) {
           Book Now
         </Link></button>
       </div>
-      <ReviewForm carId={id} />  
+      <ReviewForm carId={params.id} />  
       <ReviewList />
     </div>
   );
