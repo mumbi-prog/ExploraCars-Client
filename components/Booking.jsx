@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { getCurrentUser } from '@/lib';
 import 'react-calendar/dist/Calendar.css'
 
-export default function Booking() {
+export default function Booking({id}) {
   const [tgl,setTgl] = useState(new Date())
   const [dates,setDates] = useState([])
   const [errors,setErrors]=useState(null)
@@ -14,7 +14,7 @@ export default function Booking() {
   if(!user){
     navigate.replace('/login')
   }
-  // const car_id = sessionStorage.getItem("car_id")
+  
   const [formData,setFormData]=useState({
       startDate:'',
       endDate:''
@@ -34,7 +34,7 @@ export default function Booking() {
       let startDate = new Date(formData.startDate).toISOString().split('T')[0];
       let endDate = new Date(formData.endDate).toISOString().split('T')[0];
       const newDates= {
-          "car_id":2,
+          "car_id":id,
           "customer_id":user.id,
           "start_date":startDate,
           "end_date":endDate
@@ -73,7 +73,7 @@ export default function Booking() {
   }
   useEffect(() => {
           
-          fetch(`http://localhost:3000/car_bookings`)
+          fetch(`http://localhost:3000/car_bookings/${id}`)
             .then((response) => response.json())
             .then((data) => {
               if (data.error||data.errors){
