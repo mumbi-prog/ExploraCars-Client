@@ -98,6 +98,13 @@ label {
   @apply absolute xl:-top-24 xl:-right-1/2 -right-1/4 bg-hero-bg bg-repeat-round -z-10 w-full xl:h-screen h-[590px] overflow-hidden;
 }
 /* 
+/* accordion styling */
+.requirements-list li{
+  @apply py-2  leading-relaxed text-base mx-2
+}
+.accordion{
+  @apply text-xl md:text-2xl text-left border-2 shadow-lg w-full font-bold dark:bg-slate-500 rounded
+}
 /* sylvia components css */
 .search{
   @apply flex items-center m-auto justify-center text-black
