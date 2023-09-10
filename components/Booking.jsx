@@ -98,8 +98,8 @@ export default function Booking({id}) {
         onChange={setTgl}
         value={tgl}
         tileClassName={({ date }) => {
-          const realDate = date.toISOString().split('T')[0]; // Convert date to 'yyyy-mm-dd' format
-          const isHighlighted = dates.some((range) => {
+          const realDate = date.toISOString().split('T')[0]; 
+          const isHighlighted = dates.length > 0 && dates.some((range) => {
             const startDate = new Date(range.start_date).toISOString().split('T')[0];
             const endDate = new Date(range.end_date).toISOString().split('T')[0];
             return realDate >= startDate && realDate <= endDate;
