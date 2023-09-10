@@ -6,6 +6,7 @@ export default function BookingList() {
     const[bookings,setBookings]=useState([])
     const[isEditing,setIsEditing]=useState(false)
     const [errors,setErrors]=useState(null)
+    const [bookingId,setBookingId]=useState(null)
     const[dates,setDates]=useState({
         newStartDate:'',
         newEndDate:''
@@ -14,14 +15,14 @@ export default function BookingList() {
     function updateBooking(id) {
       if (id) {
         setIsEditing(true);
-        sessionStorage.setItem("bookingId", id);
+        setBookingId(()=>id)
       } else {
         console.error("Cannot update booking with null id");
       }
     }
     function handleDateChange(e){
         e.preventDefault()
-        const id = sessionStorage.getItem("bookingId")
+        const id = bookingId
         const startDate = new Date(dates.newStartDate).toISOString().split('T')[0]
         const endDate = new Date(dates.newEndDate).toISOString().split('T')[0]
 
@@ -81,7 +82,7 @@ export default function BookingList() {
         };
     useEffect(() => {
       if(user){      
-        fetch(`http://localhost:3000/customer_bookings/${user.id}`)
+        fetch(`http://localhost:3000/customer_booking/1`)
           .then((response) => response.json())
           .then((data) => {
             console.log(data)
