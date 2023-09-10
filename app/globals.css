@@ -153,6 +153,9 @@ label {
   text-align: left;
   margin-top: 10px;
 }
+.highlight{
+  font-weight: 1000;
+}
 
 .superscript{
   vertical-align: super;

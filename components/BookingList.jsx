@@ -11,10 +11,13 @@ export default function BookingList() {
         newEndDate:''
     })
     const user = getCurrentUser()
-    function updateBooking(id){
-        setIsEditing(()=>true)
-        const targetElement = document.getElementById("update-dates");
-        sessionStorage.setItem("bookingId",id)
+    function updateBooking(id) {
+      if (id) {
+        setIsEditing(true);
+        sessionStorage.setItem("bookingId", id);
+      } else {
+        console.error("Cannot update booking with null id");
+      }
     }
     function handleDateChange(e){
         e.preventDefault()
@@ -52,6 +55,7 @@ export default function BookingList() {
         }))
     }
     function deleteBooking(id){
+      if(id){
         fetch(`http://localhost:3000/bookings/${id}`,{
             method:"DELETE",
             headers: {
@@ -70,9 +74,13 @@ export default function BookingList() {
                 console.error('There was a problem with the fetch operation:', error);
                 // Handle errors here
               });
-          };
+          }
+          else{
+            console.error("Cannot delete booking with null id");
+          }
+        };
     useEffect(() => {
-            
+      if(user){      
         fetch(`http://localhost:3000/customer_bookings/${user.id}`)
           .then((response) => response.json())
           .then((data) => {
@@ -82,7 +90,7 @@ export default function BookingList() {
           .catch((error) => {
             console.error('Error fetching dates:', error);
           });
-      }, [user]);
+      }}, [user]);
   return (
     <div>
       <h1 className="text-2xl font-semibold mb-4">Your Bookings</h1>
