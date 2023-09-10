@@ -109,7 +109,7 @@ export default function ResetPage() {
             <label htmlFor="email">Verify your Age: </label>
             <br></br>
             <input
-              type="age"
+              type="number"
               name="age"
               value={formData.age}
               onChange={handleChange}
@@ -157,7 +157,7 @@ export default function ResetPage() {
             onChange={() => setShowPassword(!showPassword)}
           />
           <span> {!showPassword ? "Show" : "Hide"} Password</span>
-          <button type="submit" className="login-button">
+          <button className="login-button">
             <FaEdit /> Reset Password
           </button>
         </form>
