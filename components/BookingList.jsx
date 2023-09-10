@@ -13,7 +13,7 @@ export default function BookingList() {
     newStartDate: "",
     newEndDate: "",
   });
-
+const user =getCurrentUser();
   function updateBooking(id) {
     if (id) {
       setIsEditing(true);
@@ -43,7 +43,7 @@ export default function BookingList() {
         if (res.status === 422) {
           return res.json().then((data) => setErrors(() => data.errors));
         } else {
-          response.json();
+          alert('Error: ' + res.status)
         }
       })
       .then((data) => {
@@ -53,6 +53,7 @@ export default function BookingList() {
       newStartDate: "",
       newEndDate: "",
     }));
+    setIsEditing(false);
   }
   function onDateChange(e) {
     setDates(() => ({
@@ -85,28 +86,25 @@ export default function BookingList() {
     }
   }
   useEffect(() => {
-    const user = getCurrentUser();
-    if (!user) {
-      push("/login");
-    } else {
-      fetch(`https://explora-api.up.railway.app/customer_bookings/${user.id}`)
+    
+      fetch(`https://explora-api.up.railway.app/customer_bookings/10`)
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
           setBookings(() => data);
         })
         .catch((error) => {
           console.error("Error fetching dates:", error);
         });
-    }
+    
   }, [push]);
   return (
-    <div>
-      <h1 className="text-2xl font-semibold mb-4">Your Bookings</h1>
+    <div className="mx-2">
+      <h1 className="text-3xl font-bold m-2">Welcome {user?user.full_name: ""}</h1>
+      <h2 className="text-2xl text-center font-bold xsm:text-start xsm:m-2">Manage Bookings</h2>
       <div className={errors ? "bg-red-400 mt-3 p-2 rounded-sm" : "hidden"}>
         {errors ? errors : ""}
       </div>
-      {bookings.length > 0 ? (
+      <div className="booking-card-grid mx-2"> {bookings.length > 0 ? (
         bookings.map((booking) => (
           <BookingCard
             key={booking.id}
@@ -117,30 +115,36 @@ export default function BookingList() {
         ))
       ) : (
         <p>No bookings found.</p>
-      )}
+      )}</div>
+     
       {isEditing && (
         <form
-          className="mx-auto rounded-xl p-4 mt-4 border border-gray-300 max-w-md"
+          className="mx-auto rounded-xl p-4 mt-4 border shadow-lg max-w-md"
           id="update-dates"
           onSubmit={handleDateChange}>
           {/* Input fields for updating dates */}
-          <label htmlFor="newStartDate">New Start Date:</label>
+          <label htmlFor="newStartDate" className="m-2 font-bold">New Start Date</label>
+          <br></br>
           <input
             type="date"
             id="newStartDate"
             name="newStartDate"
+            className="booking-form"
             value={dates.newStartDate}
             onChange={onDateChange}
           />
           <br />
-          <label htmlFor="newEndDate">New End Date:</label>
+        <label htmlFor="newEndDate" className="m-2 font-bold">New End Date</label>
+        <br></br>
           <input
             type="date"
             id="newEndDate"
             name="newEndDate"
+            className="booking-form"
             value={dates.newEndDate}
             onChange={onDateChange}
           />
+      
           <br />
           <button type="submit" className="btn-primary">
             Save

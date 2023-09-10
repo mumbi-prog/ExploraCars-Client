@@ -44,7 +44,7 @@ export default function useLogin() {
         if (typeof window !== "undefined") {
           sessionStorage.setItem("user", JSON.stringify(data));
         }
-        navigate.replace("/");
+        navigate.push("/");
         Swal.fire({
           icon: "success",
           text: "Logged in successfully",
@@ -118,7 +118,7 @@ export default function useLogin() {
               Click here
             </Link>
           </p>
-          <button type="submit" className="login-button" disabled={loginAttempt>=3}>
+          <button type="submit" className="login-button" disabled={loginAttempt>=4}>
             <SlLogin /> Login
           </button>
         </form>

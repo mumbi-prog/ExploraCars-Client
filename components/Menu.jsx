@@ -35,7 +35,7 @@ export const Menu = ({ handleClick, menuOpen }) => {
       </p>
       <p>
         <Link
-          href="/bookings"
+          href="/cars"
           className="menu-item"
           onClick={() => handleClick(!menuOpen)}>
           Rent
