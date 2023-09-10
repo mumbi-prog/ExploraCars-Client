@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { GiSteeringWheel } from 'react-icons/gi';
 import { MdAirlineSeatReclineNormal } from 'react-icons/md';
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { BsFuelPumpFill } from 'react-icons/bs';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -36,7 +37,7 @@ const CarList = ({ cars, itemsPerPage}) => {
   return (
     <div className="car-list">
       <div className="card-grid-container">
-        {paginatedCars?.map((car) => (
+        {cars && cars.length>0? paginatedCars?.map((car) => (
           <div key={car?.id} className="car-card mx-1">
             <div className='make-and-bd-type'>
               <h2>{car?.make}</h2>
@@ -68,14 +69,17 @@ const CarList = ({ cars, itemsPerPage}) => {
             </div></div>
            
           </div>
-        ))}
+        )):<div className="flex items-center gap-2 py-2 px-4 justify-center">
+        <AiOutlineLoading3Quarters className="animate-spin" />
+        <p>Loading....</p>
+      </div>}
       </div>
 
       <div className="flex items-center justify-center m-2 p-1 gap-1">
         <button onClick={goToPreviousPage} disabled={currentPage === 1} className="page-button hover:bg-blue-600">
             Previous
         </button>
-        {Array.from(
+        {cars? Array.from(
           { length: Math.ceil(cars?.length / itemsPerPage) },
           (_, index) => (
             <button
@@ -86,10 +90,10 @@ const CarList = ({ cars, itemsPerPage}) => {
             {index + 1}
             </button>
           )
-        )}
-        <button onClick={goToNextPage} disabled={currentPage === Math.ceil(cars?.length / itemsPerPage)} className="page-button hover:bg-blue-600">
+        ):"null"}
+        {cars && <button onClick={goToNextPage} disabled={currentPage === Math.ceil(cars?.length / itemsPerPage)} className="page-button hover:bg-blue-600">
             Next
-        </button>
+        </button>}
       </div>
 
     </div>
