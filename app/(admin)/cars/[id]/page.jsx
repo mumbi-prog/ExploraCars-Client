@@ -55,7 +55,7 @@ export default function CarDetailsPage({ params}) {
   const id = params.id
   const [car, setCar]= useState([])
  useEffect(() => {
-    fetch(`https://explora-cars-production.up.railway.app/cars/${id}`)
+    fetch(`https://explora-api.up.railway.app/cars/${id}`)
       .then((response) => response.json())
       .then((data) => {
         setCar(data);

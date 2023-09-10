@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 import { AiFillCar } from "react-icons/ai";
 import Link from "next/link";
 
-const loginApi = "https://explora-cars-production.up.railway.app/login";
+const loginApi = "https://explora-api.up.railway.app/login";
 // const loginApi = "http://127.0.0.1:3000/login";
 
 export default function useLogin() {
@@ -66,13 +66,13 @@ export default function useLogin() {
   return (
     <div className="h-screen">
       <div className="">
-        <h1 className="text-2xl m-5 text-center md:text-left md:text-3xl font-bold lg:text-4xl cursor-pointer flex items-center underline decoration-amber-400 decoration-4">
+        <h1 className="text-2xl m-5 text-center md:text-left md:text-3xl font-bold lg:text-4xl cursor-pointer flex items-center underline decoration-amber-400 decoration-4 text-black dark:text-white">
           <AiFillCar />
           Explora
         </h1>
       </div>
       <div className="login-page">
-        <h1 className="text-xl md:text-2xl font-bold text-center">
+        <h1 className="text-xl md:text-2xl font-bold text-center text-black dark:text-white">
           Welcome Back
         </h1>
         <form className="p4 m3" onSubmit={handleLogin}>

@@ -41,7 +41,7 @@ export default function Booking({id}) {
           "start_date":startDate,
           "end_date":endDate
       }
-      fetch('https://explora-cars-production.up.railway.app/bookings',{
+      fetch('https://explora-api.up.railway.app/bookings',{
         method:"POST",
         headers:{
           "Content-type":"application/json"
@@ -75,7 +75,7 @@ export default function Booking({id}) {
   }
   useEffect(() => {
           
-          fetch(`https://explora-cars-production.up.railway.app/car_bookings/${id}`)
+          fetch(`https://explora-api.up.railway.app/car_bookings/${id}`)
             .then((response) => response.json())
             .then((data) => {
               if (data.error||data.errors){
