@@ -33,7 +33,7 @@ export default function Register() {
   return (
     <div className="h-full overflow-auto">
       <div className="">
-      <h1 className="text-2xl m-5 text-center md:text-left md:text-3xl font-bold lg:text-4xl cursor-pointer flex items-center underline decoration-amber-400 decoration-4">
+      <h1 className="text-2xl m-5 text-center md:text-left md:text-3xl font-bold lg:text-4xl cursor-pointer flex items-center underline decoration-amber-400 decoration-4 text-black dark:text-white">
         <AiFillCar/>Explora
         </h1>
       </div>

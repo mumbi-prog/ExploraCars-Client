@@ -243,3 +243,7 @@ label {
   outline: none;
   letter-spacing: 6px;
 }
+/* styling for review form */
+.review-form-input{
+  @apply text-black outline-none rounded-md my-2 p-4 w-full
+}

@@ -1,96 +1,98 @@
 "use client";
 
 import React, { useState } from "react";
+import Swal from "sweetalert2";
+import { getCurrentUser } from "@/lib";
+import { useRouter } from "next/navigation";
 
 const ReviewForm = ({ carId, onReviewSubmit }) => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [rating, setRating] = useState(0);
+  const { push } = useRouter();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+    const user = getCurrentUser();
+
     const newReview = {
       title,
       body,
       rating: parseInt(rating),
-      car_id: carId, 
+      car_id: carId,
     };
-
-    fetch("https://explora-api.up.railway.app/reviews", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newReview),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        
-        console.log("Review submitted successfully:", data);
-        
-        onReviewSubmit(data);
+    if (!user) {
+      Swal.fire("⚠️ Kindly login first");
+      push("/login");
+    } else {
+      fetch("https://explora-api.up.railway.app/reviews", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newReview),
       })
-      .catch((error) => {
-           console.error("Error submitting review:", error);
-      });
+        .then((response) => response.json())
+        .then((data) => {
+          Swal.fire("✔️ Review submitted successfully");
+          onReviewSubmit(data);
+        })
+        .catch((error) => {
+          console.error("Error submitting review:", error);
+        });
 
-    setTitle("");
-    setBody("");
-    setRating(0);
-  };
-
-  const formStyle = {
-    maxWidth: "400px",
-    margin: "0 auto",
-  };
-
-  const labelStyle = {
-    display: "block",
-    marginBottom: "8px",
-  };
-
-  const inputStyle = {
-    width: "100%",
-    padding: "8px",
-    marginBottom: "16px",
+      setTitle("");
+      setBody("");
+      setRating(0);
+    }
   };
 
   return (
-    <div className='w-full m-auto py-16 px-4 relative group'>
-      <h2 className='font-bold text-3xl text-center my-2'>Write a Review</h2>
-      <form onSubmit={handleSubmit} style={formStyle}>
-        <div>
-          <label style={labelStyle}>Title:</label>
+    <div className="w-fit sm:w-1/2 p-2">
+      <h1 className="m-2 text-2xl font-bold">Write a Review</h1>
+      <form onSubmit={handleSubmit} className="p-4 m-2 border shadow-lg">
+        <di>
+          <label className="mr-4">Title</label>
+          <br></br>
           <input
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            style={inputStyle}
+            className="review-form-input"
           />
-        </div>
+        </di>
         <div>
-          <label style={labelStyle}>Body:</label>
+          <label htmlFor="body" className="mr-4">
+            Body
+          </label>
+          <br></br>
           <textarea
+            id="body"
             value={body}
             onChange={(e) => setBody(e.target.value)}
-            style={inputStyle}
+            className="review-form-input"
           />
         </div>
         <div>
-          <label style={labelStyle}>Rating:</label>
+          <label htmlFor="rating" className="mr-4">
+            Rating
+          </label>
+          <br></br>
           <input
             type="number"
+            id="rating"
             min="1"
             max="5"
             value={rating}
             onChange={(e) => setRating(e.target.value)}
-            style={inputStyle}
+            className="review-form-input"
           />
         </div>
-        <button type="submit" className="btn-primary" style={{ color: "white" }}>
-          Submit Review
-        </button>
+        <div className="flex items-center justify-center">
+          <button type="submit" className="btn-primary text-white self-center">
+            Submit
+          </button>
+        </div>
       </form>
     </div>
   );

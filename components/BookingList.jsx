@@ -13,7 +13,7 @@ export default function BookingList() {
     newStartDate: "",
     newEndDate: "",
   });
-const user =getCurrentUser();
+const user = getCurrentUser();
   function updateBooking(id) {
     if (id) {
       setIsEditing(true);
@@ -86,8 +86,7 @@ const user =getCurrentUser();
     }
   }
   useEffect(() => {
-    
-      fetch(`https://explora-api.up.railway.app/customer_bookings/10`)
+      fetch(`https://explora-api.up.railway.app/customer_bookings/${user.id}`)
         .then((response) => response.json())
         .then((data) => {
           setBookings(() => data);
@@ -96,7 +95,7 @@ const user =getCurrentUser();
           console.error("Error fetching dates:", error);
         });
     
-  }, [push]);
+  }, [user.id]);
   return (
     <div className="mx-2">
       <h1 className="text-3xl font-bold m-2">Welcome {user?user.full_name: ""}</h1>
