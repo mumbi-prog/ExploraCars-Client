@@ -107,7 +107,7 @@ export default function Booking({id}) {
             return realDate >= startDate && realDate <= endDate;
           });
     
-          return isHighlighted ? 'highlight' : ''; // Apply 'highlight' class if the date is in a range
+          return isHighlighted ? 'highlight' : ''; 
         }}
       />
       <form className='mt-5 w-1/2 md:w-3/4 lg:w-1/2 p-5 rounded-xl border-solid' onSubmit={handleDatesSubmit}>
