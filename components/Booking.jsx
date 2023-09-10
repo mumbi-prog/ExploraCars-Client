@@ -96,7 +96,7 @@ export default function Booking({id}) {
           <button className="absolute right-0 p-2 bg-blue-500 text-white rounded-lg" onClick={handleBookingClick}>See bookings</button>
         </div>
       <Calendar
-        className='w-96 h-full rounded-xl bg-violet-300'
+        className='w-96 h-full rounded-xl shadow-lg dark: bg-gray-900'
         onChange={setTgl}
         value={tgl}
         tileClassName={({ date }) => {
