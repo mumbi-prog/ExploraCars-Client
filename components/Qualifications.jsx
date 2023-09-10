@@ -10,43 +10,7 @@ export default function Qualifications() {
       <Accordion
         variant="splitted"
         showDivider={true}
-        className="py-2"
-        motionProps={{
-          variants: {
-            enter: {
-              y: 0,
-              opacity: 1,
-              height: "auto",
-              transition: {
-                height: {
-                  type: "spring",
-                  stiffness: 500,
-                  damping: 30,
-                  duration: 1,
-                },
-                opacity: {
-                  easings: "ease",
-                  duration: 1,
-                },
-              },
-            },
-            exit: {
-              y: -10,
-              opacity: 0,
-              height: 0,
-              transition: {
-                height: {
-                  easings: "ease",
-                  duration: 0.25,
-                },
-                opacity: {
-                  easings: "ease",
-                  duration: 0.3,
-                },
-              },
-            },
-          },
-        }}>
+        className="py-2">
         <AccordionItem
           key="1"
           aria-label="Driver requirements"
@@ -87,7 +51,13 @@ export default function Qualifications() {
           key="2"
           aria-label="💳 Payment Policy"
           title="💳 Payment Policy"
-          className="accordion"></AccordionItem>
+          className="accordion">
+            <ul className="requirements-list mx-2">
+              <li>At time of pick up, customers will be required to pay the amount of the rental and a deposit of Ksh 10,000</li>
+              <li>We accept various payment methods, including credit cards, lipa na Mpesa, lipa na Airtel Money, Cash and Debit cards</li>
+              <li>We do not accept payments including Google Pay, Apple Pay and Bitcoins</li>
+            </ul>
+          </AccordionItem>
         <AccordionItem
           key="3"
           aria-label="🛡️Protection"
@@ -100,6 +70,22 @@ export default function Qualifications() {
                 <li className="text-xs font-thin">
                   You will have to pay at most the deductible if the cars
                   bodywork is damaged (other parts of the car are not covered).
+                </li>
+              </ul>
+            </li>
+            <li>
+              ✔️ Roadside Assistance
+              <ul>
+                <li className="text-xs font-thin">
+                You will be able to get help for any mechanical problem you come across on the road.
+                </li>
+              </ul>
+            </li>
+            <li>
+              ✔️ Third Party Liability
+              <ul>
+                <li className="text-xs font-thin">
+                Mandatory coverage for injuries and damage you may cause to others while driving the car.
                 </li>
               </ul>
             </li>
@@ -119,6 +105,28 @@ export default function Qualifications() {
                   your pick-up time, Unlimited mileage, Collision Damage Waiver,
                   Roadside Assistance (in the country of pick-up), Third Party
                   Liability and VAT (value added tax).
+                </li>
+              </ul>
+            </li>
+            <li>
+            ✖️ Rate Excludes
+              <ul>
+                <li className="text-xs font-thin">
+                  Any tolls or fines that result from violation of traffic laws.
+                </li>
+              </ul>
+            </li>
+            <li>
+            ⛽ Fuel Policy
+              <ul>
+                <li className="text-xs font-thin">
+                The vehicle is provided with a full tank of fuel and must be returned with the same amount in order to avoid additional charges
+                </li>
+                <li className="text-xs font-thin">
+                Alternatively, the renter may purchase a tank full of fuel at the time of rental and return the tank empty.
+                </li>
+                <li className="text-xs font-thin">
+                In no case will a refund be given for unused fuel.
                 </li>
               </ul>
             </li>
