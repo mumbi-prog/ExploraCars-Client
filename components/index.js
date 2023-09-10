@@ -7,10 +7,12 @@ import BookingList from "./BookingList.jsx";
 import Landing from "./Landing";
 import CarList from "./CarList";
 import Hero from "./Hero";
-import ReviewForm from './ReviewForm'
-import ReviewList from './ReviewList'
+import ReviewForm from './ReviewForm';
+import ReviewList from './ReviewList';
 import Qualifications from "./Qualifications";
-import Search from './Search'
+import Search from './Search';
+import Recomendations from "./Recomendations";
 
-export {Login, Register, Navbar, Footer, Booking, BookingList, Landing, CarList, Hero, ReviewForm, ReviewList, Qualifications, Search } 
+
+export {Login, Register, Navbar, Footer, Booking, BookingList, Landing, CarList, Hero, ReviewForm, ReviewList, Qualifications, Search, Recomendations } 
 

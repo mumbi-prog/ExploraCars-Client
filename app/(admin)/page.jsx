@@ -1,4 +1,4 @@
-import { Hero, CarList, Qualifications } from "@/components";
+import { Hero, CarList, Qualifications, Recomendations } from "@/components";
 import { getCarData } from "@/lib";
 export default async function Home() {
   const cars = await getCarData()
@@ -9,8 +9,8 @@ export default async function Home() {
         Explore our Rental Car Fleet
       </h1>
       <CarList cars={cars} itemsPerPage={5}/>
-
       <Qualifications />
+      <Recomendations/>
     </>
   );
 }
