@@ -9,9 +9,11 @@ export default function Booking({id}) {
   const [tgl,setTgl] = useState(new Date())
   const [dates,setDates] = useState([])
   const [errors,setErrors]=useState(null)
+  const [isMounted,setIsMounted]=useState(true)
   const user = getCurrentUser()
   const navigate = useRouter()
   useEffect(() => {
+
     if (!user) {
       navigate.replace('/login');
     }
@@ -51,10 +53,10 @@ export default function Booking({id}) {
       .then((res)=>{
         if(res.status===422){
           return res.json().then((data)=>{
+            console.log(data.errors)
             setErrors(()=>data.errors)
           })
         }else {
-          // throw new Error('Failed to create booking');
           res.json()
         }
       })
@@ -64,9 +66,7 @@ export default function Booking({id}) {
         }else{
         console.log(data)}})
       .catch((error)=>{
-        if (error.response && error.response.data && error.response.data.errors) {
-          setErrors(error.response.data.errors)
-        }
+        console.error(error)
       })
       setFormData(()=>({
         startDate:'',

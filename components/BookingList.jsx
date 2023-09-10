@@ -14,11 +14,6 @@ export default function BookingList() {
     function updateBooking(id){
         setIsEditing(()=>true)
         const targetElement = document.getElementById("update-dates");
-
-        if (targetElement) {
-          // Scroll to the target element
-          targetElement.scrollIntoView({ behavior: "smooth" }); // Use "smooth" for smooth scrolling
-        }
         sessionStorage.setItem("bookingId",id)
     }
     function handleDateChange(e){
@@ -87,7 +82,7 @@ export default function BookingList() {
           .catch((error) => {
             console.error('Error fetching dates:', error);
           });
-      }, []);
+      }, [user]);
   return (
     <div>
       <h1 className="text-2xl font-semibold mb-4">Your Bookings</h1>
