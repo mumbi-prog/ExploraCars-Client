@@ -14,8 +14,7 @@ const CarList = ({ cars, itemsPerPage}) => {
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
 
-
-  const paginatedCars = cars?.slice(startIndex, endIndex);
+  const paginatedCars = Array.isArray(cars) ? cars?.slice(startIndex, endIndex) : [];
 
   const goToPreviousPage = () => {
     if (currentPage > 1) {
@@ -24,7 +23,7 @@ const CarList = ({ cars, itemsPerPage}) => {
   };
 
   const goToNextPage = () => {
-    const totalPages = Math.ceil(cars.length / itemsPerPage);
+    const totalPages = Math.ceil(cars?.length / itemsPerPage);
     if (currentPage < totalPages) {
       setCurrentPage(currentPage + 1);
     }
