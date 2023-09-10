@@ -63,7 +63,8 @@ const CarList = ({ cars, itemsPerPage, Search }) => {
               <span className='price'>{car.price_per_day}</span>
               <span className='subscript'> Per Day</span>
             </p>
-            <button className="bg-blue-600 mt-2.5 p-1 rounded-sm cursor-pointer text-white">Pay at Location</button>
+            <button className="bg-blue-600 mt-2.5 p-1 rounded-sm cursor-pointer text-white"><Link href={`/booking/${car?.id}`}>Book Now!</Link></button>
+           
             </div></div>
            
           </div>

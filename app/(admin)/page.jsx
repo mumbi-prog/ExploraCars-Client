@@ -8,7 +8,7 @@ export default async function Home() {
       <h1 className="xsm:hero__subtitle hero__title text-center mx-2">
         Explore our Rental Car Fleet
       </h1>
-      <CarList cars={cars} itemsPerPage={4}/>
+      <CarList cars={cars} itemsPerPage={5}/>
 
       <Qualifications />
     </>
