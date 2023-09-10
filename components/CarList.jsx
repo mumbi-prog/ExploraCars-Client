@@ -87,7 +87,7 @@ const CarList = ({ cars, itemsPerPage}) => {
             </button>
           )
         )}
-        <button onClick={goToNextPage} disabled={currentPage === Math.ceil(cars.length / itemsPerPage)} className="page-button hover:bg-blue-600">
+        <button onClick={goToNextPage} disabled={currentPage === Math.ceil(cars?.length / itemsPerPage)} className="page-button hover:bg-blue-600">
             Next
         </button>
       </div>
