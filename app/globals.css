@@ -161,6 +161,7 @@ label {
 }
 .highlight{
   font-weight: 1000;
+  background-color: blue;
 }
 
 .superscript{
@@ -231,4 +232,14 @@ label {
   color: #9c9c9f;
   outline: none;
   letter-spacing: 6px;
+}
+.react-calendar {
+  --tile-bg: red; /* Background color for calendar tile */
+  --tile-active-bg: rgb(116, 116, 234); /* Background color for active calendar tile */
+  --tile-hover-bg: rgb(116, 116, 234) ; /* Background color for hover effect on calendar tile */
+  --tile-disabled-bg: red; /* Background color for disabled calendar tile */
+  --tile-active-border: #fff; /* Border color for active calendar tile */
+  --tile-hover-border: #ccc; /* Border color for hover effect on calendar tile */
+  --tile-disabled-border: #aaa; /* Border color for disabled calendar tile */
+  /* Add more variables as needed */
 }

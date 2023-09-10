@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Calendar from 'react-calendar';
 import { useRouter } from "next/navigation";
 import { getCurrentUser } from '@/lib';
-import 'react-calendar/dist/Calendar.css'
+// import 'react-calendar/dist/Calendar.css'
 
 export default function Booking({id}) {
   const [tgl,setTgl] = useState(new Date())
@@ -96,7 +96,7 @@ export default function Booking({id}) {
           <button className="absolute right-0 p-2 bg-blue-500 text-white rounded-lg" onClick={handleBookingClick}>See bookings</button>
         </div>
       <Calendar
-        className='w-96 h-full rounded-xl bg-violet-300'
+        className='w-96 h-full rounded-xl bg-violet-300 react-calendar'
         onChange={setTgl}
         value={tgl}
         tileClassName={({ date }) => {
