@@ -98,8 +98,8 @@ export default function BookingList() {
           <BookingCard
             key={booking.id}
             booking={booking}
-            onUpdate={updateBooking}
-            onDelete={deleteBooking}
+            onUpdate={()=>updateBooking(booking.id)}
+            onDelete={()=>deleteBooking(booking.id)}
           />
         ))
       ) : (
