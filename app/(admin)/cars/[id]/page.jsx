@@ -51,12 +51,7 @@ export default function CarDetailsPage({ params}) {
       </div>
       <div className="grid grid-cols-2 gap-4">
         <div className="mt-4">
-        <button className="btn-primary"><Link
-          href="/booking"
-          className="px-4 py-2 bg-blue-500rounded hover:bg-blue-600 transition duration-300 ease-in-out"
-        >
-          Book Now
-        </Link></button>
+        <button className="bg-blue-600 mt-2.5 p-1 rounded-sm cursor-pointer text-white"><Link href={`/booking/${car?.id}`}>Book Now</Link></button>
       </div>
       </div>
       {/* {<ReviewForm carId={id} />  
