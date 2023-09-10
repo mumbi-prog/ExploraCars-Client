@@ -6,7 +6,7 @@ const ReviewList = ({ carId }) => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/reviews")
+    fetch("https://explora-cars-production.up.railway.app/reviews")
       .then((response) => response.json())
       .then((data) => setReviews(data));
   }, [carId]);
@@ -15,7 +15,7 @@ const ReviewList = ({ carId }) => {
     <div>
       <h2 className='font-bold text-3xl text-center my-2'>Reviews</h2>
       <ul>
-        {reviews.map((review) => (
+        {reviews && reviews.map((review) => (
           <li key={review.id}>
             <strong>{review.title}</strong> - Rating: {review.rating}
             <p>{review.body}</p>

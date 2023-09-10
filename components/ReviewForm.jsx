@@ -17,7 +17,7 @@ const ReviewForm = ({ carId, onReviewSubmit }) => {
       car_id: carId, 
     };
 
-    fetch("http://localhost:3000/reviews", {
+    fetch("https://explora-cars-production.up.railway.app/reviews", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

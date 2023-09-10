@@ -47,7 +47,6 @@
 'use client'
 import {useEffect, useState} from "react"
 import React from "react";
-import { getCar } from "@/lib";
 import Image from "next/image";
 import Link from "next/link";
 import {ReviewForm, ReviewList} from "@/components"
@@ -56,7 +55,7 @@ export default function CarDetailsPage({ params}) {
   const id = params.id
   const [car, setCar]= useState([])
  useEffect(() => {
-    fetch(`http://localhost:3000/cars/${id}`)
+    fetch(`https://explora-cars-production.up.railway.app/cars/${id}`)
       .then((response) => response.json())
       .then((data) => {
         setCar(data);
@@ -94,8 +93,8 @@ export default function CarDetailsPage({ params}) {
         </Link></button>
       </div>
       </div>
-      {/* {<ReviewForm carId={id} />  
-      <ReviewList />} */}
+      <ReviewForm carId={id} />  
+      <ReviewList />
     </div>
   );
 }

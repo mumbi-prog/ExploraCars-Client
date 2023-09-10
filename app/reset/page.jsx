@@ -41,7 +41,7 @@ export default function ResetPage() {
     }
     try {
       const response = await axiosInstance.patch(
-        "http://localhost:3000/customers",
+        "https://explora-cars-production.up.railway.app/customers",
         resetForm
       );
       const data = response.data;
@@ -157,7 +157,7 @@ export default function ResetPage() {
             onChange={() => setShowPassword(!showPassword)}
           />
           <span> {!showPassword ? "Show" : "Hide"} Password</span>
-          <button className="login-button">
+          <button type="submit" className="login-button">
             <FaEdit /> Reset Password
           </button>
         </form>

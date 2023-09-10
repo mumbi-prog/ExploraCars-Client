@@ -1,9 +1,5 @@
-import React from 'react'
-import CarSlider from './CarSlider'
-// import Authors from './Authors'
-// import About from './About'
-
-
+import React from 'react';
+import CarSlider from './CarSlider';
 function Landing() {
   return (
     <>

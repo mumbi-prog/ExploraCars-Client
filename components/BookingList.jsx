@@ -32,7 +32,7 @@ export default function BookingList() {
       start_date: startDate,
       end_date: endDate,
     };
-    fetch(`http://localhost:3000/bookings/${id}`, {
+    fetch(`https://explora-cars-production.up.railway.app/bookings/${id}`, {
       method: "PATCH",
       headers: {
         "Content-type": "application/json",
@@ -62,7 +62,7 @@ export default function BookingList() {
   }
   function deleteBooking(id) {
     if (id) {
-      fetch(`http://localhost:3000/bookings/${id}`, {
+      fetch(`https://explora-cars-production.up.railway.app/bookings/${id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -89,7 +89,7 @@ export default function BookingList() {
     if (!user) {
       push("/login");
     } else {
-      fetch(`http://localhost:3000/customer_bookings/${user.id}`)
+      fetch(`https://explora-cars-production.up.railway.app/customer_bookings/${user.id}`)
         .then((response) => response.json())
         .then((data) => {
           console.log(data);

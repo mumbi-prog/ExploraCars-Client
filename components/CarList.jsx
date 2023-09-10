@@ -76,7 +76,7 @@ const CarList = ({ cars, itemsPerPage}) => {
             Previous
         </button>
         {Array.from(
-          { length: Math.ceil(cars.length / itemsPerPage) },
+          { length: Math.ceil(cars?.length / itemsPerPage) },
           (_, index) => (
             <button
               key={index}
