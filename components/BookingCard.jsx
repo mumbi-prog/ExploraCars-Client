@@ -13,8 +13,8 @@ function BookingCard({ booking, onUpdate, onDelete }) {
       <p className="font-semibold">Fuel Type: {booking.car.fuel_type}</p>
       <p className="font-semibold">Category: {booking.car.category}</p>
     
-      <button className='p-2 mt-2 bg-red-800 rounded' onClick={() => onUpdate(booking.id)}>Update</button>
-      <button className='p-2 mt-2 ml-2 bg-red-800 rounded' onClick={() => onDelete(booking.id)}>Delete</button>
+      <button className='p-2 mt-2 btn-primary' onClick={() => onUpdate(booking.id)}>Update</button>
+      <button className='p-2 mt-2 ml-2 btn-primary' onClick={() => onDelete(booking.id)}>Delete</button>
     </div>
       );
     };

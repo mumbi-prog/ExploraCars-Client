@@ -93,7 +93,7 @@ export default function Booking({id}) {
       <div className='w-full h-full p-10'>
           <h1 className='font-bold mb-2'>The highlighted Dates are dates not available for this car</h1>
           <div className="flex">
-          <button className="btn-primary" onClick={handleBookingClick}>See bookings</button>
+          <button className="absolute right-0 p-2 bg-blue-500 text-white rounded-lg" onClick={handleBookingClick}>See bookings</button>
         </div>
       <Calendar
         className='w-96 h-full rounded-xl bg-violet-300'
@@ -121,7 +121,7 @@ export default function Booking({id}) {
 <div className="mb-4">
   <label htmlFor="end_date" className="block">End date</label>
   <input className='block w-full' name='endDate' required type='date' onChange={handleChange} value={formData.endDate}></input>
-  <button type='submit' className='p-2 mt-2 bg-red-800 rounded'>submit</button>
+  <button type='submit' className='btn-primary'>submit</button>
 </div>
 </form>
 </div>

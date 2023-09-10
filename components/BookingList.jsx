@@ -1,6 +1,7 @@
 'use client'
 import { useEffect,useState } from 'react'
 import BookingCard from './BookingCard'
+import { getCurrentUser } from '@/lib'
 export default function BookingList() {
     const[bookings,setBookings]=useState([])
     const[isEditing,setIsEditing]=useState(false)
@@ -9,6 +10,7 @@ export default function BookingList() {
         newStartDate:'',
         newEndDate:''
     })
+    const user = getCurrentUser()
     function updateBooking(id){
         setIsEditing(()=>true)
         const targetElement = document.getElementById("update-dates");
@@ -76,7 +78,7 @@ export default function BookingList() {
           };
     useEffect(() => {
             
-        fetch('http://localhost:3000/customer_bookings/1')
+        fetch(`http://localhost:3000/customer_bookings/${user.id}`)
           .then((response) => response.json())
           .then((data) => {
             console.log(data)
@@ -124,7 +126,7 @@ export default function BookingList() {
         onChange={onDateChange}
       />
       <br />
-      <button type='submit' className='p-2 mt-2 ml-2 bg-red-800 rounded'>Save</button>
+      <button type='submit' className='btn-primary'>Save</button>
     </form>
   )}
       </div>
