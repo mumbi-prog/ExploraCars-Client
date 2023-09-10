@@ -11,9 +11,11 @@ export default function Booking({id}) {
   const [errors,setErrors]=useState(null)
   const user = getCurrentUser()
   const navigate = useRouter()
-  if(!user){
-    navigate.replace('/login')
-  }
+  useEffect(() => {
+    if (!user) {
+      navigate.replace('/login');
+    }
+  }, [user]);
   
   const [formData,setFormData]=useState({
       startDate:'',
