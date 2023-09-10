@@ -15,7 +15,7 @@ export default function Booking({id}) {
     if (!user) {
       navigate.replace('/login');
     }
-  }, [user]);
+  }, [user, navigate]);
   
   const [formData,setFormData]=useState({
       startDate:'',

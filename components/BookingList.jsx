@@ -87,7 +87,7 @@ export default function BookingList() {
           .catch((error) => {
             console.error('Error fetching dates:', error);
           });
-      }, []);
+      }, [user.id]);
   return (
     <div>
       <h1 className="text-2xl font-semibold mb-4">Your Bookings</h1>
