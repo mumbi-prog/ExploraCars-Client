@@ -26,33 +26,35 @@ const user = getCurrentUser();
   //function to update booking
   function handleDateChange(e) {
     e.preventDefault();
-    const id = sessionStorage.getItem("bookingId");
-    const startDate = new Date(dates.newStartDate).toISOString().split("T")[0];
-    const endDate = new Date(dates.newEndDate).toISOString().split("T")[0];
-
     const formattedDates = {
       start_date: startDate,
       end_date: endDate,
-    };
-    fetch(`https://explora-api.up.railway.app/bookings/${id}`, {
-      method: "PATCH",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify(formattedDates),
-    })
-      .then((res) => {
-        if (res.status === 422) {
-          return res.json().then((data) => setErrors(() => data.errors));
-        } else {
-          alert('Error: ' + res.status)
-        }
+    }
+    const startDate = new Date(dates.newStartDate).toISOString().split("T")[0];
+    const endDate = new Date(dates.newEndDate).toISOString().split("T")[0];
+    if (typeof window !== "undefined" && id) {
+      const id = sessionStorage.getItem("bookingId");
+      fetch(`https://explora-api.up.railway.app/bookings/${id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify(formattedDates),
       })
-    setDates(() => ({
-      newStartDate: "",
-      newEndDate: "",
-    }));
-    setIsEditing(false);
+        .then((res) => {
+          if (res.status === 422) {
+            return res.json().then((data) => setErrors(() => data.errors));
+          } else {
+            alert('Error: ' + res.status)
+          }
+        })
+      setDates(() => ({
+        newStartDate: "",
+        newEndDate: "",
+      }));
+      setIsEditing(false);
+    }
+    
   }
   //function to handle date selection change
   function onDateChange(e) {
