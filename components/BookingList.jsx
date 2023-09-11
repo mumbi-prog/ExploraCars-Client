@@ -82,7 +82,6 @@ export default function BookingList() {
         },
       })
         .then((response) => {
-          if (response.status === 204) {
             Swal.fire({
               icon: 'success',
               text: "Your booking had been cancelled. Kindly note cancellations are not allowed after 24 hrs of booking confirmation",
@@ -91,9 +90,8 @@ export default function BookingList() {
               confirmButtonColor: "#2563EB",
               timer: 3000
             })
-          } else if (!response.ok) {
-            throw new Error("Network response was not ok");
-          }
+            setBookings((prev)=> prev.filter((booking)=> booking.id !== id))
+          
         })
         .catch((error) => {
           console.error("There was a problem with the fetch operation:", error);
