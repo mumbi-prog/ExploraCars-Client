@@ -93,7 +93,7 @@ export default function Booking({id}) {
       <div className='w-full h-full p-10'>
           <h1 className='font-bold mb-2'>The highlighted Dates are dates not available for this car</h1>
           <div className="mb-4 lg:flex lg:justify-end mt-1">
-          <button className="right-0 p-2 bg-blue-500 text-white rounded-lg" onClick={handleBookingClick}>See bookings</button>
+          <button className="absolute right-0 p-2 bg-blue-500 text-white rounded-lg" onClick={handleBookingClick}>See bookings</button>
         </div>
       <Calendar
         className='w-96 h-64 rounded-xl mb-6 bg-blue-300 react-calendar'

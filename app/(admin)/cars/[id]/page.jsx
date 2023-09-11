@@ -18,8 +18,8 @@ export default function CarDetailsPage({ params}) {
     fetch(`http://localhost:3000/cars/${id}`)
       .then((response) => response.json())
       .then((data) => {
-        setCar(data);
-        console.log(data);
+        setCar(()=>data);
+        console.log(car);
       })
       .catch((error) => console.error('Error fetching car data:', error));
   }, [id]);
@@ -68,7 +68,7 @@ export default function CarDetailsPage({ params}) {
     <div className="grid grid-cols-2 gap-4">
         <div className="mt-4">
           <button className="btn-primary"><Link
-          href={`/booking/${car?.id}`}
+          href={`/booking/${id}`}
           className="px-4 py-2 bg-blue-500rounded hover:bg-blue-600 transition duration-300 ease-in-out"
         >
           Book Now
