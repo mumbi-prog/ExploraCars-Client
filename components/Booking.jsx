@@ -55,7 +55,6 @@ export default function Booking({ id }) {
         setErrors(() => data.errors);
       } else {
         const data = await response.json();
-        console.log(data);
       }
       setFormData(() => ({
         startDate: "",
@@ -76,7 +75,6 @@ export default function Booking({ id }) {
         if (data.error || data.errors) {
           setErrors(data.error);
         } else {
-          console.log(data);
           setDates(() => data);
         }
       })

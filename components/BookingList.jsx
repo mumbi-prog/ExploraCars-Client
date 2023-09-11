@@ -45,9 +45,17 @@ export default function BookingList() {
         body: JSON.stringify(formattedDates),
       }).then((res) => {
         if (res.status === 422) {
+          Swal.fire({
+            icon: 'error',
+            text: "An error occurred while processing your request",
+            showCloseButton: true,
+            showConfirmButton: false,
+            timer: 3000
+          })
           return res.json().then((data) => setErrors(() => data.errors));
+          
         } else {
-          alert("Error: " + res.status);
+         console.log("something")
         }
       });
       setDates(() => ({
@@ -75,7 +83,14 @@ export default function BookingList() {
       })
         .then((response) => {
           if (response.status === 204) {
-            console.log("Item deleted successfully.");
+            Swal.fire({
+              icon: 'success',
+              text: "Your booking had been cancelled. Kindly note cancellations are not allowed after 24 hrs of booking confirmation",
+              showCloseButton: true,
+              showConfirmButton: true,
+              confirmButtonColor: "#2563EB",
+              timer: 3000
+            })
           } else if (!response.ok) {
             throw new Error("Network response was not ok");
           }

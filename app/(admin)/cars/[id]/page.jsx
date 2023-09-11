@@ -25,8 +25,6 @@ export default function CarDetailsPage({ params }) {
     .then((response) => response.json())
     .then((data) => {
       setReviews(data);
-      console.log(data);
-      console.log(reviews)
     })
     .catch((error) => console.error("Error fetching car data:", error));
   }, [reviews]);

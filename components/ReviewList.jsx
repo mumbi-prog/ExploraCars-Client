@@ -1,6 +1,5 @@
 
 export default function ReviewList({ carId, reviews }) {
-  console.log(reviews);
   const filteredReview = reviews?.filter((review) => {
     if (review.car_id == carId) {
       return review;
