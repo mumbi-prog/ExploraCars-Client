@@ -67,7 +67,6 @@ const user = getCurrentUser();
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
-          // You can include additional headers if needed, such as authorization headers
         },
       })
         .then((response) => {
@@ -86,6 +85,10 @@ const user = getCurrentUser();
     }
   }
   useEffect(() => {
+    const user = getCurrentUser();
+    if (!user) {
+      push("/login");
+    } else {
       fetch(`https://explora-api.up.railway.app/customer_bookings/${user.id}`)
         .then((response) => response.json())
         .then((data) => {
@@ -94,8 +97,8 @@ const user = getCurrentUser();
         .catch((error) => {
           console.error("Error fetching dates:", error);
         });
-    
-  }, [user.id]);
+    }
+  }, [push, user.id]);
   return (
     <div className="mx-2">
       <h1 className="text-3xl font-bold m-2">Welcome {user?user.full_name: ""}</h1>
