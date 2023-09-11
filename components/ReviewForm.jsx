@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 import { getCurrentUser } from "@/lib";
 import { useRouter } from "next/navigation";
 
-const ReviewForm = ({ carId, onReviewSubmit }) => {
+const ReviewForm = ({ carId, onReviewSubmit, setReviews }) => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [rating, setRating] = useState(0);
@@ -35,6 +35,7 @@ const ReviewForm = ({ carId, onReviewSubmit }) => {
         .then((response) => response.json())
         .then((data) => {
           Swal.fire("✔️ Review submitted successfully");
+          setReviews((prev)=>[...prev, data]);
           onReviewSubmit(data);
         })
         .catch((error) => {

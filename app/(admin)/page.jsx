@@ -5,7 +5,7 @@ export default async function Home() {
   return (
     <>
       <Hero />
-      <h1 className="xsm:hero__subtitle hero__title text-center mx-2">
+      <h1 className="xsm:text-xl hero__title text-center mx-2">
         Explore our Rental Car Fleet
       </h1>
       <CarList cars={cars} itemsPerPage={5}/>

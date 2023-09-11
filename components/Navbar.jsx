@@ -33,7 +33,7 @@ export default function Navbar() {
           <AiFillCar />
          <Link href="/"> Explora </Link>
         </div>
-            <button type="button" className="md:block btn-primary flex items-center cursor-pointer"><a href="/login"className="hover:text-blue-500 text-xl xsm:text-base"> {!user?"Login": "Sign Out"}</a>
+            <button type="button" className="md:block btn-primary flex items-center cursor-pointer xsm:bg-inherit xsm:border-none"><a href="/login"className="hover:text-blue-500 text-xl xsm:text-base"> {!user?"Login": "Sign Out"}</a>
             </button>
     
       </div>
