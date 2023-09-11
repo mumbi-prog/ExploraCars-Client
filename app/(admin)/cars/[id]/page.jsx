@@ -4,7 +4,6 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ReviewForm, ReviewList } from "@/components";
-import {getReviews} from "@/lib"
 
 export default function CarDetailsPage({ params }) {
   const id = params.id;
@@ -13,8 +12,6 @@ export default function CarDetailsPage({ params }) {
 
   //function to fetch reviews and car details
   useEffect(() => {
-    const data = getReviews()
-    setReviews(data);
     fetch(`https://explora-api.up.railway.app/cars/${id}`)
       .then((response) => response.json())
       .then((data) => {
@@ -22,6 +19,18 @@ export default function CarDetailsPage({ params }) {
       })
       .catch((error) => console.error("Error fetching car data:", error));
   }, [id]);
+  //function to fetch reviews
+  useEffect(() => {
+    fetch("https://explora-api.up.railway.app/reviews")
+    .then((response) => response.json())
+    .then((data) => {
+      setReviews(data);
+      console.log(data);
+      console.log(reviews)
+    })
+    .catch((error) => console.error("Error fetching car data:", error));
+  }, [reviews]);
+  
   return (
     <div className="p-4 space-y-4">
       <div className="flex flex-col sm:flex-row mx-auto dark:bg-gray-900 shadow-lg drop-shadow-lg h-fit rounded-lg">
