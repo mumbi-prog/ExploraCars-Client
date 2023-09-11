@@ -14,6 +14,7 @@ export default function BookingList() {
     newEndDate: "",
   });
 const user = getCurrentUser();
+//function to update the booking
   function updateBooking(id) {
     if (id) {
       setIsEditing(true);
@@ -22,6 +23,7 @@ const user = getCurrentUser();
       console.error("Cannot update booking with null id");
     }
   }
+  //function to update booking
   function handleDateChange(e) {
     e.preventDefault();
     const id = sessionStorage.getItem("bookingId");
@@ -46,21 +48,20 @@ const user = getCurrentUser();
           alert('Error: ' + res.status)
         }
       })
-      .then((data) => {
-        console.log(data);
-      });
     setDates(() => ({
       newStartDate: "",
       newEndDate: "",
     }));
     setIsEditing(false);
   }
+  //function to handle date selection change
   function onDateChange(e) {
     setDates(() => ({
       ...dates,
       [e.target.id]: e.target.value,
     }));
   }
+  //function to delete booking
   function deleteBooking(id) {
     if (id) {
       fetch(`https://explora-api.up.railway.app/bookings/${id}`, {
@@ -107,7 +108,7 @@ const user = getCurrentUser();
         {errors ? errors : ""}
       </div>
       <div className="booking-card-grid mx-2"> {bookings.length > 0 ? (
-        bookings.map((booking) => (
+        bookings?.map((booking) => (
           <BookingCard
             key={booking.id}
             booking={booking}
