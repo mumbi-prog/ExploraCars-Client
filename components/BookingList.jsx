@@ -101,7 +101,7 @@ const user = getCurrentUser();
           console.error("Error fetching dates:", error);
         });
     }
-  }, [push, user.id]);
+  }, [push]);
   return (
     <div className="mx-2">
       <h1 className="text-3xl font-bold m-2">Welcome {user?user.full_name: ""}</h1>
