@@ -92,11 +92,11 @@ export default function Booking({id}) {
      return (
       <div className='w-full h-full p-10'>
           <h1 className='font-bold mb-2'>The highlighted Dates are dates not available for this car</h1>
-          <div className="flex">
-          <button className="absolute right-0 p-2 bg-blue-500 text-white rounded-lg" onClick={handleBookingClick}>See bookings</button>
+          <div className="mb-4 lg:flex lg:justify-end mt-1">
+          <button className="right-0 p-2 bg-blue-500 text-white rounded-lg" onClick={handleBookingClick}>See bookings</button>
         </div>
       <Calendar
-        className='w-96 h-full rounded-xl bg-violet-300 react-calendar'
+        className='w-96 h-64 rounded-xl mb-6 bg-blue-300 react-calendar'
         onChange={setTgl}
         value={tgl}
         tileClassName={({ date }) => {
@@ -121,7 +121,7 @@ export default function Booking({id}) {
 <div className="mb-4">
   <label htmlFor="end_date" className="block">End date</label>
   <input className='block w-full' name='endDate' required type='date' onChange={handleChange} value={formData.endDate}></input>
-  <button type='submit' className='btn-primary'>submit</button>
+  <button type='submit' className='p-2 rounded-lg mx-4 py-2 mt-3 font-bold px-6 shadow-md border border-blue-500 bg-blue-500 hover:bg-blue-700 ml-0'>submit</button>
 </div>
 </form>
 </div>
