@@ -12,6 +12,7 @@ export default function ReviewList({ carId, reviews }) {
         {filteredReview &&
           filteredReview.map((review) => (
             <li key={review.id}>
+              <p className="font-bold my-1">{review.full_name}</p>
               <strong className="font-bold ">{review.title}</strong>
               <p className="text-base">{review.body}</p>
               <p>Rating: {review.rating}</p>
