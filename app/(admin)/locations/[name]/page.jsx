@@ -1,7 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
-import axiosInstance from "@/axiosConfig";
+import { useRouter } from "next/navigation"
 import { CarList, Search, Qualifications } from "@/components";
 import { getLocationCars } from "@/lib";
 
