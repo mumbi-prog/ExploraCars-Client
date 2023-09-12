@@ -9,7 +9,6 @@ import { AiFillCar } from "react-icons/ai";
 import Link from "next/link";
 
 const loginApi = "https://explora-api.up.railway.app/login";
-// const loginApi = "http://127.0.0.1:3000/login";
 
 export default function useLogin() {
   const [showPassword, setShowPassword] = useState(false);

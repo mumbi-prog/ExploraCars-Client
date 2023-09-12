@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-
+import Link from "next/link";
 const Hero = () => {
   return (
     <div className="hero">
@@ -14,9 +14,7 @@ const Hero = () => {
           Streamline your car rental experience with our effortless booking
           process.
         </p>
-        <button className="bg-primary-blue text-white rounded-full mt-10 hero-btn-primary">
-          <a href="/cars">Explore Cars</a>
-        </button>
+        <Link href="/cars"className="bg-primary-blue text-white rounded-full mt-10 hero-btn-primary">Explore Cars</Link>
       </div>
       <div className="hero__image-container">
         <div className="hero__image">

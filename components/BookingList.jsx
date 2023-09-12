@@ -18,8 +18,6 @@ export default function BookingList() {
   const user = getCurrentUser();
   //function to update the booking
   function updateBooking(id, e) {
-    setIsEditing(true);
-    if (e) {
       e.preventDefault();
       const startDate = new Date(dates.newStartDate)
         .toISOString()
@@ -35,7 +33,8 @@ export default function BookingList() {
           formattedDates
         );
         const data = response.data;
-        setBookings((prev) => [...prev, data]);
+        const updatedBooking = bookings.map((booking) => booking.id === id? {...booking, ...data}: booking);
+        setBookings(updatedBooking);
         setDates(() => ({
           newStartDate: "",
           newEndDate: "",
@@ -57,7 +56,6 @@ export default function BookingList() {
           showConfirmButton: false,
           timer: 3000,
         });
-      }
     }
   }
 
@@ -68,34 +66,7 @@ export default function BookingList() {
       [e.target.id]: e.target.value,
     }));
   }
-  //function to delete booking
-  function deleteBooking(id) {
-    if (id) {
-      fetch(`https://explora-api.up.railway.app/bookings/${id}`, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
-        .then((response) => {
-          Swal.fire({
-            icon: "success",
-            text: "Your booking had been cancelled. Kindly note cancellations are not allowed after 24 hrs of booking confirmation",
-            showCloseButton: true,
-            showConfirmButton: true,
-            confirmButtonColor: "#2563EB",
-            timer: 3000,
-          });
-          setBookings((prev) => prev.filter((booking) => booking.id !== id));
-        })
-        .catch((error) => {
-          console.error("There was a problem with the fetch operation:", error);
-          // Handle errors here
-        });
-    } else {
-      console.error("Cannot delete booking with null id");
-    }
-  }
+
   useEffect(() => {
     const user = getCurrentUser();
     if (!user) {
@@ -130,7 +101,7 @@ export default function BookingList() {
               key={booking.id}
               booking={booking}
               onUpdate={updateBooking}
-              onDelete={deleteBooking}
+              setIsEditing={setIsEditing}
             />
           ))
         ) : (
