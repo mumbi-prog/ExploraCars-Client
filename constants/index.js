@@ -3,9 +3,9 @@
     {
       title: "Explora",
       links: [
-        { title: "Bookings", url: "/booking" },
+        { title: "Bookings", url: "/account" },
         { title: "Special Offers", url: "/" },
-        { title: "Locations", url: "/location" },
+        { title: "Locations", url: "/locations" },
         { title: "Vehicles", url: "/cars" },
       ],
     },
