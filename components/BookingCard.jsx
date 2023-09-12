@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardBody, CardHeader, CardFooter } from "@nextui-org/react";
+import { Card, CardBody, CardFooter } from "@nextui-org/react";
 import Image from "next/image";
 function BookingCard({ booking, onUpdate, onDelete }) {
   return (

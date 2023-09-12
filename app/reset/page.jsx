@@ -41,7 +41,7 @@ export default function ResetPage() {
     }
     try {
       const response = await axiosInstance.patch(
-        "https://explora-api.up.railway.app/customers",
+        "https://explora-api.up.railway.app/reset",
         resetForm
       );
       const data = response.data;
