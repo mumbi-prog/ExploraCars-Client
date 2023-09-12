@@ -17,54 +17,63 @@ export default function BookingList() {
   const user = getCurrentUser();
   //function to update the booking
   function updateBooking(id) {
-    if (id) {
-      setIsEditing(true);
-      sessionStorage.setItem("bookingId", id);
-    } else {
-      console.error("Cannot update booking with null id");
-    }
+    setIsEditing(true);
+    console.log(id)
+    return id;
+
   }
   //function to update booking
   function handleDateChange(e) {
     e.preventDefault();
-
+    const id = updateBooking(); // Assuming updateBooking() returns the booking ID
     const startDate = new Date(dates.newStartDate).toISOString().split("T")[0];
     const endDate = new Date(dates.newEndDate).toISOString().split("T")[0];
-    const id = sessionStorage.getItem("bookingId");
     const formattedDates = {
       start_date: startDate,
       end_date: endDate,
     };
-
-    if (typeof window !== "undefined" && id) {
+  
+    if (typeof window !== "undefined" && id ) {
       fetch(`https://explora-api.up.railway.app/bookings/${id}`, {
         method: "PATCH",
         headers: {
           "Content-type": "application/json",
         },
         body: JSON.stringify(formattedDates),
-      }).then((res) => {
-        if (res.status === 422) {
-          Swal.fire({
-            icon: 'error',
-            text: "An error occurred while processing your request",
-            showCloseButton: true,
-            showConfirmButton: false,
-            timer: 3000
-          })
-          return res.json().then((data) => setErrors(() => data.errors));
-          
-        } else {
-         console.log("something")
-        }
-      });
-      setDates(() => ({
-        newStartDate: "",
-        newEndDate: "",
-      }));
-      setIsEditing(false);
+      })
+        .then((res) => {
+          if (res.status === 422) {
+            // Handle validation errors
+            Swal.fire({
+              icon: "error",
+              text: "An error occurred while processing your request",
+              showCloseButton: true,
+              showConfirmButton: false,
+              timer: 3000,
+            });
+            return res.json().then((data) => setErrors(() => data.errors));
+          } else if (res.status === 200) {
+            // Handle success response
+            return res.json().then((data) => {
+              setBookings((prev) => [...prev, data]);
+              setDates(() => ({
+                newStartDate: "",
+                newEndDate: "",
+              }));
+              setIsEditing(false);
+            });
+          } else {
+            // Handle other response statuses
+            console.log("Something went wrong");
+          }
+        })
+        .catch((error) => {
+          // Handle network errors
+          console.error("Network error:", error);
+        });
     }
   }
+  
   //function to handle date selection change
   function onDateChange(e) {
     setDates(() => ({
@@ -82,16 +91,15 @@ export default function BookingList() {
         },
       })
         .then((response) => {
-            Swal.fire({
-              icon: 'success',
-              text: "Your booking had been cancelled. Kindly note cancellations are not allowed after 24 hrs of booking confirmation",
-              showCloseButton: true,
-              showConfirmButton: true,
-              confirmButtonColor: "#2563EB",
-              timer: 3000
-            })
-            setBookings((prev)=> prev.filter((booking)=> booking.id !== id))
-          
+          Swal.fire({
+            icon: "success",
+            text: "Your booking had been cancelled. Kindly note cancellations are not allowed after 24 hrs of booking confirmation",
+            showCloseButton: true,
+            showConfirmButton: true,
+            confirmButtonColor: "#2563EB",
+            timer: 3000,
+          });
+          setBookings((prev) => prev.filter((booking) => booking.id !== id));
         })
         .catch((error) => {
           console.error("There was a problem with the fetch operation:", error);
@@ -117,7 +125,7 @@ export default function BookingList() {
     }
   }, [push]);
   return (
-    <div className="mx-2">
+    <div className="mx-2 overflow-x-hidden">
       <h1 className="text-3xl font-bold m-2">
         Welcome {user ? user.full_name : ""}
       </h1>
@@ -134,8 +142,8 @@ export default function BookingList() {
             <BookingCard
               key={booking.id}
               booking={booking}
-              onUpdate={() => updateBooking(booking.id)}
-              onDelete={() => deleteBooking(booking.id)}
+              onUpdate={updateBooking}
+              onDelete={deleteBooking}
             />
           ))
         ) : (
