@@ -4,6 +4,7 @@ import BookingCard from "./BookingCard";
 import { getCurrentUser } from "@/lib";
 import { useRouter } from "next/navigation";
 import Swal from "sweetalert2";
+import axiosInstance from "@/axiosConfig";
 
 export default function BookingList() {
   const { push } = useRouter();
@@ -16,64 +17,50 @@ export default function BookingList() {
   });
   const user = getCurrentUser();
   //function to update the booking
-  function updateBooking(id) {
+  function updateBooking(id, e) {
     setIsEditing(true);
-    console.log(id)
-    return id;
-
-  }
-  //function to update booking
-  function handleDateChange(e) {
-    e.preventDefault();
-    const id = updateBooking(); // Assuming updateBooking() returns the booking ID
-    const startDate = new Date(dates.newStartDate).toISOString().split("T")[0];
-    const endDate = new Date(dates.newEndDate).toISOString().split("T")[0];
-    const formattedDates = {
-      start_date: startDate,
-      end_date: endDate,
-    };
-  
-    if (typeof window !== "undefined" && id ) {
-      fetch(`https://explora-api.up.railway.app/bookings/${id}`, {
-        method: "PATCH",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify(formattedDates),
-      })
-        .then((res) => {
-          if (res.status === 422) {
-            // Handle validation errors
-            Swal.fire({
-              icon: "error",
-              text: "An error occurred while processing your request",
-              showCloseButton: true,
-              showConfirmButton: false,
-              timer: 3000,
-            });
-            return res.json().then((data) => setErrors(() => data.errors));
-          } else if (res.status === 200) {
-            // Handle success response
-            return res.json().then((data) => {
-              setBookings((prev) => [...prev, data]);
-              setDates(() => ({
-                newStartDate: "",
-                newEndDate: "",
-              }));
-              setIsEditing(false);
-            });
-          } else {
-            // Handle other response statuses
-            console.log("Something went wrong");
-          }
-        })
-        .catch((error) => {
-          // Handle network errors
-          console.error("Network error:", error);
+    if (e) {
+      e.preventDefault();
+      const startDate = new Date(dates.newStartDate)
+        .toISOString()
+        .split("T")[0];
+      const endDate = new Date(dates.newEndDate).toISOString().split("T")[0];
+      const formattedDates = {
+        start_date: startDate,
+        end_date: endDate,
+      };
+      try {
+        axiosInstance.patch(
+          `https://explora-api.up.railway.app/bookings/${id}`,
+          formattedDates
+        );
+        const data = response.data;
+        setBookings((prev) => [...prev, data]);
+        setDates(() => ({
+          newStartDate: "",
+          newEndDate: "",
+        }));
+        setIsEditing(false);
+        Swal.fire({
+          icon: "success",
+          text: "Your booking has been updated successfully",
+          showCloseButton: true,
+          confirmButtonColor: "#0096FF",
+          timer: 3000,
         });
+      } catch (error) {
+        console.error(error);
+        Swal.fire({
+          icon: "error",
+          text: error.response.data.errors,
+          showCloseButton: true,
+          showConfirmButton: false,
+          timer: 3000,
+        });
+      }
     }
   }
-  
+
   //function to handle date selection change
   function onDateChange(e) {
     setDates(() => ({
@@ -155,7 +142,7 @@ export default function BookingList() {
         <form
           className="mx-auto rounded-xl p-4 mt-4 border shadow-lg max-w-md"
           id="update-dates"
-          onSubmit={handleDateChange}>
+          onSubmit={updateBooking}>
           {/* Input fields for updating dates */}
           <label htmlFor="newStartDate" className="m-2 font-bold">
             New Start Date
