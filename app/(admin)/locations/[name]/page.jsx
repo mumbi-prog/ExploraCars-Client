@@ -18,13 +18,14 @@ export default function Location({ params }) {
     fetch(`https://explora-api.up.railway.app/locations/${params.name}`)
       .then((res) => res.json())
       .then((data) => setCars(data));
+      console.log(cars)
   }, [params.name, replace]);
 
-  const filteredCars = cars?.filter(
-    (car) =>
-      car.make.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      searchQuery.trim() === ""
-  );
+  // const filteredCars = cars?.filter(
+  //   (car) =>
+  //     car.make.toLowerCase().includes(searchQuery.toLowerCase()) ||
+  //     searchQuery.trim() === ""
+  // );
 
   return (
     <>
@@ -32,8 +33,8 @@ export default function Location({ params }) {
         Explora {validCities.includes(params.name) ? params.name : ""} car
         rental
       </h1>
-      <Search setSearchQuery={setSearchQuery} searchQuery={searchQuery} />
-      <CarList cars={filteredCars} itemsPerPage={12} Search={Search} />
+      {/* <Search setSearchQuery={setSearchQuery} searchQuery={searchQuery} /> */}
+      <CarList cars={cars} itemsPerPage={12} />
       <Qualifications />
     </>
   );
