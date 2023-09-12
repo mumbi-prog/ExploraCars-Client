@@ -18,7 +18,6 @@ export default function Location({ params }) {
     fetch(`https://explora-api.up.railway.app/locations/${params.name}`)
       .then((res) => res.json())
       .then((data) => setCars(data));
-      console.log(cars)
   }, [params.name, replace]);
 
   // const filteredCars = cars?.filter(
