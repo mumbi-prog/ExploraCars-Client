@@ -18,6 +18,9 @@ export default function BookingList() {
   const user = getCurrentUser();
   //function to update the booking
   function updateBooking(id, e) {
+    if(!e){
+      return null;
+    }
       e.preventDefault();
       const startDate = new Date(dates.newStartDate)
         .toISOString()
@@ -113,7 +116,7 @@ export default function BookingList() {
         <form
           className="mx-auto rounded-xl p-4 mt-4 border shadow-lg max-w-md"
           id="update-dates"
-          onSubmit={updateBooking}>
+          onSubmit={(e)=>updateBooking(e)}>
           {/* Input fields for updating dates */}
           <label htmlFor="newStartDate" className="m-2 font-bold">
             New Start Date
