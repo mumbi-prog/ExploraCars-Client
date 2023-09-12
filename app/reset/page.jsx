@@ -97,6 +97,7 @@ export default function ResetPage() {
             <input
               type="email"
               name="email"
+              id="email"
               value={formData.email}
               onChange={handleChange}
               placeholder="Enter your email"
@@ -106,11 +107,12 @@ export default function ResetPage() {
             <MdEmail id="email-icon" />
           </div>
           <div className="relative">
-            <label htmlFor="email">Verify your Age: </label>
+            <label htmlFor="age">Verify your Age: </label>
             <br></br>
             <input
               type="number"
               name="age"
+              id="age"
               value={formData.age}
               onChange={handleChange}
               placeholder="Type your age"
