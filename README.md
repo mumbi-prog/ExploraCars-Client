@@ -37,7 +37,7 @@ git clone git@github.com:mumbi-prog/ExploraCars-Client.git
 git@github.com:mumbi-prog/Explora-cars.git
 ```
 1. Navigate to the project directory: `cd explora-cars`
-2. Install dependencies: `bundle`
+2. Install dependencies: `bundle install`
 3. Set up and seed the database: `rails db:migrate db:seed`
 4. Start the server: `rails s`
 
@@ -69,7 +69,7 @@ git@github.com:mumbi-prog/Explora-cars.git
 •	Allows users to create a review.
 •	Allows users to view existing reviews.
 
-# Routes
+## Routes
 - **Home ("/")**: Displays a welcome message or introduction.
 - **Sign Up/Login ("/login")**: Renders the Sign Up Component.
 - **Cars ("/cars")**: Renders the Car List Component.
@@ -77,7 +77,7 @@ git@github.com:mumbi-prog/Explora-cars.git
 - **Booking History ("/account")**: Renders the booking history Component.
 - **New Booking ("/booking/:id")**: Renders the Booking Form Component for creating a booking.
 
-# Test Your API:
+## Test Your API:
 
 Use tools like ThunderBolt, or Postman, or your frontend application to test your API endpoints and make sure everything is working as expected.
 
@@ -86,7 +86,7 @@ Explore our deployed resources🚀
 - Frontend site: [explora-cars.vercel.app](https://explora-cars.vercel.app/)
 - API : [explora-api.up.railway.app](https://explora-api.up.railway.app)
 
-# Copyright and License
+## Copyright and License
 
 Explora is licensed under the MIT License. 
 You are free to use, modify, and distribute the code as long as you include the appropriate copyright notice and adhere to the terms of the MIT License.
