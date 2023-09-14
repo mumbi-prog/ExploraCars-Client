@@ -58,7 +58,7 @@ label {
   @apply  p-2 m-3 rounded-lg mx-4 py-2 mt-2 font-bold px-8 shadow-md border border-blue-500 bg-blue-500 hover:bg-blue-700 
 }
 .hero-btn-primary{
-  @apply rounded-full mx-4 py-2 mt-2 font-bold px-8 shadow-md border border-blue-500 bg-blue-500 hover:bg-blue-700 flex items-center justify-center gap-1
+  @apply rounded-full mx-4 py-2 mt-4 font-bold px-8 shadow-md border border-blue-500 bg-blue-500 hover:bg-blue-700 
 }
 .menu{
  @apply flex flex-col h-screen w-2/3 space-y-6 md:mt-5 shadow-lg xsm:w-full drop-shadow-2xl xsm:bg-blue-600 py-4 md:w-60 z-50 absolute left-0 top-0 dark:bg-gray-950 bg-gray-200
@@ -83,7 +83,7 @@ label {
 }
 
 .hero__subtitle {
-  @apply mx-4 text-[27px] font-light mt-5;
+  @apply mx-4 text-[27px] font-light mt-5 mb-2;
 }
 
 .hero__image-container {

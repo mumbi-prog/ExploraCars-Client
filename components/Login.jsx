@@ -6,6 +6,7 @@ import { MdEmail } from "react-icons/md";
 import { SlLogin } from "react-icons/sl";
 import { useRouter } from "next/navigation";
 import { AiFillCar } from "react-icons/ai";
+import toast from "react-hot-toast";
 import Link from "next/link";
 
 const loginApi = "https://explora-api.up.railway.app/login";
@@ -44,13 +45,7 @@ export default function useLogin() {
           sessionStorage.setItem("user", JSON.stringify(data));
         }
         navigate.push("/");
-        Swal.fire({
-          icon: "success",
-          text: "Logged in successfully",
-          showCloseButton: true,
-          confirmButtonColor: "#0F73BD",
-          timer: 3000,
-        });
+        toast.success("login successful!")
       } else if(response.status === 401){
         const error = await response.json();
         setLoginAttempt(loginAttempt+1)

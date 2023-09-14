@@ -3,10 +3,11 @@ import { Card, CardBody, CardFooter } from "@nextui-org/react";
 import Image from "next/image";
 import { deleteBooking } from "@/lib";
 
-function BookingCard({ booking, onUpdate, setIsEditing }) {
+function BookingCard({ booking, setBlogId, setIsEditing }) {
   function updateBooking(id) {
-    setIsEditing(true);
-    onUpdate(id)
+    setBlogId(id)
+    setIsEditing(true)
+
   }
   return (
     <div className="rounded-xl p-4 mt-4 border shadow mx-auto max-w-md">

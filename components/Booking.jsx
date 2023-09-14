@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { getCurrentUser } from "@/lib";
-import "react-calendar/dist/Calendar.css";
+import toast from "react-hot-toast";
 
 export default function Booking({ id }) {
   const [dates, setDates] = useState([]);
@@ -11,7 +11,8 @@ export default function Booking({ id }) {
   const navigate = useRouter();
   useEffect(() => {
     if (!user) {
-      navigate.replace('/login');
+      navigate.replace("/login");
+      toast.error("login required!");
     }
   }, [user, navigate]);
 
@@ -60,6 +61,7 @@ export default function Booking({ id }) {
         startDate: "",
         endDate: "",
       }));
+      toast.success("Booking successfully submitted");
       navigate.replace("/account");
     } catch (error) {
       if (error.response && error.response.data && error.response.data.errors) {
@@ -85,63 +87,45 @@ export default function Booking({ id }) {
   }, [id]);
   return (
     <div className="mx-auto p-2 max-w-fit">
-      <h1 className="font-bold mb-2 text-2xl m-2">Choose the Dates you wish to hire</h1>
-      {/* <Calendar
-        className="m-2 w-full h-fit rounded-sm text-black shadow-lg"
-        onChange={setTgl}
-        value={tgl}
-        tileClassName={({ date }) => {
-          const realDate = date.toISOString().split("T")[0];
-          const isHighlighted =
-            dates.length > 0 &&
-            dates.some((range) => {
-              const startDate = new Date(range.start_date)
-                .toISOString()
-                .split("T")[0];
-              const endDate = new Date(range.end_date)
-                .toISOString()
-                .split("T")[0];
-              return realDate >= startDate && realDate <= endDate;
-            });
-          return isHighlighted ? "highlight" : ""; // Apply 'highlight' class if the date is in a range
-        }}
-      /> */}
-      <form
-        className="mt-5 m-2 p-5 shadow-lg rounded-xl border flex flex-col"
-        onSubmit={handleDatesSubmit}>
-        <div
-          className={errors ? "bg-danger-200 mt-3 m-2 p-2 rounded-sm" : "hidden"}>
-          {errors ? errors : ""}
-        </div>
-        
-        <div className="m-1 flex flex-col">
-          <label htmlFor="start-date">
-            Start date
-          </label>
-          <input
-            className="booking-form"
-            name="startDate"
-            required
-            type="date"
-            onChange={handleChange}
-            value={formData.startDate}></input>
-        </div>
-        <div className="m-2 flex flex-col">
-          <label htmlFor="end_date">
-            End date
-          </label>
-          <input
-            className="booking-form"
-            name="endDate"
-            required
-            type="date"
-            onChange={handleChange}
-            value={formData.endDate}></input>
-        </div>
-        <button type="submit" className="btn-primary self-start">
-          Submit
-        </button>
-      </form>
+      <h1 className="font-bold mb-2 text-2xl m-2">
+        Choose the Dates you wish to hire
+      </h1>
+      {user && (
+        <form
+          className="mt-5 m-2 p-5 shadow-lg rounded-xl border flex flex-col"
+          onSubmit={handleDatesSubmit}>
+          <div
+            className={
+              errors ? "bg-danger-200 mt-3 m-2 p-2 rounded-sm" : "hidden"
+            }>
+            {errors ? errors : ""}
+          </div>
+
+          <div className="m-1 flex flex-col">
+            <label htmlFor="start-date">Start date</label>
+            <input
+              className="booking-form"
+              name="startDate"
+              required
+              type="date"
+              onChange={handleChange}
+              value={formData.startDate}></input>
+          </div>
+          <div className="m-2 flex flex-col">
+            <label htmlFor="end_date">End date</label>
+            <input
+              className="booking-form"
+              name="endDate"
+              required
+              type="date"
+              onChange={handleChange}
+              value={formData.endDate}></input>
+          </div>
+          <button type="submit" className="btn-primary self-start">
+            Submit
+          </button>
+        </form>
+      )}
     </div>
   );
 }
