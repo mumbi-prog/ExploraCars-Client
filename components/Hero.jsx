@@ -14,7 +14,7 @@ const Hero = () => {
           Streamline your car rental experience with our effortless booking
           process.
         </p>
-        <Link href="/cars"className="bg-primary-blue text-white rounded-full mt-10 hero-btn-primary">Explore Cars</Link>
+        <Link href="/cars"><button className="hero-btn-primary xsm:w-full w-16">Explore Cars</button></Link>
       </div>
       <div className="hero__image-container">
         <div className="hero__image">

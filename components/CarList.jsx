@@ -74,22 +74,10 @@ const CarList = ({ cars, itemsPerPage}) => {
       </div>}
       </div>
 
-      <div className="flex items-center justify-center m-2 p-1 gap-1">
+      <div className="flex items-center justify-center m-2 p-1 gap-5">
         <button onClick={goToPreviousPage} disabled={currentPage === 1} className="page-button hover:bg-blue-600">
             Previous
         </button>
-        {cars? Array.from(
-          { length: Math.ceil(cars?.length / itemsPerPage) },
-          (_, index) => (
-            <button
-              key={index}
-              onClick={() => goToPage(index + 1)}
-              className={`current-page-button ${currentPage === index + 1 ? 'active' : ''}`}
-            >
-            {index + 1}
-            </button>
-          )
-        ):"null"}
         {cars && <button onClick={goToNextPage} disabled={currentPage === Math.ceil(cars?.length / itemsPerPage)} className="page-button hover:bg-blue-600">
             Next
         </button>}
