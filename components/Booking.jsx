@@ -41,7 +41,7 @@ export default function Booking({ id }) {
 
     try {
       const response = await fetch(
-        "https://explora-api.up.railway.app/bookings",
+        "https://explora-cars.onrender.com/bookings",
         {
           method: "POST",
           headers: {
@@ -71,7 +71,7 @@ export default function Booking({ id }) {
   }
 
   useEffect(() => {
-    fetch(`https://explora-api.up.railway.app/car_bookings/${id}`)
+    fetch(`https://explora-cars.onrender.com/car_bookings/${id}`)
       .then((response) => response.json())
       .then((data) => {
         if (data.error || data.errors) {

@@ -34,7 +34,7 @@ export default function BookingList() {
   function handleBookingUpdate(formData) {
     try {
       axiosInstance.patch(
-        `https://explora-api.up.railway.app/bookings/${blogId}`,
+        `https://explora-cars.onrender.com/bookings/${blogId}`,
         formData
       );
       const data = response.data;
@@ -66,7 +66,7 @@ export default function BookingList() {
     if (!user) {
       push("/login");
     } else {
-      fetch(`https://explora-api.up.railway.app/customer_bookings/${user.id}`)
+      fetch(`https://explora-cars.onrender.com/customer_bookings/${user.id}`)
         .then((response) => response.json())
         .then((data) => {
           setBookings(() => data);

@@ -12,7 +12,7 @@ export default function CarDetailsPage({ params }) {
 
   //function to fetch reviews and car details
   useEffect(() => {
-    fetch(`https://explora-api.up.railway.app/cars/${id}`)
+    fetch(`https://explora-cars.onrender.com/cars/${id}`)
       .then((response) => response.json())
       .then((data) => {
         setCar(data);
@@ -21,14 +21,14 @@ export default function CarDetailsPage({ params }) {
   }, [id]);
   //function to fetch reviews
   useEffect(() => {
-    fetch("https://explora-api.up.railway.app/reviews")
-    .then((response) => response.json())
-    .then((data) => {
-      setReviews(data);
-    })
-    .catch((error) => console.error("Error fetching car data:", error));
+    fetch("https://explora-cars.onrender.com/reviews")
+      .then((response) => response.json())
+      .then((data) => {
+        setReviews(data);
+      })
+      .catch((error) => console.error("Error fetching car data:", error));
   }, [reviews]);
-  
+
   return (
     <div className="p-4 space-y-4">
       <div className="flex flex-col sm:flex-row mx-auto dark:bg-gray-900 shadow-lg drop-shadow-lg h-fit rounded-lg">
@@ -59,7 +59,7 @@ export default function CarDetailsPage({ params }) {
             <p className="m-2">Body Type: {car?.body_type}</p>
           </div>
         </div>
-        <ReviewForm carId={id} setReviews={setReviews}/>
+        <ReviewForm carId={id} setReviews={setReviews} />
       </div>
       <ReviewList carId={id} reviews={reviews} />
     </div>

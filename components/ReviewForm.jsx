@@ -25,7 +25,7 @@ const ReviewForm = ({ carId, onReviewSubmit, setReviews }) => {
       Swal.fire("⚠️ Kindly login first");
       push("/login");
     } else {
-      fetch("https://explora-api.up.railway.app/reviews", {
+      fetch("https://explora-cars.onrender.com/reviews", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -35,7 +35,7 @@ const ReviewForm = ({ carId, onReviewSubmit, setReviews }) => {
         .then((response) => response.json())
         .then((data) => {
           Swal.fire("✔️ Review submitted successfully");
-          setReviews((prev)=>[...prev, data]);
+          setReviews((prev) => [...prev, data]);
           onReviewSubmit(data);
         })
         .catch((error) => {

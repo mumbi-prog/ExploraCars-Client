@@ -11,7 +11,7 @@ export default function ResetPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
     email: "",
-    age:null,
+    age: null,
     password: "",
     confirmPassword: "",
   });
@@ -41,7 +41,7 @@ export default function ResetPage() {
     }
     try {
       const response = await axiosInstance.patch(
-        "https://explora-api.up.railway.app/reset",
+        "https://explora-cars.onrender.com/reset",
         resetForm
       );
       const data = response.data;
@@ -74,14 +74,14 @@ export default function ResetPage() {
       email: "",
       password: "",
       confirmPassword: "",
-      age:null
+      age: null,
     });
   }
 
   return (
     <div className="">
       <div className="">
-      <h1 className="text-2xl m-5 text-center md:text-left md:text-3xl font-bold lg:text-4xl cursor-pointer flex items-center underline decoration-amber-400 decoration-4 text-black dark:text-white">
+        <h1 className="text-2xl m-5 text-center md:text-left md:text-3xl font-bold lg:text-4xl cursor-pointer flex items-center underline decoration-amber-400 decoration-4 text-black dark:text-white">
           <AiFillCar />
           Explora
         </h1>

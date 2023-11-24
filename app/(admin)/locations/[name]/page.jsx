@@ -3,7 +3,6 @@ import React, { useState, useEffect, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import { CarList, Qualifications } from "@/components";
 
-
 export default function Location({ params }) {
   const [cars, setCars] = useState([]);
   const { replace } = useRouter();
@@ -14,7 +13,7 @@ export default function Location({ params }) {
     }
   }, [replace, validCities, params.name]);
   useEffect(() => {
-    fetch(`https://explora-api.up.railway.app/locations/${params.name}`)
+    fetch(`https://explora-cars.onrender.com/locations/${params.name}`)
       .then((res) => res.json())
       .then((data) => setCars(data));
   }, [params.name, replace]);
