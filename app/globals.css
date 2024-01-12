@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@200;300;400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap");
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -26,42 +28,42 @@ body {
     rgb(var(--background-start-rgb));
 }
 .login-page {
-  @apply w-full md:w-3/4 lg:w-1/2 max-w-lg lg:m-auto min-w-min mx-auto border border-blue-500 dark:border-white rounded-lg md:p-16 p-10 text-xl shadow-md text-black dark:text-white
+  @apply w-full md:w-3/4 lg:w-1/2 max-w-lg lg:m-auto min-w-min mx-auto border border-blue-500 dark:border-white rounded-lg md:p-16 p-10 text-xl shadow-md text-black dark:text-white;
 }
 
 .input-field {
-  @apply mb-3 bg-transparent p-2 w-full border-b-2 border-blue-500 text-white outline-none pl-8
+  @apply mb-3 bg-transparent p-2 w-full border-b-2 border-blue-500 text-white outline-none pl-8;
 }
 
 label {
-  @apply font-bold text-black dark:text-white
+  @apply font-bold text-black dark:text-white;
 }
 
 .login__link {
- @apply underline text-blue-500 cursor-pointer hover:text-green-800 font-bold
+  @apply underline text-blue-500 cursor-pointer hover:text-green-800 font-bold;
 }
-.login-button{
-  @apply  rounded-full w-full py-2 mt-2 font-bold px-8 shadow-md border border-blue-500 hover:bg-blue-500 flex items-center justify-center gap-1
+.login-button {
+  @apply rounded-full w-full py-2 mt-2 font-bold px-8 shadow-md border border-blue-500 hover:bg-blue-500 flex items-center justify-center gap-1;
 }
 #email-icon,
-#password-icon{
-    @apply absolute bottom-6 left-0 mt-5
+#password-icon {
+  @apply absolute bottom-6 left-0 mt-5;
 }
-#reset-icon{
-  @apply absolute bottom-10 left-0 mb-4
+#reset-icon {
+  @apply absolute bottom-10 left-0 mb-4;
 }
-.menu-item{
-  @apply px-3 py-2 font-bold hover:text-blue-600
+.menu-item {
+  @apply px-3 py-2 font-bold hover:text-blue-600;
 }
 
-.btn-primary{
-  @apply  p-2 m-3 rounded-lg mx-4 py-2 mt-2 font-bold px-8 shadow-md border border-blue-500 bg-blue-500 hover:bg-blue-700 
+.btn-primary {
+  @apply p-2 m-3 rounded-lg mx-4 py-2 mt-2 font-bold px-8 shadow-md border border-blue-500 bg-blue-500 hover:bg-blue-700;
 }
-.hero-btn-primary{
-  @apply rounded-full mx-4 py-2 mt-4 font-bold px-8 shadow-md border border-blue-500 bg-blue-500 hover:bg-blue-700 
+.hero-btn-primary {
+  @apply rounded-full mx-4 py-2 mt-4 font-bold px-8 shadow-md border border-blue-500 bg-blue-500 hover:bg-blue-700;
 }
-.menu{
- @apply flex flex-col h-screen w-2/3 space-y-6 md:mt-5 shadow-lg xsm:w-full drop-shadow-2xl xsm:bg-blue-600 py-4 md:w-60 z-50 absolute left-0 top-0 dark:bg-gray-950 bg-gray-200
+.menu {
+  @apply flex flex-col h-screen w-2/3 space-y-6 md:mt-5 shadow-lg xsm:w-full drop-shadow-2xl xsm:bg-blue-600 py-4 md:w-60 z-50 absolute left-0 top-0 dark:bg-gray-950 bg-gray-200;
 }
 .footer-links {
   @apply flex w-full md:justify-between flex-wrap md:mt-10 xsm:flex-col;
@@ -70,8 +72,8 @@ label {
 .footer-link {
   @apply flex-1 flex-col gap-6 text-base min-w-[170px];
 }
-.blue-color{
-  background-color: #4C73FF;
+.blue-color {
+  background-color: #4c73ff;
 }
 /* hero section styles */
 .hero {
@@ -87,7 +89,7 @@ label {
 }
 
 .hero__image-container {
-  @apply  xl:flex-[1.5] flex justify-end items-end w-full xl:h-screen;
+  @apply xl:flex-[1.5] flex justify-end items-end w-full xl:h-screen;
 }
 
 .hero__image {
@@ -99,62 +101,62 @@ label {
 }
 /* 
 /* accordion styling */
-.requirements-list li{
-  @apply py-2  leading-relaxed text-base mx-2
+.requirements-list li {
+  @apply py-2  leading-relaxed text-base mx-2;
 }
-.accordion{
-  @apply text-xl md:text-2xl text-left border-b-4 shadow-lg w-full font-bold dark:bg-gray-900 rounded border-b-blue-600 mt-2 md:mt-4
+.accordion {
+  @apply text-xl md:text-2xl text-left border-b-4 shadow-lg w-full font-bold dark:bg-gray-900 rounded border-b-blue-600 mt-2 md:mt-4;
 }
-.recommendations-card{
-  @apply shadow-lg dark:bg-gray-900 h-32 w-32 rounded-md xsm:w-fit border-b-4 border-b-blue-600
+.recommendations-card {
+  @apply shadow-lg dark:bg-gray-900 h-32 w-32 rounded-md xsm:w-fit border-b-4 border-b-blue-600;
 }
-.booking-card{
-  @apply shadow-lg dark:bg-gray-900 rounded-md w-fit h-fit border-b-4 border-b-blue-600
+.booking-card {
+  @apply shadow-lg dark:bg-gray-900 rounded-md w-fit h-fit border-b-4 border-b-blue-600;
 }
-.cardheader{
-  @apply text-2xl font-bold text-center my-2 p-2 mx-auto
+.cardheader {
+  @apply text-2xl font-bold text-center my-2 p-2 mx-auto;
 }
-.booking-card-grid{
+.booking-card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px; 
+  gap: 20px;
   padding-top: 20px;
   align-items: center;
   justify-content: center;
 }
-.booking-form{
-  @apply text-black h-10 border text-xl rounded-md outline-none w-full m-2 rounded-lg
+.booking-form {
+  @apply text-black h-10 border text-xl rounded-md outline-none w-full m-2 rounded-lg;
 }
 /* sylvia components css */
-.search{
-  @apply flex items-center m-auto justify-center text-black
+.search {
+  @apply flex items-center m-auto justify-center text-black;
 }
 
-.search-input{
-  @apply w-3/5 h-10 border text-xl rounded-md outline-none text-black
+.search-input {
+  @apply w-3/5 h-10 border text-xl rounded-md outline-none text-black;
 }
 /* SEARCH INPUT STYLING ENDS */
 
 /* CAR GRID CONTAINER STYLING BEGINS */
-.car-list{
-  @apply items-center justify-center mx-2
+.car-list {
+  @apply items-center justify-center mx-2;
 }
 
-.car-list h1{
-  @apply text-2xl font-bold text-center
+.car-list h1 {
+  @apply text-2xl font-bold text-center;
 }
 
-.card-grid-container{
+.card-grid-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 30px; 
+  gap: 30px;
   padding-top: 20px;
   align-items: center;
   justify-content: center;
 }
 
-.car-card{
-  @apply dark:bg-gray-900 rounded-md flex flex-col p-4 border-black  drop-shadow-2xl shadow-lg border-b-blue-600 border-b-4
+.car-card {
+  @apply dark:bg-gray-900 rounded-md flex flex-col p-4 border-black  drop-shadow-2xl shadow-lg border-b-blue-600 border-b-4;
 }
 
 .car-card img {
@@ -164,61 +166,60 @@ label {
   margin-bottom: 10px;
 }
 
-.make-and-bd-type h2{
+.make-and-bd-type h2 {
   font-weight: bolder;
   text-align: left;
 }
 
-.price-holder{
+.price-holder {
   text-align: left;
   margin-top: 10px;
 }
 
-.superscript{
+.superscript {
   vertical-align: super;
   font-size: 12px;
   font-weight: 600;
 }
 
-.price{
+.price {
   font-weight: 700;
   font-size: 20px;
 }
 
-.subscript{
+.subscript {
   vertical-align: sub;
   font-size: 12px;
 }
 
-
-.car-details{
+.car-details {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); 
+  grid-template-columns: repeat(3, 1fr);
   gap: 25px;
   padding-top: 13px;
 }
 
-.icon-and-detail{
+.icon-and-detail {
   display: flex;
-  flex-direction: column; 
-  align-items: center; 
-  text-align: center; 
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
-.icon-and-detail p{
+.icon-and-detail p {
   font-size: 10px;
   font-weight: 500;
   padding-top: 5px;
 }
 
 .icon {
-  font-size: 18px; 
+  font-size: 18px;
 }
 /* CAR GRID CONTAINER STYLING ENDS */
 
 /* PAGINATION STYLING BEGINS */
 
-.page-button{
+.page-button {
   color: #090909;
   padding: 5px;
   width: fit-content;
@@ -226,17 +227,16 @@ label {
   border-radius: 0.5em;
   background: #e8e8e8;
   border: 1px solid #e8e8e8;
-  transition: all .3s;
-  cursor:pointer;
+  transition: all 0.3s;
+  cursor: pointer;
 }
 
- .page-button:active {
+.page-button:active {
   color: #666;
-  box-shadow: inset 4px 4px 12px #8fc1f2,
-              inset -4px -4px 12px #ffffff;
- }
+  box-shadow: inset 4px 4px 12px #8fc1f2, inset -4px -4px 12px #ffffff;
+}
 
-.current-page-button{
+.current-page-button {
   gap: 7px;
   font-size: 13px;
   color: #9c9c9f;
@@ -244,6 +244,6 @@ label {
   letter-spacing: 6px;
 }
 /* styling for review form */
-.review-form-input{
-  @apply text-black outline-none rounded-md my-2 p-4 w-full
+.review-form-input {
+  @apply text-black outline-none rounded-md my-2 p-4 w-full;
 }
