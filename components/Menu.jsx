@@ -8,12 +8,12 @@ export const Menu = ({ handleClick, menuOpen }) => {
   function handleSignout() {
     clearCurrentUser();
   }
-  const user= getCurrentUser();
+  const user = getCurrentUser();
 
   return (
-    <div className="menu divide-y divide-dashed">
+    <div className="menu">
       <TfiClose
-        className="absolute top-0 right-0 text-2xl mr-2 hover:scale-125 ease-in-out cursor-pointer"
+        className="absolute top-0 mt-2 right-0 text-2xl mr-2 hover:scale-125 ease-in-out cursor-pointer"
         onClick={() => handleClick(!menuOpen)}
       />
       <p>
@@ -45,7 +45,7 @@ export const Menu = ({ handleClick, menuOpen }) => {
       <p>
         {" "}
         <Link onClick={handleSignout} href="/login" className="menu-item">
-         {user? "Sign Out": "Login"}
+          {user ? "Sign Out" : "Login"}
         </Link>
       </p>
     </div>

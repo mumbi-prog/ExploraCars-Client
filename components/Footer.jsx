@@ -4,11 +4,12 @@ import { footerLinks } from "@/constants";
 
 function Footer() {
   return (
-    <footer className="w-full shadow-lg drop-shadow-2xl ">
-      <div className="footer-links pb-5 mb-5 py-4 px-8">
+    <footer className="w-full shadow-lg drop-shadow-2xl mt-2 ">
+      <hr className="border"></hr>
+      <div className="footer-links mb-1 py-2 px-8 text-sm">
         {footerLinks.map((item) => (
           <div className="footer-link" key={item.title}>
-            <h1 className="text-xl font-bold py-1 my-2" key={item.title}>
+            <h1 className="text-xl font-bold mb-1" key={item.title}>
               {item.title}
             </h1>
             <div className="flex flex-col gap-5">

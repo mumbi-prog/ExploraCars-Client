@@ -52,17 +52,17 @@ label {
   @apply p-2 m-3 rounded-lg mx-4 py-2 mt-2 font-bold px-8 shadow-md border border-blue-500 bg-blue-500 hover:bg-blue-700;
 }
 .hero-btn-primary {
-  @apply rounded-full mx-4 py-2 mt-4 font-bold px-8 shadow-md border border-blue-500 bg-blue-500 hover:bg-blue-700;
+  @apply rounded-md px-4 mx-4 py-2 mt-4 font-bold shadow text-white border border-blue-500 bg-blue-500 hover:bg-blue-700 h-10 w-10;
 }
 .menu {
-  @apply flex flex-col h-screen w-2/3 space-y-6 md:mt-5 shadow-lg xsm:w-full drop-shadow-2xl xsm:bg-blue-600 py-4 md:w-60 z-50 absolute left-0 top-0 bg-gray-200;
+  @apply flex flex-col h-fit min-h-[150px] w-fit  space-y-6 md:mt-5 shadow-lg  p-8  z-50 absolute left-0 rounded-md border bg-gray-200;
 }
 .footer-links {
-  @apply flex w-full md:justify-between flex-wrap md:mt-10 xsm:flex-col;
+  @apply flex w-full md:justify-between flex-wrap md:mt-1 xsm:flex-col;
 }
 
 .footer-link {
-  @apply flex-1 flex-col gap-6 text-base min-w-[170px];
+  @apply flex-1 flex-col gap-1 text-base;
 }
 .blue-color {
   background-color: #4c73ff;
@@ -148,7 +148,7 @@ label {
 }
 
 .car-card {
-  @apply rounded-md flex flex-col p-4 border  drop-shadow-2xl shadow-lg border-b-blue-600 border-b-4;
+  @apply rounded-md flex flex-col p-4 border bg-white drop-shadow-2xl shadow-lg border;
 }
 
 .car-card img {
