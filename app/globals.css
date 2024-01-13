@@ -24,7 +24,7 @@ body {
 }
 
 .input-field {
-  @apply mb-3 bg-transparent p-2 w-full border-b-2 border-blue-500 text-white outline-none pl-8;
+  @apply mb-3 bg-transparent p-2 w-full border-b-2 border-blue-500  outline-none pl-8;
 }
 
 label {

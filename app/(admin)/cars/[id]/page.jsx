@@ -31,7 +31,7 @@ export default function CarDetailsPage({ params }) {
 
   return (
     <div className="p-4 space-y-4">
-      <div className="flex flex-col sm:flex-row mx-auto dark:bg-gray-900 shadow-lg drop-shadow-lg h-fit rounded-lg">
+      <div className="flex flex-col sm:flex-row mx-auto shadow-lg drop-shadow-lg h-fit rounded-lg">
         <div className="w-fit sm:w-1/2 flex-row shadow-lg">
           <Image
             src={car?.image_url}
