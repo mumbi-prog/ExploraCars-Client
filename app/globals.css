@@ -148,7 +148,7 @@ label {
 }
 
 .car-card {
-  @apply rounded-md flex flex-col p-4 border bg-white drop-shadow-2xl shadow-lg border;
+  @apply rounded-md flex flex-col p-4 bg-white drop-shadow-2xl shadow-lg border;
 }
 
 .car-card img {
@@ -237,5 +237,5 @@ label {
 }
 /* styling for review form */
 .review-form-input {
-  @apply text-black outline-none rounded-md my-2 p-4 w-full;
+  @apply text-black outline-blue-200 rounded-md my-2 p-4 w-full border;
 }

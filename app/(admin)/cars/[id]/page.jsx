@@ -31,12 +31,12 @@ export default function CarDetailsPage({ params }) {
 
   return (
     <div className="p-4 space-y-4">
-      <div className="flex flex-col sm:flex-row mx-auto shadow-lg drop-shadow-lg h-fit rounded-lg">
-        <div className="w-fit sm:w-1/2 flex-row shadow-lg">
+      <div className="flex flex-col sm:flex-row mx-auto bg-white rounded-md h-fit">
+        <div className="w-fit sm:w-1/2 flex-row">
           <Image
             src={car?.image_url}
             alt={car?.make}
-            class="w-full h-auto"
+            className="w-full h-auto"
             width={400}
             height={300}
           />
@@ -48,7 +48,7 @@ export default function CarDetailsPage({ params }) {
         </div>
         <div className="w-fit sm:w-1/2 p-2 ">
           <h1 className=" m-2 text-2xl font-bold">{car?.make}</h1>
-          <div className="space-y-2 divide-y-2 divide-blue-200">
+          <div className="space-y-2 divide-y-2 divide-gray-100">
             <p className="m-2">Category: {car?.category}</p>
             <p className="m-2">Fuel Consumption: {car?.fuel_consumption} mpg</p>
             <p className="m-2">Number of Seats: {car?.no_of_seats}</p>

@@ -51,7 +51,7 @@ const ReviewForm = ({ carId, onReviewSubmit, setReviews }) => {
   return (
     <div className="w-fit sm:w-1/2 p-2">
       <h1 className="m-2 text-2xl font-bold">Write a Review</h1>
-      <form onSubmit={handleSubmit} className="p-4 m-2 border shadow-lg">
+      <form onSubmit={handleSubmit} className="p-4 m-2 border rounded-md">
         <di>
           <label className="mr-4">Title</label>
           <br></br>
