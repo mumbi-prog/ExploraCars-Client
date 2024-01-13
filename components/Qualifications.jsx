@@ -10,7 +10,7 @@ export default function Qualifications() {
       <Accordion
         variant="splitted"
         showDivider={true}
-        className="py-2 text-black bg-inherit">
+        className="py-2 text-black bg-slate-100 shadow">
         <AccordionItem
           key="1"
           aria-label="Driver requirements"

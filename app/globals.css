@@ -20,7 +20,7 @@ body {
     rgb(var(--background-start-rgb));
 }
 .login-page {
-  @apply w-full md:w-3/4 lg:w-1/2 max-w-lg lg:m-auto min-w-min mx-auto border border-blue-500  rounded-lg md:p-16 p-10 text-xl shadow-md text-black;
+  @apply w-full md:w-3/4 lg:w-1/2 max-w-lg lg:m-auto min-w-min mx-auto border   rounded-lg md:p-16 p-10 text-xl shadow-md text-black;
 }
 
 .input-field {
@@ -97,13 +97,13 @@ label {
   @apply py-2  leading-relaxed text-base mx-2;
 }
 .accordion {
-  @apply text-xl md:text-2xl text-left border-b-4 shadow-lg w-full font-bold rounded border-b-blue-600 mt-2 md:mt-4;
+  @apply text-xl md:text-2xl text-left shadow-lg w-full font-bold rounded-md focus:outline-none mt-2 md:mt-4;
 }
 .recommendations-card {
-  @apply shadow-lg  h-32 w-32 rounded-md xsm:w-fit border-b-4 border-b-blue-600;
+  @apply shadow-lg  h-32 w-32 rounded-md xsm:w-fit border;
 }
 .booking-card {
-  @apply shadow-lg rounded-md w-fit h-fit border-b-4 border-b-blue-600;
+  @apply shadow-lg rounded-md w-fit h-fit border;
 }
 .cardheader {
   @apply text-2xl font-bold text-center my-2 p-2 mx-auto;
