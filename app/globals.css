@@ -20,7 +20,7 @@ body {
     rgb(var(--background-start-rgb));
 }
 .login-page {
-  @apply w-full md:w-3/4 lg:w-1/2 max-w-lg lg:m-auto min-w-min mx-auto border   rounded-lg md:p-16 p-10 text-xl shadow-md text-black;
+  @apply w-full md:w-3/4 lg:w-1/2 max-w-lg lg:m-auto min-w-min mx-auto border rounded-md  p-6 shadow bg-white;
 }
 
 .input-field {

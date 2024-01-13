@@ -62,16 +62,16 @@ export default function useLogin() {
   return (
     <div className="h-screen">
       <div className="">
-        <h1 className="text-2xl m-5 text-center md:text-left md:text-3xl font-bold lg:text-4xl cursor-pointer flex items-center underline decoration-amber-400 decoration-4 text-black dark:text-white">
+        <h1 className="text-2xl m-5 text-center md:text-left md:text-3xl font-bold lg:text-4xl cursor-pointer flex items-center underline decoration-amber-400 decoration-4">
           <AiFillCar />
           Explora
         </h1>
       </div>
       <div className="login-page">
-        <h1 className="text-xl md:text-2xl font-bold text-center text-black dark:text-white">
+        <h1 className="text-xl md:text-2xl font-bold text-center">
           Welcome Back
         </h1>
-        <form className="p4 m3" onSubmit={handleLogin}>
+        <form className="p-4 m-3" onSubmit={handleLogin}>
           <div className="relative">
             <label htmlFor="email">Email: </label>
             <br></br>
@@ -120,16 +120,13 @@ export default function useLogin() {
             disabled={loginAttempt >= 4}>
             <SlLogin /> Login
           </button>
+          <Link href="/signup" className="flex flex-col gap-1">
+            <span>Not a member yet?</span>
+            <p className="login__link">Register Here</p>
+          </Link>
         </form>
         <div className={errors ? "bg-red-400 mt-3 p-2 rounded-sm" : "hidden"}>
           {errors ? errors : ""}
-        </div>
-        <br></br>
-        <div className="shadow-lg border-t-2 p-2 border-t-slate-500">
-          <p className="text-center text-xl font-bold">Or</p>
-          <Link href="/signup" className="login__link">
-            <p className="mx-auto text-center">Register Here</p>
-          </Link>
         </div>
       </div>
     </div>
