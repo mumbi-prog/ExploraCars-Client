@@ -24,13 +24,13 @@ function Page() {
   );
 
   return (
-    <>
-      <h1 className="font-bold text-3xl xsm:text-2xl text-center my-2">
+    <div className="py-2">
+      <h1 className="font-bold text-2xl text-gray-600 text-center my-2">
         Showing All Vehicles
       </h1>
       <Search setSearchQuery={setSearchQuery} searchQuery={searchQuery} />
       <CarList cars={filteredCars} itemsPerPage={12} Search={Search} />
-    </>
+    </div>
   );
 }
 
