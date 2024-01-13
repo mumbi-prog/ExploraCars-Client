@@ -55,7 +55,7 @@ label {
   @apply rounded-md px-4 mx-4 py-2 mt-4 font-bold shadow text-white border border-blue-500 bg-blue-500 hover:bg-blue-700 h-10 w-10;
 }
 .menu {
-  @apply flex flex-col h-fit min-h-[150px] w-fit  space-y-6 md:mt-5 shadow-lg  p-8  z-50 absolute left-0 rounded-md border bg-gray-200;
+  @apply flex flex-col h-fit min-h-[150px] w-fit  space-y-6 md:mt-5 shadow-lg  p-8  z-50 absolute left-0 top-0 rounded-md border bg-gray-200;
 }
 .footer-links {
   @apply flex w-full md:justify-between flex-wrap md:mt-1 xsm:flex-col;
