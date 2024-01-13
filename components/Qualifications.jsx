@@ -10,7 +10,7 @@ export default function Qualifications() {
       <Accordion
         variant="splitted"
         showDivider={true}
-        className="py-2">
+        className="py-2 text-black bg-inherit">
         <AccordionItem
           key="1"
           aria-label="Driver requirements"
@@ -52,12 +52,21 @@ export default function Qualifications() {
           aria-label="💳 Payment Policy"
           title="💳 Payment Policy"
           className="accordion">
-            <ul className="requirements-list mx-2">
-              <li>At time of pick up, customers will be required to pay the amount of the rental and a deposit of Ksh 10,000</li>
-              <li>We accept various payment methods, including credit cards, lipa na Mpesa, lipa na Airtel Money, Cash and Debit cards</li>
-              <li>We do not accept payments including Google Pay, Apple Pay and Bitcoins</li>
-            </ul>
-          </AccordionItem>
+          <ul className="requirements-list mx-2">
+            <li>
+              At time of pick up, customers will be required to pay the amount
+              of the rental and a deposit of Ksh 10,000
+            </li>
+            <li>
+              We accept various payment methods, including credit cards, lipa na
+              Mpesa, lipa na Airtel Money, Cash and Debit cards
+            </li>
+            <li>
+              We do not accept payments including Google Pay, Apple Pay and
+              Bitcoins
+            </li>
+          </ul>
+        </AccordionItem>
         <AccordionItem
           key="3"
           aria-label="🛡️Protection"
@@ -77,7 +86,8 @@ export default function Qualifications() {
               ✔️ Roadside Assistance
               <ul>
                 <li className="text-xs font-thin">
-                You will be able to get help for any mechanical problem you come across on the road.
+                  You will be able to get help for any mechanical problem you
+                  come across on the road.
                 </li>
               </ul>
             </li>
@@ -85,7 +95,8 @@ export default function Qualifications() {
               ✔️ Third Party Liability
               <ul>
                 <li className="text-xs font-thin">
-                Mandatory coverage for injuries and damage you may cause to others while driving the car.
+                  Mandatory coverage for injuries and damage you may cause to
+                  others while driving the car.
                 </li>
               </ul>
             </li>
@@ -109,7 +120,7 @@ export default function Qualifications() {
               </ul>
             </li>
             <li>
-            ✖️ Rate Excludes
+              ✖️ Rate Excludes
               <ul>
                 <li className="text-xs font-thin">
                   Any tolls or fines that result from violation of traffic laws.
@@ -117,16 +128,19 @@ export default function Qualifications() {
               </ul>
             </li>
             <li>
-            ⛽ Fuel Policy
+              ⛽ Fuel Policy
               <ul>
                 <li className="text-xs font-thin">
-                The vehicle is provided with a full tank of fuel and must be returned with the same amount in order to avoid additional charges
+                  The vehicle is provided with a full tank of fuel and must be
+                  returned with the same amount in order to avoid additional
+                  charges
                 </li>
                 <li className="text-xs font-thin">
-                Alternatively, the renter may purchase a tank full of fuel at the time of rental and return the tank empty.
+                  Alternatively, the renter may purchase a tank full of fuel at
+                  the time of rental and return the tank empty.
                 </li>
                 <li className="text-xs font-thin">
-                In no case will a refund be given for unused fuel.
+                  In no case will a refund be given for unused fuel.
                 </li>
               </ul>
             </li>

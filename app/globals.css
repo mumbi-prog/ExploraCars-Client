@@ -10,14 +10,6 @@
   --background-end-rgb: 255, 255, 255;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
@@ -28,7 +20,7 @@ body {
     rgb(var(--background-start-rgb));
 }
 .login-page {
-  @apply w-full md:w-3/4 lg:w-1/2 max-w-lg lg:m-auto min-w-min mx-auto border border-blue-500 dark:border-white rounded-lg md:p-16 p-10 text-xl shadow-md text-black dark:text-white;
+  @apply w-full md:w-3/4 lg:w-1/2 max-w-lg lg:m-auto min-w-min mx-auto border border-blue-500  rounded-lg md:p-16 p-10 text-xl shadow-md text-black;
 }
 
 .input-field {
@@ -36,7 +28,7 @@ body {
 }
 
 label {
-  @apply font-bold text-black dark:text-white;
+  @apply font-bold text-black;
 }
 
 .login__link {
@@ -63,7 +55,7 @@ label {
   @apply rounded-full mx-4 py-2 mt-4 font-bold px-8 shadow-md border border-blue-500 bg-blue-500 hover:bg-blue-700;
 }
 .menu {
-  @apply flex flex-col h-screen w-2/3 space-y-6 md:mt-5 shadow-lg xsm:w-full drop-shadow-2xl xsm:bg-blue-600 py-4 md:w-60 z-50 absolute left-0 top-0 dark:bg-gray-950 bg-gray-200;
+  @apply flex flex-col h-screen w-2/3 space-y-6 md:mt-5 shadow-lg xsm:w-full drop-shadow-2xl xsm:bg-blue-600 py-4 md:w-60 z-50 absolute left-0 top-0 bg-gray-200;
 }
 .footer-links {
   @apply flex w-full md:justify-between flex-wrap md:mt-10 xsm:flex-col;
@@ -105,13 +97,13 @@ label {
   @apply py-2  leading-relaxed text-base mx-2;
 }
 .accordion {
-  @apply text-xl md:text-2xl text-left border-b-4 shadow-lg w-full font-bold dark:bg-gray-900 rounded border-b-blue-600 mt-2 md:mt-4;
+  @apply text-xl md:text-2xl text-left border-b-4 shadow-lg w-full font-bold rounded border-b-blue-600 mt-2 md:mt-4;
 }
 .recommendations-card {
-  @apply shadow-lg dark:bg-gray-900 h-32 w-32 rounded-md xsm:w-fit border-b-4 border-b-blue-600;
+  @apply shadow-lg  h-32 w-32 rounded-md xsm:w-fit border-b-4 border-b-blue-600;
 }
 .booking-card {
-  @apply shadow-lg dark:bg-gray-900 rounded-md w-fit h-fit border-b-4 border-b-blue-600;
+  @apply shadow-lg rounded-md w-fit h-fit border-b-4 border-b-blue-600;
 }
 .cardheader {
   @apply text-2xl font-bold text-center my-2 p-2 mx-auto;
@@ -125,7 +117,7 @@ label {
   justify-content: center;
 }
 .booking-form {
-  @apply text-black h-10 border text-xl rounded-md outline-none w-full m-2 rounded-lg;
+  @apply text-black h-10 border text-xl rounded-md outline-none w-full m-2;
 }
 /* sylvia components css */
 .search {
@@ -156,7 +148,7 @@ label {
 }
 
 .car-card {
-  @apply dark:bg-gray-900 rounded-md flex flex-col p-4 border-black  drop-shadow-2xl shadow-lg border-b-blue-600 border-b-4;
+  @apply rounded-md flex flex-col p-4 border  drop-shadow-2xl shadow-lg border-b-blue-600 border-b-4;
 }
 
 .car-card img {
